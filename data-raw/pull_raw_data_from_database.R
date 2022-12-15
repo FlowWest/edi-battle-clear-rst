@@ -4,8 +4,7 @@ library(tidyverse)
 library(lubridate)
 
 # Set up connection with CAMP access database 
-access_database <- odbcConnectAccess2007(here::here("data-raw", "scripts_and_data_from_natasha",
-                                                 "2022-2023_RST Database unproofed 11-22-22.accdb"))
+access_database <- odbcConnectAccess2007(here::here("data-raw", "scripts_and_data_from_natasha", "2022-2023_RST Database unproofed 11-22-22.accdb"))
 
 # main tables 
 catch_raw <- sqlFetch(access_database, "Catch") 
@@ -27,4 +26,25 @@ cleaned_catch <- catch_raw |>
   left_join(lifestage_lu, by = c("LifeStage" = "LifeStage")) |> 
   left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
   left_join(organisim_lu, by = c("OrganismCode" = "OrganismCode")) |> 
+  select(SampleID, SampleDate, SampleTime, Location, StationCode, 
+         CommonName, Count, ForkLength, Weight, Race, LifeStage = StageName, 
+         RCatch, Interp, BroodYear) |> 
+  mutate(Run = case_when(Race == "N/P" ~ "not recorded", 
+                         Race == "W" ~ "winter", 
+                         Race == "S" ~ "spring", 
+                         Race == "F" ~ "fall", 
+                         Race == "L" ~ "late fall"), 
+         LifeStage = case_when(LifeStage == "not provided" ~ "not recorded",
+                               LifeStage %in% c("CHN - obvious fry", "RBT - fry") ~ "fry", 
+                               LifeStage %in% c("CHN - silvery parr", "RBT - silvery parr") ~ "silvery parr",
+                               LifeStage == "CHN - smolt" ~ "smolt",
+                               LifeStage == "CHN - yolk sac fry" ~ "yolk sac fry",
+                               LifeStage == "RBT - parr" ~ "parr",
+                               T ~ LifeStage)) |> 
+  select(-Race) |> 
   glimpse()
+
+# TODO think about NA vs not recorded 
+unique(cleaned_catch$Run) # why no fall run 
+unique(cleaned_catch$Location)
+unique(cleaned_catch$LifeStage)
