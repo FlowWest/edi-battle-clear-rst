@@ -1,20 +1,33 @@
 # install.packages("RODBC")
 library(RODBC)
+library(Hmisc)
 library(tidyverse)
 library(lubridate)
 
-# Set up connection with CAMP access database 
-access_database <- odbcConnectAccess2007(here::here("data-raw", "scripts_and_data_from_natasha", "2022-2023_RST Database unproofed 11-22-22.accdb"))
+# Set up connection with CAMP access database (PC)
+# access_database <- odbcConnectAccess2007(here::here("data-raw", "scripts_and_data_from_natasha", "2022-2023_RST Database unproofed 11-22-22.accdb"))
 
-# main tables 
-catch_raw <- sqlFetch(access_database, "Catch") 
-trap_sample <- sqlFetch(access_database, "Sample") 
+# main tables (PC)
+# catch_raw <- sqlFetch(access_database, "Catch") 
+# trap_sample <- sqlFetch(access_database, "Sample") 
 
-# lookups 
-run_lu <- sqlFetch(access_database, "RaceList") 
-lifestage_lu <- sqlFetch(access_database, "StagesLookUp") 
-stations_lu <- sqlFetch(access_database, "StationsLookUp") |> glimpse()
-organisim_lu <- sqlFetch(access_database, "OrganismsLookUp") 
+# lookups (PC)
+# run_lu <- sqlFetch(access_database, "RaceList") 
+# lifestage_lu <- sqlFetch(access_database, "StagesLookUp") 
+# stations_lu <- sqlFetch(access_database, "StationsLookUp") |> glimpse()
+# organisim_lu <- sqlFetch(access_database, "OrganismsLookUp") 
+
+# main tables (mac)
+filepath <- "data-raw/scripts_and_data_from_natasha/2022-2023_RST_Database_unproofed_11-22-22.accdb"
+mdb.get(file = filepath, tables = TRUE)
+catch_raw <- mdb.get(filepath, "Catch") |> glimpse()
+trap_sample <- mdb.get(filepath, "Sample") |> glimpse()
+
+# lookups (mac)
+run_lu <- mdb.get(filepath, "RaceList") |> glimpse()
+lifestage_lu <- mdb.get(filepath, "StagesLookUp") |> glimpse()
+stations_lu <- mdb.get(filepath, "StationsLookUp")  |> glimpse()
+organisim_lu <- mdb.get(filepath, "OrganismsLookUp") |> glimpse()
 
 
 View(catch_raw)
