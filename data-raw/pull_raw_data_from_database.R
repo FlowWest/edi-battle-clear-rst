@@ -53,7 +53,8 @@ cleaned_catch <- catch_raw |>
                                LifeStage == "CHN - smolt" ~ "smolt",
                                LifeStage == "CHN - yolk sac fry" ~ "yolk sac fry",
                                LifeStage == "RBT - parr" ~ "parr",
-                               T ~ LifeStage)) |> 
+                               T ~ LifeStage),
+         Interp = tolower(Interp)) |> 
   select(-Race) |> 
   glimpse()
 

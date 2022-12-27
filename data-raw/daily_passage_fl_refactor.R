@@ -7,7 +7,10 @@
 # The data created by this code will be used for the BOR biweekly reports
 # The flow and temperature data will be scraped from CDEC
 # Create the SampleID.xls spreadsheet
-# Created: Mike Schraml 02/08/2022
+
+
+# This script is a refactor of Daily Passage and FL LCC.R
+# 12-22-2022
 
 
 # Load needed Packages
@@ -27,7 +30,7 @@ if (!require("lubridate")) {          # for handling dates
 }
 
 
-# Set brood year, calendar year, Julian dates and strata
+# Set brood years, calendar year, Julian dates and strata
 brood_years <- c(2021, 2022)
 weeks <- c(13, 14)
 julian_dates <- c(85, 98) 
