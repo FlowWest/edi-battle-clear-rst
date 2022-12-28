@@ -67,10 +67,27 @@ unique(cleaned_catch$LifeStage)
 
 # cleaned_trap
 cleaned_trap <- trap_sample |> 
+  full_join(catch_raw, by = c("SampleRowID" = "SampleRowID")) |> 
   left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
-  select(SampleID, SampleDate, SampleTime, StationCode, Location, 
-         TrapFishing, Counter, FlowStartMeter, FlowEndMeter, StartCounter,
-         Velocity, Turbidity) |> 
+  left_join(lifestage_lu, by = c("LifeStage" = "LifeStage")) |> 
+  select(SampleID, Race, LifeStage = StageName, Count, ForkLength, 
+         SampleDate, SampleTime, StationCode, Location, 
+         TrapFishing, Counter, FlowStartMeter, FlowEndMeter, 
+         StartCounter, Velocity, Turbidity) |>  
+  mutate(Run = case_when(Race == "N/P" ~ "not recorded", 
+                         Race == "W" ~ "winter", 
+                         Race == "S" ~ "spring", 
+                         Race == "F" ~ "fall", 
+                         Race == "L" ~ "late fall"), 
+         LifeStage = case_when(LifeStage == "not provided" ~ "not recorded",
+                               LifeStage %in% c("CHN - obvious fry", "RBT - fry") ~ "fry", 
+                               LifeStage %in% c("CHN - silvery parr", "RBT - silvery parr") ~ "silvery parr",
+                               LifeStage == "CHN - smolt" ~ "smolt",
+                               LifeStage == "CHN - yolk sac fry" ~ "yolk sac fry",
+                               LifeStage == "RBT - parr" ~ "parr",
+                               T ~ LifeStage)) |> 
+  select(-Race) |> 
   glimpse()
 # TODO temp and discharge?
-  
+# TODO fish origin, mortality, total length, marktype, markcolor, markposition
+# TODO release table?
