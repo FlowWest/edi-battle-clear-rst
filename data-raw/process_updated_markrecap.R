@@ -54,10 +54,9 @@ battle_mark_recapture <- mark_recapture_data |>
 mark_recapture_raw <- readxl::read_excel(here::here("data-raw", "scripts_and_data_from_natasha",
                                                     "Mark-Recap_Database_MASTER_CC.xlsx"), 
                                          sheet = 2, skip = 2) |> glimpse()
+
 mark_recapture_data <- mark_recapture_raw |> 
   janitor::clean_names() |> 
-  mutate(release_date = as.Date(release_date, format = "%m/%d/%Y"),
-         release_time = hms::as_hms(release_time)) |>
   glimpse()
 
 mark_recapture_data |> 
@@ -85,7 +84,7 @@ clear_mark_recapture <- mark_recapture_data |>
   select(-cone_status_h_f_recap) |> 
   glimpse()
 # TODO missing mortality, hatchery origin
-# TODO fix issue w time
+# TODO excel not reading in release_time
 
 
 
