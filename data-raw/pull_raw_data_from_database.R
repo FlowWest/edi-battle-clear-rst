@@ -59,7 +59,7 @@ cleaned_catch <- catch_raw |>
          Interp = tolower(Interp),
          SampleTime = as.character(chron::times(strftime(SampleTime, "%H:%M:%S"))),
          SampleDate = as.character(SampleDate)) |> 
-  select(-Race) |> 
+  select(-Race, -Location) |> 
   glimpse()
 
 write_csv(cleaned_catch, here::here("data", "catch.csv"))
