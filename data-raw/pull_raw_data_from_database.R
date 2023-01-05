@@ -56,7 +56,9 @@ cleaned_catch <- catch_raw |>
                                LifeStage == "CHN - yolk sac fry" ~ "yolk sac fry",
                                LifeStage == "RBT - parr" ~ "parr",
                                T ~ LifeStage),
-         Interp = tolower(Interp)) |> 
+         Interp = tolower(Interp),
+         SampleTime = as.character(chron::times(strftime(SampleTime, "%H:%M:%S"))),
+         SampleDate = as.character(SampleDate)) |> 
   select(-Race) |> 
   glimpse()
 
@@ -66,14 +68,11 @@ unique(cleaned_catch$Location)
 unique(cleaned_catch$LifeStage)
 
 # cleaned_trap
+# TODO any addl columns? i.e. temp, discharge
 cleaned_trap <- trap_sample |> 
   left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
   select(SampleID, SampleDate, SampleTime, StationCode, Location, 
          TrapFishing, Counter, FlowStartMeter, FlowEndMeter, 
          StartCounter, Velocity, Turbidity) |>  
   glimpse()
-# TODO temp and discharge?
-# TODO visit type, trapfunctioning, include catch - necessary?
 
-
-# TODO release table?

@@ -43,8 +43,37 @@ battle_mark_recapture <- mark_recapture_data |>
                             origin_h_n == "N" ~ "natural"),
          release_temp = as.numeric(release_temp),
          cone_status = case_when(cone_status_h_f == "H" ~ "half", 
-                                 cone_status_h_f == "F" ~ "full")) |> 
+                                 cone_status_h_f == "F" ~ "full"),
+         caught_day_2 = as.numeric(caught_day_2),
+         release_id = paste0("BAT", row_number())) |> # TODO ask natasha about release_id 
+  pivot_longer(cols = caught_day_1:caught_day_5, names_to = "date_recaptured", values_to = "number_recaptured") %>%
+  mutate(date_recaptured = case_when(date_recaptured == "caught_day_1" ~ release_date + 1, 
+                                     date_recaptured == "caught_day_2" ~ release_date + 2,
+                                     date_recaptured == "caught_day_3" ~ release_date + 3,
+                                     date_recaptured == "caught_day_4" ~ release_date + 4,
+                                     date_recaptured == "caught_day_5" ~ release_date + 5,),
+         recap_med_fork_length_mm = ifelse(number_recaptured == 0 | is.na(number_recaptured), 
+                                                NA, as.numeric(recap_med_fork_length_mm))) |> 
   select(-origin_h_n, -cone_status_h_f) |> 
+  glimpse()
+  
+battle_released <- battle_mark_recapture |> 
+  mutate(site = "Upper Battle Creek") |> 
+  select(site, release_date, release_time, no_released, median_fork_length_released = mark_med_fork_length_mm, 
+         release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity, 
+         origin) %>% 
+  filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for battle_recaptured)
+  rename(date_released = release_date,
+         origin_released = origin,
+         time_released = release_time) %>% 
+  distinct() %>% 
+  glimpse()
+
+battle_recaptured <-  battle_mark_recapture %>% 
+  mutate(site = "Upper Battle Creek") |> 
+  select(site, release_id, date_recaptured, number_recaptured, 
+         median_fork_length_recaptured = recap_med_fork_length_mm) %>% 
+  filter(date_recaptured >= as_date("2003-10-01")) %>%
   glimpse()
 
 
@@ -73,19 +102,48 @@ clear_mark_recapture <- mark_recapture_data |>
          no_released, recaps, mark_med_fork_length_mm, recap_med_fork_length_mm, 
          clip, days_held_post_mark, release_temp, flow_release, release_turbidity, cone_status_h_f_recap, 
          mean_temp_day_of_rel, mean_flow_day_of_rel, caught_day_1, caught_day_2, 
-         caught_day_3, caught_day_4, caught_day_5) |>
-  mutate(release_time = hms::as_hms(release_time),
+         caught_day_3, caught_day_4, caught_day_5, release_site) |>
+  mutate(release_time = hms::hms(days = as.numeric(release_time)),
          day_or_night_release = case_when(day_or_night_release == "?" ~ "unknown", 
                                           day_or_night_release == "D" ~ "day",
                                           day_or_night_release == "N" ~ "night"),
          release_temp = as.numeric(release_temp),
          cone_status = case_when(cone_status_h_f_recap == "H" ~ "half", 
-                                 cone_status_h_f_recap == "F" ~ "full")) |> 
+                                 cone_status_h_f_recap == "F" ~ "full"),
+         release_id = paste0("CLR", row_number()),
+         release_date = as.Date(release_date)) |> 
+  pivot_longer(cols = caught_day_1:caught_day_5, names_to = "date_recaptured", values_to = "number_recaptured") %>%
+  mutate(date_recaptured = case_when(date_recaptured == "caught_day_1" ~ release_date + 1, 
+                                     date_recaptured == "caught_day_2" ~ release_date + 2,
+                                     date_recaptured == "caught_day_3" ~ release_date + 3,
+                                     date_recaptured == "caught_day_4" ~ release_date + 4,
+                                     date_recaptured == "caught_day_5" ~ release_date + 5,),
+         recap_med_fork_length_mm = ifelse(number_recaptured == 0 | is.na(number_recaptured), 
+                                           NA, as.numeric(recap_med_fork_length_mm)),
+         date_recaptured = as.character(date_recaptured),
+         release_date = as.character(release_date),
+         release_time = as.character(release_time)) |> 
   select(-cone_status_h_f_recap) |> 
   glimpse()
-# TODO missing mortality, hatchery origin
-# TODO excel not reading in release_time
+# TODO how to deal with clips? (N, C, A, D, U, L, U&L, NC)
+# TODO release_site (VB, CCRB, P4)
 
+clear_released <- clear_mark_recapture |> 
+  mutate(site = "Clear Creek") |> 
+  select(site, release_site, release_date, release_time, no_released, median_fork_length_released = mark_med_fork_length_mm, 
+         release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity) %>% 
+  filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for clear_recaptured)
+  rename(date_released = release_date,
+         time_released = release_time) %>% 
+  distinct() %>% 
+  glimpse()
+
+clear_recaptured <-  clear_mark_recapture %>% 
+  mutate(site = "Clear Creek") |> 
+  select(site, release_site, release_id, date_recaptured, number_recaptured, 
+         median_fork_length_recaptured = recap_med_fork_length_mm) %>% 
+  filter(date_recaptured >= as_date("2003-10-01")) %>%
+  glimpse()
 
 
 
