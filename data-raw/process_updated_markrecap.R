@@ -76,6 +76,8 @@ battle_recaptured <-  battle_mark_recapture %>%
   filter(date_recaptured >= as_date("2003-10-01")) %>%
   glimpse()
 
+write_csv(battle_released, here::here("data", "battle_release.csv"))
+write_csv(battle_recaptured, here::here("data", "battle_recapture.csv"))
 
 # mark recapture table Clear Creek  -----------------------------------------------------------------
 
@@ -145,6 +147,8 @@ clear_recaptured <-  clear_mark_recapture %>%
   filter(date_recaptured >= as_date("2003-10-01")) %>%
   glimpse()
 
+write_csv(clear_released, here::here("data", "clear_release.csv"))
+write_csv(clear_recaptured, here::here("data", "clear_recapture.csv"))
 
 
   

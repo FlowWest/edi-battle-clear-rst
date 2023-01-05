@@ -62,6 +62,8 @@ cleaned_catch <- catch_raw |>
   select(-Race) |> 
   glimpse()
 
+write_csv(cleaned_catch, here::here("data", "catch.csv"))
+
 # TODO think about NA vs not recorded 
 unique(cleaned_catch$Run) # why no fall run 
 unique(cleaned_catch$Location)
@@ -75,4 +77,6 @@ cleaned_trap <- trap_sample |>
          TrapFishing, Counter, FlowStartMeter, FlowEndMeter, 
          StartCounter, Velocity, Turbidity) |>  
   glimpse()
+
+write_csv(cleaned_trap, here::here("data", "trap.csv"))
 
