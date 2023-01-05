@@ -31,7 +31,7 @@ mark_recapture_data |>
 # reformat
 battle_mark_recapture <- mark_recapture_data |> 
   select(release_date, day_or_night_release = d_ay_or_n_ight_release, release_time, no_marked,
-         no_released, recaps, mortality, mark_med_fork_length_mm, recap_med_fork_length_mm, 
+         number_released = no_released, recaps, mortality, mark_med_fork_length_mm, recap_med_fork_length_mm, 
          origin_h_n, days_held_post_mark, release_temp, flow_release, release_turbidity, cone_status_h_f, 
          mean_temp_day_of_rel, mean_flow_day_of_rel, caught_day_1, caught_day_2, 
          caught_day_3, caught_day_4, caught_day_5) |>
@@ -59,7 +59,7 @@ battle_mark_recapture <- mark_recapture_data |>
   
 battle_released <- battle_mark_recapture |> 
   mutate(site = "Upper Battle Creek") |> 
-  select(site, release_date, release_time, no_released, median_fork_length_released = mark_med_fork_length_mm, 
+  select(site, release_date, release_time, number_released = no_released, median_fork_length_released = mark_med_fork_length_mm, 
          release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity, 
          origin) %>% 
   filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for battle_recaptured)
@@ -101,7 +101,7 @@ mark_recapture_data |>
 # reformat
 clear_mark_recapture <- mark_recapture_data |> 
   select(release_date, day_or_night_release = d_ay_or_n_ight_release, release_time, no_marked,
-         no_released, recaps, mark_med_fork_length_mm, recap_med_fork_length_mm, 
+         number_released = no_released, recaps, mark_med_fork_length_mm, recap_med_fork_length_mm, 
          clip, days_held_post_mark, release_temp, flow_release, release_turbidity, cone_status_h_f_recap, 
          mean_temp_day_of_rel, mean_flow_day_of_rel, caught_day_1, caught_day_2, 
          caught_day_3, caught_day_4, caught_day_5, release_site) |>
@@ -132,7 +132,7 @@ clear_mark_recapture <- mark_recapture_data |>
 
 clear_released <- clear_mark_recapture |> 
   mutate(site = "Clear Creek") |> 
-  select(site, release_site, release_date, release_time, no_released, median_fork_length_released = mark_med_fork_length_mm, 
+  select(site, release_site, release_date, release_time, number_released = no_released, median_fork_length_released = mark_med_fork_length_mm, 
          release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity) %>% 
   filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for clear_recaptured)
   rename(date_released = release_date,

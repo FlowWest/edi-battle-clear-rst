@@ -1,4 +1,4 @@
-site,release_site,date_released,time_released,no_released,median_fork_length_released,release_id,days_held_post_mark,day_or_night_release,release_temp,release_flow,release_turbidity
+site,release_site,date_released,time_released,number_released,median_fork_length_released,release_id,days_held_post_mark,day_or_night_release,release_temp,release_flow,release_turbidity
 Clear Creek,VB,2003-12-03,16:12:00.000000,14,35,CLR171,0,night,51.31,227,NA
 Clear Creek,CCRB,2003-12-03,16:12:00.000000,20,35,CLR172,0,night,49.6,227,NA
 Clear Creek,VB,2003-12-13,15:13:00.000000,259,NA,CLR173,0,night,49.07,333,NA

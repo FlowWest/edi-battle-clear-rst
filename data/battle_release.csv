@@ -1,4 +1,4 @@
-site,date_released,time_released,no_released,median_fork_length_released,release_id,days_held_post_mark,day_or_night_release,release_temp,release_flow,release_turbidity,origin_released
+site,date_released,time_released,number_released,median_fork_length_released,release_id,days_held_post_mark,day_or_night_release,release_temp,release_flow,release_turbidity,origin_released
 Upper Battle Creek,2004-01-14,15:46:00,147,35,BAT96,1,night,46.5,445,NA,natural
 Upper Battle Creek,2004-01-27,23:23:00,428,38,BAT97,1,night,45.2,750,NA,natural
 Upper Battle Creek,2004-01-30,17:02:00,387,36,BAT98,1,night,48.8,490,NA,natural
