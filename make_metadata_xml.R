@@ -21,7 +21,7 @@ datatable_metadata <-
                                           "Catch table",
                                           "Trap visit table"))
 
-excel_path <- "data-raw/metadata/project_metadata.xlsx"
+excel_path <- "data-raw/metadata/project-metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)
 metadata <- lapply(sheets, function(x) readxl::read_excel(excel_path, sheet = x))
 names(metadata) <- sheets
@@ -47,13 +47,13 @@ dataset <- list() %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
   add_datatable(datatable_metadata)
 
-custom_units <- data.frame(id = c("microSiemensPerCentimeter", "years", "unitless"),
+custom_units <- data.frame(id = c("Day", "count of fish", "NTU"),
                            unitType = c(NA, NA, NA),
-                           parentSI = c("siemensPerCentimeter", NA, NA),
+                           parentSI = c(NA, NA, NA),
                            multiplierToSI = c(NA, NA, NA),
-                           description = c("Electrical conductivity in microSiemens per centimeter",
-                                           "Age in years",
-                                           "No units for this value"))
+                           description = c("Number of days",
+                                           "Count of fish",
+                                           "Turbidity measured in Nephelometric Turbidity Units"))
 
 unitList <- EML::set_unitList(custom_units)
 
