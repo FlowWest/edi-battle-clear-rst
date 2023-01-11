@@ -23,8 +23,10 @@ recapture_battle <- read_csv(here::here("data", "battle_recapture.csv")) |>
 
 # release - clear
 release_clear <- read_csv(here::here("data", "clear_release.csv")) |> 
+  mutate(time_released = as.character(time_released)) |> 
   glimpse()
 
 # release - battle
 release_battle <- read_csv(here::here("data", "battle_release.csv")) |> 
+  mutate(time_released = as.character(time_released)) |> 
   glimpse()
