@@ -59,7 +59,7 @@ battle_mark_recapture <- mark_recapture_data |>
   
 battle_released <- battle_mark_recapture |> 
   mutate(site = "Upper Battle Creek") |> 
-  select(site, release_date, release_time, number_released = no_released, median_fork_length_released = mark_med_fork_length_mm, 
+  select(site, release_date, release_time, number_released, median_fork_length_released = mark_med_fork_length_mm, 
          release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity, 
          origin) %>% 
   filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for battle_recaptured)
@@ -132,7 +132,7 @@ clear_mark_recapture <- mark_recapture_data |>
 
 clear_released <- clear_mark_recapture |> 
   mutate(site = "Clear Creek") |> 
-  select(site, release_site, release_date, release_time, number_released = no_released, median_fork_length_released = mark_med_fork_length_mm, 
+  select(site, release_site, release_date, release_time, number_released, median_fork_length_released = mark_med_fork_length_mm, 
          release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity) %>% 
   filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for clear_recaptured)
   rename(date_released = release_date,

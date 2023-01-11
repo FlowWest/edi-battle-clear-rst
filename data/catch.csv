@@ -1,4 +1,4 @@
-SampleID,SampleDate,SampleTime,StationCode,CommonName,Count,ForkLength,Weight,LifeStage,RCatch,Interp,BroodYear,Run
+sample_id,sample_date,sample_time,station_code,common_name,count,fork_length,weight,life_stage,r_catch,interp,brood_year,run
 286_22,2022-10-13,01:03:00,UBC,Sacramento Pikeminnow,1,43,0,not recorded,NA,no,NA,not recorded
 287_22,2022-10-14,01:15:00,UBC,Sacramento Pikeminnow,1,43,0,not recorded,NA,no,NA,not recorded
 288_22,2022-10-15,23:43:00,UBC,Sacramento Pikeminnow,1,43,0,not recorded,NA,no,NA,not recorded

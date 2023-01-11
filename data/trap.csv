@@ -1,4 +1,4 @@
-SampleID,SampleDate,SampleTime,StationCode,Location,TrapFishing,Counter,FlowStartMeter,FlowEndMeter,StartCounter,Velocity,Turbidity
+sample_id,sample_date,sample_time,station_code,location,trap_fishing,counter,flow_start_meter,flow_end_meter,start_counter,velocity,turbidity
 286_22,2022-10-13,(12/30/99 09:03:00),UBC,Upper Battle Creek,1,4003,302000,311782,0,1.585046296296296,2.78
 287_22,2022-10-14,(12/30/99 09:15:00),UBC,Upper Battle Creek,1,3410,312000,317641,0,1.41025,3.3099999
 288_22,2022-10-15,(12/30/99 07:43:00),UBC,Upper Battle Creek,1,2498,317000,329195,0,1.535341726618705,4.2199998

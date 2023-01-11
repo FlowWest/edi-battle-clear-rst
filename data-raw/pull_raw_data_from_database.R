@@ -60,6 +60,7 @@ cleaned_catch <- catch_raw |>
          SampleTime = as.character(chron::times(strftime(SampleTime, "%H:%M:%S"))),
          SampleDate = as.character(SampleDate)) |> 
   select(-Race, -Location) |> 
+  janitor::clean_names() |> 
   glimpse()
 
 write_csv(cleaned_catch, here::here("data", "catch.csv"))
@@ -75,7 +76,8 @@ cleaned_trap <- trap_sample |>
   left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
   select(SampleID, SampleDate, SampleTime, StationCode, Location, 
          TrapFishing, Counter, FlowStartMeter, FlowEndMeter, 
-         StartCounter, Velocity, Turbidity) |>  
+         StartCounter, Velocity, Turbidity) |> 
+  janitor::clean_names() |> 
   glimpse()
 
 write_csv(cleaned_trap, here::here("data", "trap.csv"))
