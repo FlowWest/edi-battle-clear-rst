@@ -3,6 +3,7 @@ library(tidyverse)
 
 # catch
 catch <- read_csv(here::here("data", "catch.csv")) |> 
+  mutate(sample_time = as.character(sample_time)) |> 
   glimpse()
 
 # trap

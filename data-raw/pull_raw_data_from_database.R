@@ -77,6 +77,7 @@ cleaned_trap <- trap_sample |>
   select(SampleID, SampleDate, SampleTime, StationCode, Location, 
          TrapFishing, Counter, FlowStartMeter, FlowEndMeter, 
          StartCounter, Velocity, Turbidity) |> 
+  mutate(SampleTime = format(as.POSIXct(gsub("[()]", "", SampleTime), format = "%m/%d/%y %H:%M:%S"), "%H:%M:%S")) |> 
   janitor::clean_names() |> 
   glimpse()
 
