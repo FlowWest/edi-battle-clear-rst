@@ -65,13 +65,11 @@ cleaned_catch <- catch_raw |>
 
 write_csv(cleaned_catch, here::here("data", "catch.csv"))
 
-# TODO think about NA vs not recorded 
-unique(cleaned_catch$Run) # why no fall run 
+unique(cleaned_catch$Run) # time frame means that we don't have any fall run here
 unique(cleaned_catch$Location)
 unique(cleaned_catch$LifeStage)
 
 # cleaned_trap
-# TODO any addl columns? i.e. temp, discharge
 cleaned_trap <- trap_sample |> 
   left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
   select(SampleID, SampleDate, SampleTime, StationCode, Location, 

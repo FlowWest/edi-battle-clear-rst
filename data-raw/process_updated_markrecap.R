@@ -45,7 +45,7 @@ battle_mark_recapture <- mark_recapture_data |>
          cone_status = case_when(cone_status_h_f == "H" ~ "half", 
                                  cone_status_h_f == "F" ~ "full"),
          caught_day_2 = as.numeric(caught_day_2),
-         release_id = paste0("BAT", row_number())) |> # TODO ask natasha about release_id 
+         release_id = paste0("BAT", row_number())) |> 
   pivot_longer(cols = caught_day_1:caught_day_5, names_to = "date_recaptured", values_to = "number_recaptured") %>%
   mutate(date_recaptured = case_when(date_recaptured == "caught_day_1" ~ release_date + 1, 
                                      date_recaptured == "caught_day_2" ~ release_date + 2,
@@ -62,7 +62,7 @@ battle_released <- battle_mark_recapture |>
   select(site, release_date, release_time, number_released, median_fork_length_released = mark_med_fork_length_mm, 
          release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity, 
          origin) %>% 
-  filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for battle_recaptured)
+  filter(release_date >= as_date("2003-10-01")) %>%
   rename(date_released = release_date,
          origin_released = origin,
          time_released = release_time) %>% 
@@ -127,14 +127,13 @@ clear_mark_recapture <- mark_recapture_data |>
          release_time = as.character(release_time)) |> 
   select(-cone_status_h_f_recap) |> 
   glimpse()
-# TODO how to deal with clips? (N, C, A, D, U, L, U&L, NC)
-# TODO release_site (VB, CCRB, P4)
+
 
 clear_released <- clear_mark_recapture |> 
   mutate(site = "Clear Creek") |> 
   select(site, release_site, release_date, release_time, number_released, median_fork_length_released = mark_med_fork_length_mm, 
          release_id, days_held_post_mark, day_or_night_release, release_temp, release_flow = flow_release, release_turbidity) %>% 
-  filter(release_date >= as_date("2003-10-01")) %>% # TODO ask natasha about this (and for clear_recaptured)
+  filter(release_date >= as_date("2003-10-01")) %>% 
   rename(date_released = release_date,
          time_released = release_time) %>% 
   distinct() %>% 
@@ -149,6 +148,10 @@ clear_recaptured <-  clear_mark_recapture %>%
 
 write_csv(clear_released, here::here("data", "clear_release.csv"))
 write_csv(clear_recaptured, here::here("data", "clear_recapture.csv"))
+
+# notes from 11-23 mtg
+# TODO clip status is in file that was sent over 1-11-2023
+# TODO release sites are always the same 1-11-2023
 
 
   

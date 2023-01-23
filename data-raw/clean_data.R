@@ -7,7 +7,6 @@ catch <- read_csv(here::here("data", "catch.csv")) |>
   glimpse()
 
 # trap
-# TODO units for flow start meter and flow end meter
 trap <- read_csv(here::here("data", "trap.csv")) |> 
   mutate(sample_time = as.character(sample_time)) |> 
   glimpse()
