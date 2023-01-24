@@ -28,7 +28,7 @@ if (!require("openxlsx")) {         # for writing xlsx files to the desk top
 broodyears <- c(2021, 2022)
 IDweeks <- c(14, 15)
 
-catch <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", "BOR Data.csv")) |>
+catch <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", "BOR Data.csv")) |> 
   filter(OrganismCode %in% c("CHN", "RBT"),
          BroodYear %in% broodyears,
          IDWeek %in% IDweeks) |> 
@@ -60,15 +60,15 @@ create_names <- weekly_passage_indices |>
          codes_biweekly = paste0(OrganismCode, "_", StationCode, "_", FWSRace, "_", BroodYear))
 
 name_codes <- unique(create_names$codes)
-biweekly_name_codes <- unique(create_names$codes_biweekly)
+biweekly_name_codes <- unique(create_names$codes_biweekly) # without strata.week
 
 # bootstrap process
-bootstrap_summary <- tibble(lower_CI = rep(NA, nrow(weekly_passage_indices)),
-                            upper_CI = rep(NA, nrow(weekly_passage_indices)),
-                            passage = rep(NA, nrow(weekly_passage_indices)),
-                            SE = rep(NA, nrow(weekly_passage_indices)))
+bootstrap_summary <- tibble(lower_CI = rep(0, nrow(weekly_passage_indices)),
+                            upper_CI = rep(0, nrow(weekly_passage_indices)),
+                            passage = rep(0, nrow(weekly_passage_indices)),
+                            SE = rep(0, nrow(weekly_passage_indices)))
 
-bootstrap_results <- data.frame(matrix(NA, nrow = 1000, ncol = nrow(weekly_passage_indices)))
+bootstrap_results <- data.frame(matrix(0, nrow = 1000, ncol = nrow(weekly_passage_indices)))
 names(bootstrap_results) <- name_codes
 
 set.seed(2323)
@@ -95,62 +95,67 @@ for(i in 1:nrow(weekly_passage_indices)){
 }
 
 
-biweekly_passage_index <- data.frame(matrix(NA, nrow = 3, ncol = length(biweekly_name_codes)))
-names(biweekly_passage_index) <- biweekly_name_codes
+# insert bootstrap results into biweekly table ----------------------------
+# pivot longer so you can group by strata.week and summarize
+bootstrap_results_long <- bootstrap_results |> 
+  pivot_longer(cols = everything(), names_to = "code") |> 
+  separate(code, into = c("OrganismCode", "StationCode", "FWSRace", "BroodYear", "strata.week"),
+           sep = "_") |> 
+  rename(bootstrap_results = value) |> 
+  glimpse()
 
-biweekly_passage_estimates <- weekly_passage_indices |> 
+# summarize weekly passage indices across strata.weeks (for biweekly passage indices)
+biweekly_passage_indices <- weekly_passage_indices |> 
   group_by(OrganismCode, StationCode, FWSRace, BroodYear) |> # don't group by strata.week here to sum across both weeks within groups
   summarise(biweekly_passage_estimate = sum(passage, na.rm = T))
 
-# fill in biweekly passage estimate table
-# TODO stopped here 1-23-2022
-bootstrap_results |> 
-  group_by(OrganismCode, StationCode, FWSRace, )
-rowwise() |> 
-  mutate(rowsums_bootstrap = sum(c_across(cols = everything())),
-         rowsums_lower_CI = quantile(c_across(cols = everything()), 0.050),
-         rowsums_upper_CI = quantile(c_across(cols = everything()), 0.950)) |> 
-  select(rowsums_bootstrap, rowsums_lower_CI, rowsums_upper_CI) |> 
+# summarize bootstrap results across strata.weeks and take the 5th and 95th percentiles
+biweekly_bootstrap_CIs <- bootstrap_results_long |> 
+  group_by(OrganismCode, StationCode, FWSRace, BroodYear) |>  
+  summarise(lower_CI = quantile(bootstrap_results, 0.05),
+            upper_CI = quantile(bootstrap_results, 0.95)) |> 
+  mutate(BroodYear = as.numeric(BroodYear),
+         FWSRace = if_else(FWSRace == "UK", "", FWSRace)) |> 
+  glimpse()
+
+# insert into biweekly table (corrolary of "biweekly" in original bootstrap.R)
+biweekly_passage_index <- tibble(code = biweekly_name_codes) |> 
+  separate(code, into = c("OrganismCode", "StationCode", "FWSRace", "BroodYear"),
+           sep = "_") |>
+  mutate(BroodYear = as.numeric(BroodYear),
+         FWSRace = if_else(FWSRace == "UK", "", FWSRace)) |> 
+  left_join(biweekly_passage_indices, by = c("OrganismCode", "FWSRace", "StationCode", "BroodYear")) |> 
+  left_join(biweekly_bootstrap_CIs, by = c("OrganismCode", "FWSRace", "StationCode", "BroodYear")) |> 
   glimpse()
 
 
-########################################### End  Rainbow Trout/steelhead first brood year Bootstrap Loop ##################################################
+# summarize by brood year -------------------------------------------------
 
-# Sum across rows of the Boots data
-rbt.sum.boots.1 <- rowSums(rbt.unordered.boots.1, na.rm = TRUE)
-rbt.sum.boots.1
+# summarize weekly passage indices across strata.weeks (for biweekly passage indices)
+biweekly_passage_indices <- weekly_passage_indices |> 
+  group_by(OrganismCode, StationCode, FWSRace, BroodYear) |> # don't group by strata.week here to sum across both weeks within groups
+  summarise(biweekly_passage_estimate = sum(passage, na.rm = T))
 
-rbt.Alcl.90.1 <- quantile(rbt.sum.boots.1, 0.050)
-rbt.Aucl.90.1 <- quantile(rbt.sum.boots.1, 0.950)
+# summarize bootstrap results across strata.weeks and take the 5th and 95th percentiles
+biweekly_bootstrap_CIs <- bootstrap_results_long |> 
+  group_by(OrganismCode, StationCode, FWSRace, BroodYear) |>  
+  summarise(lower_CI = quantile(bootstrap_results, 0.05),
+            upper_CI = quantile(bootstrap_results, 0.95)) |> 
+  mutate(BroodYear = as.numeric(BroodYear),
+         FWSRace = if_else(FWSRace == "UK", "", FWSRace)) |> 
+  glimpse()
 
-# Sort the matrix this will get the confidence limits like the old way, off the excel spreadsheets
-rbt.Ordered.Boots.1 <- sort(rbt.sum.boots.1)
-rbt.Alcl.90a.1 <- rbt.Ordered.Boots.1[50]
-rbt.Aucl.90a.1 <- rbt.Ordered.Boots.1[950]
+# insert into biweekly table (corrolary of "biweekly" in original bootstrap.R)
+biweekly_passage_index <- tibble(code = biweekly_name_codes) |> 
+  separate(code, into = c("OrganismCode", "StationCode", "FWSRace", "BroodYear"),
+           sep = "_") |>
+  mutate(BroodYear = as.numeric(BroodYear),
+         FWSRace = if_else(FWSRace == "UK", "", FWSRace)) |> 
+  left_join(biweekly_passage_indices, by = c("OrganismCode", "FWSRace", "StationCode", "BroodYear")) |> 
+  left_join(biweekly_bootstrap_CIs, by = c("OrganismCode", "FWSRace", "StationCode", "BroodYear")) |> 
+  glimpse()
 
-rbt.Alcl.90.1
-rbt.Alcl.90a.1
-rbt.Aucl.90.1
-rbt.Aucl.90a.1
-
-# Calculate biweekly passage Index
-rbt.biweekly.passage.1 <- colSums(rbt.p1["rbt.pass"])
-
-# Calculate the standard error (standard deviation / square root of the number of instances)
-rbt.se1 <- sd(rbt.sum.boots.1)/sqrt(1000)
-
-############## Add data to biweekly Table ##############R
-biweekly[1, 8] <- rbt.biweekly.passage.1          # biweekly passage
-biweekly[2, 8] <- round(rbt.Alcl.90a.1, 0)        # biweekly Lower 90% confidence limit
-biweekly[3, 8] <- round(rbt.Aucl.90a.1, 0)        # biweekly Upper 90% confidence limit
-
-
-# First create list of the data frames and the worksheet names to be written to desk top
-l <- list("Biweekly" = biweekly, "Brood Year" = brood.year)
-
-# second run this Code
-write.csv(l, "C:/Users/nwingerter/OneDrive - DOI/Desktop/BOR Biweekly Reports/2022 Weeks 13-14/LCC/Output/BOR LCC Bootstraps Weeks 13-14.csv", row.names = FALSE)
-
+# TODO what is brood.year here? what is it summing?
 
 
 
