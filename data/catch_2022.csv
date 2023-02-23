@@ -1,0 +1,261 @@
+catch_row_id,sample_row_id,fork_length,fish_flts,dead,weight,count,k_factor,fws_race,r_catch,interp,age_class,r_catch_com,report_catch,report_age_class,report_race,brood_year,subsample,common_name,life_stage,race
+NA,NA,43,10/04/22 11:51:04,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,56,10/04/22 11:51:12,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,33,10/04/22 11:51:21,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,125,10/04/22 11:51:32,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey ammocoete,not provided,not provided
+NA,NA,32,10/04/22 11:51:40,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Winter
+NA,NA,33,10/04/22 11:51:52,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Winter
+NA,NA,32,10/04/22 11:52:17,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Winter
+NA,NA,88,10/05/22 10:50:32,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Tule Perch,not provided,not provided
+NA,NA,32,10/05/22 10:50:42,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Winter
+NA,NA,35,10/06/22 09:45:09,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,33,10/07/22 16:13:23,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,52,10/08/22 13:45:22,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,42,10/08/22 13:45:33,Y,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Threespine Stickleback,not provided,not provided
+NA,NA,72,10/09/22 11:41:48,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey ammocoete,not provided,not provided
+NA,NA,61,10/09/22 11:41:59,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,54,10/09/22 11:42:06,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,45,10/10/22 08:53:05,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,57,10/10/22 08:53:23,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,118,10/10/22 08:53:40,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,108,10/12/22 09:00:59,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey macropthalmia,not provided,not provided
+NA,NA,45,10/13/22 12:05:16,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,55,10/13/22 12:05:25,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,48,10/13/22 12:05:33,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,69,10/14/22 13:25:33,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,42,10/14/22 13:25:44,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,38,10/14/22 13:25:53,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,170,10/15/22 11:17:52,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,120,10/15/22 11:18:02,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,45,10/15/22 11:18:09,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,38,10/15/22 11:18:21,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,37,11/20/22 12:26:49,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,30,11/21/22 10:20:56,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,yolk sac fry,Spring
+NA,NA,121,11/21/22 12:39:57,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Unidentified Lampetra ammocoete,not provided,not provided
+NA,NA,126,11/21/22 12:40:07,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Unidentified Lampetra ammocoete,not provided,not provided
+NA,NA,34,11/21/22 12:41:25,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,30,11/21/22 12:42:28,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/21/22 12:43:08,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,30,11/21/22 12:44:06,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/21/22 12:44:40,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,31,11/21/22 12:45:38,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/21/22 12:47:09,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/21/22 12:47:37,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,30,11/21/22 12:48:14,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/21/22 12:49:07,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/21/22 12:50:22,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/21/22 12:53:19,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/21/22 12:53:58,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/21/22 12:57:37,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/21/22 12:57:52,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/21/22 12:58:22,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/21/22 12:58:51,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,36,11/21/22 12:59:20,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,156,11/21/22 12:59:46,N,40.700001,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,parr,not provided
+NA,NA,31,11/21/22 13:00:18,N,0,2,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,yolk sac fry,Spring
+NA,NA,31,11/21/22 13:00:39,N,0,2,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/21/22 13:01:03,N,0,4,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/21/22 13:02:18,N,0,16,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/21/22 13:02:28,N,0,35,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/21/22 13:02:48,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,not provided
+NA,NA,36,11/21/22 13:03:06,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/20/22 12:26:38,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/20/22 12:26:34,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/20/22 12:26:30,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,100,10/16/22 12:52:41,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,52,10/16/22 12:52:47,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,50,10/16/22 12:52:55,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,54,10/16/22 12:53:02,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,82,10/18/22 12:26:19,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Tule Perch,not provided,not provided
+NA,NA,87,10/18/22 12:26:27,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,105,10/18/22 12:51:26,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey macropthalmia,not provided,not provided
+NA,NA,53,10/19/22 09:06:48,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,52,10/19/22 09:06:57,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,204,10/19/22 09:07:23,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,66,10/20/22 13:50:17,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,100,10/21/22 14:02:16,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey ammocoete,not provided,not provided
+NA,NA,83,10/21/22 14:02:26,N,6.0999999,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,parr,not provided
+NA,NA,28,10/22/22 15:22:41,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,58,10/22/22 15:22:48,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,48,10/23/22 14:40:15,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,49,10/24/22 14:51:30,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,80,10/24/22 14:51:38,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,125,10/24/22 14:51:48,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey macropthalmia,not provided,not provided
+NA,NA,125,10/26/22 09:06:58,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,112,10/26/22 09:07:05,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,82,10/26/22 09:07:10,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,127,10/26/22 09:07:17,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,55,10/26/22 09:07:22,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,46,10/27/22 09:41:58,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,103,10/27/22 09:42:05,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,120,10/28/22 09:44:01,N,19.6,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,parr,not provided
+NA,NA,93,10/28/22 09:45:20,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,35,11/04/22 10:10:59,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,fry,not provided
+NA,NA,155,11/04/22 10:13:13,N,53.5,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,silvery parr,not provided
+NA,NA,147,11/07/22 10:29:46,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,52,11/08/22 15:00:30,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,95,11/08/22 15:00:45,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,128,11/08/22 15:00:57,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,130,11/08/22 15:01:08,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,51,11/08/22 15:01:21,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,119,11/08/22 15:01:33,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,43,11/08/22 15:01:44,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,38,11/09/22 19:02:19,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,28,11/09/22 19:02:31,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,162,11/10/22 09:03:25,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,103,11/10/22 09:03:36,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,36,11/10/22 09:03:42,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,135,11/10/22 09:03:50,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,124,11/10/22 09:03:56,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,137,11/10/22 09:04:03,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,119,11/10/22 09:04:11,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,142,11/10/22 09:04:22,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,132,11/10/22 09:04:29,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,133,11/11/22 10:32:40,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,40,11/11/22 10:32:49,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,163,11/11/22 10:32:56,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,118,11/11/22 10:33:02,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,110,11/11/22 10:33:08,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,128,11/11/22 10:33:15,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,48,11/11/22 10:33:23,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,129,11/11/22 10:33:30,N,29.4,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,silvery parr,not provided
+NA,NA,84,11/12/22 09:14:15,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,164,11/12/22 09:14:24,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,105,10/18/22 12:50:38,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey macropthalmia,not provided,not provided
+NA,NA,57,11/01/22 09:04:32,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,87,11/02/22 10:04:51,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,111,11/02/22 10:05:00,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey macropthalmia,not provided,not provided
+NA,NA,95,11/04/22 10:09:53,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,105,11/04/22 10:10:05,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,0,11/04/22 10:10:24,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Tule Perch,not provided,not provided
+NA,NA,135,11/13/22 11:11:57,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,125,11/13/22 11:12:03,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,178,11/13/22 11:12:11,N,70.199997,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,silvery parr,not provided
+NA,NA,128,11/14/22 11:53:26,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,126,11/14/22 11:53:36,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,97,11/15/22 12:20:49,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,111,11/15/22 12:21:11,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,115,11/15/22 14:46:18,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,89,11/15/22 14:51:10,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,98,11/16/22 12:22:03,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey ammocoete,not provided,not provided
+NA,NA,33,11/16/22 12:43:10,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/16/22 12:43:23,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,133,11/16/22 12:43:35,Y,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey macropthalmia,not provided,not provided
+NA,NA,62,11/16/22 12:43:45,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Unidentified ammocoete,not provided,not provided
+NA,NA,99,11/16/22 12:43:55,N,10.3,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,parr,not provided
+NA,NA,32,11/17/22 11:23:54,N,0,4,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/17/22 11:24:08,N,0,2,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/17/22 11:24:20,N,0,2,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/20/22 12:29:41,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/20/22 12:29:43,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/16/22 12:42:32,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/16/22 12:42:45,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/16/22 12:43:00,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/16/22 12:43:04,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/16/22 12:43:07,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/20/22 12:26:28,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/20/22 12:26:26,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/20/22 12:26:22,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,53,10/29/22 12:02:28,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,115,10/30/22 13:49:49,N,20.1,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,smolt,Late-Fall
+NA,NA,156,10/30/22 13:50:25,N,47.599998,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,silvery parr,not provided
+NA,NA,192,10/30/22 13:50:56,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,119,10/31/22 14:28:52,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,42,10/31/22 14:29:01,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,53,10/31/22 14:29:08,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,36,10/31/22 14:29:15,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,66,10/31/22 14:29:24,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,60,10/31/22 14:29:32,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,59,10/31/22 14:29:43,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,32,11/17/22 11:24:34,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/17/22 11:24:54,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,77,11/17/22 11:25:12,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,63,11/17/22 11:25:18,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,42,11/17/22 11:25:24,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Pikeminnow,not provided,not provided
+NA,NA,33,11/17/22 11:27:00,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,31,11/17/22 11:27:16,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/17/22 11:27:31,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/17/22 11:27:51,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,25,11/17/22 11:28:18,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Unidentified Cyprinid fry,not provided,not provided
+NA,NA,32,11/17/22 11:29:06,N,0,11,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/17/22 11:29:21,N,0,25,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/17/22 11:29:36,N,0,4,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/20/22 12:26:20,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/20/22 12:26:17,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/20/22 12:26:14,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/20/22 12:26:11,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/20/22 12:26:08,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/20/22 12:26:06,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/20/22 12:26:04,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/20/22 12:26:01,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,104,11/17/22 13:18:01,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Pacific Lamprey macropthalmia,not provided,not provided
+NA,NA,172,11/17/22 13:18:09,N,5.5100002,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,parr,not provided
+NA,NA,31,11/18/22 12:31:53,N,0,8,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/18/22 12:32:14,N,0,24,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/18/22 12:32:32,N,0,20,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/18/22 12:32:46,N,0,7,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/18/22 12:33:00,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/18/22 12:33:25,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/18/22 12:33:43,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/18/22 12:33:59,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/18/22 12:34:13,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,31,11/18/22 12:34:24,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,70,11/18/22 12:36:35,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Unidentified ammocoete,not provided,not provided
+NA,NA,59,11/18/22 12:36:43,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,California Roach,not provided,not provided
+NA,NA,32,11/18/22 12:36:55,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/18/22 12:37:02,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/18/22 12:37:03,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/18/22 12:37:05,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,81,11/18/22 12:37:26,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,silvery parr,Winter
+NA,NA,33,11/18/22 12:37:43,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,37,11/19/22 16:28:51,Y,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/19/22 16:29:14,Y,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,29,11/19/22 16:29:44,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,31,11/19/22 16:29:48,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,31,11/19/22 16:29:51,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/19/22 16:29:53,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/19/22 16:29:55,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/19/22 16:29:58,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/19/22 16:30:00,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/20/22 12:25:59,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/20/22 12:25:52,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/20/22 12:25:50,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/19/22 16:30:04,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/19/22 16:30:06,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,34,11/19/22 16:30:10,Y,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,110,11/19/22 16:36:31,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Sacramento Sucker,not provided,not provided
+NA,NA,60,11/19/22 16:36:39,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,45,11/19/22 16:36:44,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Speckled Dace,not provided,not provided
+NA,NA,135,11/19/22 16:36:54,N,27.9,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Rainbow Trout,parr,not provided
+NA,NA,95,11/19/22 16:37:21,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,smolt,Late-Fall
+NA,NA,32,11/19/22 16:38:18,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/19/22 16:38:20,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/19/22 16:38:22,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/19/22 16:38:24,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/19/22 16:39:11,Y,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/20/22 12:22:58,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,33,11/20/22 12:23:17,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/20/22 12:28:42,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/20/22 12:29:05,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/20/22 12:25:47,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,30,11/20/22 12:25:27,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,30,11/20/22 12:25:25,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,36,11/20/22 12:24:39,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,yolk sac fry,Spring
+NA,NA,35,11/20/22 12:24:27,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,yolk sac fry,Spring
+NA,NA,33,11/20/22 12:24:20,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,yolk sac fry,Spring
+NA,NA,31,11/17/22 11:28:28,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,31,11/17/22 11:28:39,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,31,11/17/22 11:28:52,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,35,11/17/22 11:29:00,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
+NA,NA,32,11/17/22 11:29:55,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,yolk sac fry,Spring
+NA,NA,33,11/17/22 11:30:01,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,yolk sac fry,Spring
+NA,NA,56,10/01/22 13:06:15,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Hardhead,not provided,not provided
+NA,NA,46,10/01/22 13:06:23,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Riffle Sculpin,not provided,not provided
+NA,NA,31,10/01/22 13:06:32,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Winter
+NA,NA,31,10/01/22 13:07:04,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Winter
+NA,NA,128,10/02/22 11:39:38,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Tule Perch,not provided,not provided
+NA,NA,0,10/02/22 11:39:49,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Unidentified Cyprinid fry,not provided,not provided
+NA,NA,32,10/02/22 11:39:55,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Winter
+NA,NA,110,10/03/22 09:33:31,N,15.3,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,smolt,Late-Fall
+NA,NA,101,10/03/22 09:34:21,N,12,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,smolt,Late-Fall
+NA,NA,33,11/20/22 12:29:38,N,0,1,0,NA,NA,NO,NA,NA,NA,NA,NA,NA,not provided,Chinook Salmon,obvious fry,Spring
