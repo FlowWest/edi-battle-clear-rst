@@ -117,7 +117,8 @@ catch <- catch_raw |>
          LifeStage = str_remove_all(LifeStage, "CHN - "),
          Race = if_else(Race_Description == "N/P", "not provided", Race_Description),
          Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
-         FishFLTS = gsub("[()]", "", FishFLTS)) |>
+         FishFLTS = gsub("[()]", "", FishFLTS),
+         Date = mdy(str_replace_all(str_sub(FishFLTS, 1, 8), "/", "-"))) |>
   select(-Race_Description) |> 
   clean_names() |> 
   glimpse()
