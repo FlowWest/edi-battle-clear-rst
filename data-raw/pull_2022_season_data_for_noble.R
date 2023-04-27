@@ -10,6 +10,8 @@ mdb.get(file = filepath, tables = TRUE)
 catch_raw <- mdb.get(filepath, "Catch", mdbexportArgs = '') |> glimpse()
 trap_sample <- mdb.get(filepath, "Sample", mdbexportArgs = '') |> glimpse()
 
+View(catch_raw)
+View(trap_sample)
 # lookups (mac)
 run_lu <- mdb.get(filepath, "RaceList") |> glimpse()
 lifestage_lu <- mdb.get(filepath, "StagesLookUp") |> glimpse()
@@ -18,14 +20,14 @@ organism_lu <- mdb.get(filepath, "OrganismsLookUp") |> glimpse()
 
 # cleaned_catch
 cleaned_catch <- catch_raw |> 
-  full_join(trap_sample, by = c("SampleRowID" = "SampleRowID")) |> 
+  left_join(trap_sample, by = c("SampleRowID" = "SampleRowID")) |> 
   left_join(run_lu, by = c("Race" = "RaceCode")) |> 
   left_join(lifestage_lu, by = c("LifeStage" = "LifeStage")) |> 
   left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
   left_join(organism_lu, by = c("OrganismCode" = "OrganismCode")) |> 
-  select(SampleID, SampleDate, SampleTime, Location, StationCode, 
+  select(CatchRowID, SampleID, SampleDate, SampleTime, Location, StationCode, 
          CommonName, Count, ForkLength, Weight, Race, LifeStage = StageName, 
-         RCatch, Interp, BroodYear) |> 
+         RCatch, Interp, BroodYear, FishFLTS) |> 
   filter(as.Date(SampleDate) > as.Date("2021-10-01"), 
          as.Date(SampleDate) < as.Date("2022-07-01")) |> 
   mutate(Run = case_when(Race == "N/P" ~ "not recorded", 
@@ -48,16 +50,23 @@ cleaned_catch <- catch_raw |>
          river = ifelse(StationCode == "ubc", "battle creek", "clear creek"),
          Weight = ifelse(Weight == 0, NA, Weight),
          ForkLength = ifelse(ForkLength == 0, NA, ForkLength)) |> 
+  distinct() |> 
   janitor::clean_names() |> 
-  select(-race, -location, -r_catch, -interp, brood_year) |> 
-  filter(common_name == "chinook salmon") |> glimpse()
-
+  select(river, station_code, sample_date, sample_time, common_name, run, life_stage, count, fork_length) |> 
+  filter(common_name == "chinook salmon", count != 0) |> glimpse()
+View(cleaned_catch)
 summary(cleaned_catch)
 write_csv(cleaned_catch, here::here("data-raw", "battle_clear_catch_2021_2022.csv"))
 
 unique(cleaned_catch$run) # time frame means that we don't have any fall run here
 unique(cleaned_catch$station_code)
 unique(cleaned_catch$life_stage)
+unique(cleaned_catch$common_name)
 summary(cleaned_catch)
 
+cleaned_catch |> 
+  ggplot(aes(x = as_date(sample_date), y = count)) + geom_col()
+
+cleaned_catch |> ggplot(aes(x = fork_length)) + 
+  geom_histogram()
 
