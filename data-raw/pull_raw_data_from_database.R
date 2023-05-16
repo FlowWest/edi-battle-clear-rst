@@ -211,8 +211,9 @@ catch <- catch_raw |>
          Report_Race = if_else(Report_Race_Description == "N/P", "not provided", Report_Race_Description),
          Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
          FishFLTS = gsub("[()]", "", FishFLTS),
-         Date = mdy(str_replace_all(str_sub(FishFLTS, 1, 8), "/", "-"))) |>
-  select(-c(FWS_Race_Description, Race_Description, Report_Race_Description)) |> 
+         Date = mdy(str_replace_all(str_sub(FishFLTS, 1, 8), "/", "-"))) |> 
+  select(-c(FWS_Race_Description, Race_Description, Report_Race_Description,
+            CatchRowID, SampleRowID)) |> 
   clean_names() |> 
   glimpse()
 
@@ -249,14 +250,16 @@ trap <- trap_raw |>
   left_join(LU_tables$VariableCodesLookUp |> 
               filter(CodeListName == "ConditionList") |> 
               select(ValueCode, Gear_Description = CodeDescription),
-            by = c("GearConditionCode" = "ValueCode")) |> 
+            by = c("GearConditionCode" = "ValueCode")) |>
   mutate(SampleTime = str_sub(as.character(SampleTime), 11, 18),
          SampleTime = if_else(SampleTime == "", NA_character_, SampleTime),
          TrapStartTime = str_sub(as.character(TrapStartTime), 11, 18),
          TrapStartTime = if_else(TrapStartTime == "", NA_character_, TrapStartTime),
          Thalweg = ifelse(Thalweg == "Y", "Yes", "No")) |> 
   select(-c(WeatherCode, Habitat, TrapSampleType, Diel, DebrisType,
-            UserName, UserName2, LunarPhase, GearConditionCode)) |> 
+            UserName, UserName2, LunarPhase, GearConditionCode,
+            SampleRowID, UserName, UserName2, TrapComments, 
+            LunarPhase, TrapSampleType)) |> 
   rename(Habitat = Habitat_Description, 
          TrapSampleType = TrapSampleType_Description,
          Diel = Diel_Description,
