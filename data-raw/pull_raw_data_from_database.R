@@ -4,88 +4,15 @@ library(Hmisc)
 library(tidyverse)
 library(lubridate)
 
-# Set up connection with CAMP access database (PC)
-# access_database <- odbcConnectAccess2007(here::here("data-raw", "scripts_and_data_from_natasha", "2022-2023_RST Database unproofed 11-22-22.accdb"))
-
-# main tables (PC)
-# catch_raw <- sqlFetch(access_database, "Catch") 
-# trap_sample <- sqlFetch(access_database, "Sample") 
-
-# lookups (PC)
-# run_lu <- sqlFetch(access_database, "RaceList") 
-# lifestage_lu <- sqlFetch(access_database, "StagesLookUp") 
-# stations_lu <- sqlFetch(access_database, "StationsLookUp") |> glimpse()
-# organisim_lu <- sqlFetch(access_database, "OrganismsLookUp") 
-
-# main tables (mac)
-filepath <- "data-raw/scripts_and_data_from_natasha/2022-2023_RST_Database_unproofed_11-22-22.accdb"
-mdb.get(file = filepath, tables = TRUE)
-catch_raw <- mdb.get(filepath, "Catch") |> glimpse()
-trap_sample <- mdb.get(filepath, "Sample") |> glimpse()
-
-# lookups (mac)
-run_lu <- mdb.get(filepath, "RaceList") |> glimpse()
-lifestage_lu <- mdb.get(filepath, "StagesLookUp") |> glimpse()
-stations_lu <- mdb.get(filepath, "StationsLookUp")  |> glimpse()
-organism_lu <- mdb.get(filepath, "OrganismsLookUp") |> glimpse()
-
-
-View(catch_raw)
-View(trap_sample)
-
-# cleaned_catch
-
-cleaned_catch <- catch_raw |> 
-  full_join(trap_sample, by = c("SampleRowID" = "SampleRowID")) |> 
-  left_join(run_lu, by = c("Race" = "RaceCode")) |> 
-  left_join(lifestage_lu, by = c("LifeStage" = "LifeStage")) |> 
-  left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
-  left_join(organism_lu, by = c("OrganismCode" = "OrganismCode")) |> 
-  select(SampleID, SampleDate, SampleTime, Location, StationCode, 
-         CommonName, Count, ForkLength, Weight, Race, LifeStage = StageName, 
-         RCatch, Interp, BroodYear) |> 
-  mutate(Run = case_when(Race == "N/P" ~ "not recorded", 
-                         Race == "W" ~ "winter", 
-                         Race == "S" ~ "spring", 
-                         Race == "F" ~ "fall", 
-                         Race == "L" ~ "late fall"), 
-         LifeStage = case_when(LifeStage == "not provided" ~ "not recorded",
-                               LifeStage %in% c("CHN - obvious fry", "RBT - fry") ~ "fry", 
-                               LifeStage %in% c("CHN - silvery parr", "RBT - silvery parr") ~ "silvery parr",
-                               LifeStage == "CHN - smolt" ~ "smolt",
-                               LifeStage == "CHN - yolk sac fry" ~ "yolk sac fry",
-                               LifeStage == "RBT - parr" ~ "parr",
-                               T ~ LifeStage),
-         Interp = tolower(Interp),
-         SampleTime = as.character(chron::times(strftime(SampleTime, "%H:%M:%S"))),
-         SampleDate = as.character(SampleDate)) |> 
-  select(-Race, -Location) |> 
-  janitor::clean_names() |> 
-  glimpse()
-
-write_csv(cleaned_catch, here::here("data", "catch.csv"))
-
-unique(cleaned_catch$Run) # time frame means that we don't have any fall run here
-unique(cleaned_catch$Location)
-unique(cleaned_catch$LifeStage)
-
-# cleaned_trap
-cleaned_trap <- trap_sample |> 
-  left_join(stations_lu, by = c("StationCode" = "StationCode")) |> 
-  select(SampleID, SampleDate, SampleTime, StationCode, Location, 
-         TrapFishing, Counter, FlowStartMeter, FlowEndMeter, 
-         StartCounter, Velocity, Turbidity) |> 
-  mutate(SampleTime = format(as.POSIXct(gsub("[()]", "", SampleTime), format = "%m/%d/%y %H:%M:%S"), "%H:%M:%S")) |> 
-  janitor::clean_names() |> 
-  glimpse()
-
-write_csv(cleaned_trap, here::here("data", "trap.csv"))
 
 # 2022-2023 RST database --------------------------------------------------
 # read in mdb
 library(Hmisc)
-filepath <- here::here("data-raw", "2022-2023_RST_Database_Proofed_01-02-2023_data.accdb")
-tables <- mdb.get(filepath, tables = TRUE) |> glimpse()
+filepath <- here::here("data-raw", "scripts_and_data_from_natasha", 
+                       "2022-2023_RST_Database_Proofed_01-02-2023_data.accdb")
+tables <- mdb.get(filepath, tables = TRUE) 
+tables
+
 # tables are: BioSample, Run, Sample, Catch, DataDscriptions, HistoricalSampleID
 # data
 catch_raw <- mdb.get(filepath, "Catch") |> glimpse()
@@ -100,7 +27,6 @@ LU_tables <- sapply(LU_table_names, function(x){
 detach(package:Hmisc)
 
 # catch
-# TODO missing a date variable
 catch <- catch_raw |> 
   left_join(LU_tables$OrganismsLookUp |> 
               select(OrganismCode, CommonName),
@@ -118,8 +44,11 @@ catch <- catch_raw |>
          Race = if_else(Race_Description == "N/P", "not provided", Race_Description),
          Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
          FishFLTS = gsub("[()]", "", FishFLTS),
+         Dead = ifelse(Dead == "Y", TRUE, FALSE),
+         Interp = ifelse(Interp == "NO", FALSE, TRUE),
          Date = mdy(str_replace_all(str_sub(FishFLTS, 1, 8), "/", "-"))) |>
-  select(-Race_Description) |> 
+  select(-c(Race_Description, FishFLTS, KFactor, ReportCatch, ReportAgeClass, ReportRace,
+         RCatchCom, CatchRowID)) |> 
   clean_names() |> 
   glimpse()
 
@@ -147,15 +76,22 @@ trap <- trap_raw |>
               filter(CodeListName == "DebrisTypeList") |> 
               select(ValueCode, DebrisType_Description = FormDisplay),
             by = c("DebrisType" = "ValueCode")) |>   
+  left_join(LU_tables$VariableCodesLookUp |> 
+              filter(CodeListName == "ConditionList") |> 
+              select(ValueCode, Gear_Description = CodeDescription),
+            by = c("GearConditionCode" = "ValueCode")) |> 
   mutate(SampleTime = str_sub(as.character(SampleTime), 11, 18),
          SampleTime = if_else(SampleTime == "", NA_character_, SampleTime),
          TrapStartTime = str_sub(as.character(TrapStartTime), 11, 18),
          TrapStartTime = if_else(TrapStartTime == "", NA_character_, TrapStartTime)) |> 
-  select(-c(WeatherCode, Habitat, TrapSampleType, Diel, DebrisType)) |> 
+  select(-c(WeatherCode, Habitat, TrapSampleType, Diel, DebrisType,
+            BaileysEff, ReportBaileysEff, NumReleased, UserName, UserName2,
+            TrapComments, SampleRowID, GearConditionCode)) |> 
   rename(Habitat = Habitat_Description, 
          TrapSampleType = TrapSampleType_Description,
          Diel = Diel_Description,
-         DebrisType = DebrisType_Description) |> 
+         DebrisType = DebrisType_Description,
+         Gear_Condition = Gear_Description) |> 
   clean_names() |> 
   glimpse()
 
@@ -164,6 +100,7 @@ write_csv(trap, here::here("data", "trap_2022.csv"))
 
 
 # 2020-2022 database ------------------------------------------------------
+rm(list=ls())
 # read in mdb
 library(Hmisc)
 filepath <- here::here("data-raw", "scripts_and_data_from_natasha",
@@ -216,7 +153,7 @@ catch <- catch_raw |>
          Dead = ifelse(Dead %in% c("Yes", "Y"), TRUE, FALSE),
          Interp = ifelse(Interp == "NO", FALSE, TRUE)) |> 
   select(-c(FWS_Race_Description, Race_Description, Report_Race_Description,
-            CatchRowID, SampleRowID, FishFLTS, KFactor, RCatchCom,
+            CatchRowID, FishFLTS, KFactor, RCatchCom,
             ReportCatch, ReportAgeClass, Report_Race)) |> 
   clean_names() |> 
   filter(year(date) != "2029") |> 

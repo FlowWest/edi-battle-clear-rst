@@ -1,0 +1,29 @@
+"","site","release_site","date_released","time_released","number_released","median_fork_length_released","release_id","days_held_post_mark","day_or_night_release","release_temp","release_flow","release_turbidity","origin_released"
+"1","Clear Creek","CCRB",2020-01-04,"16:50:00",248,35,"CLR698",1,"night",NA,NA,3.52,NA
+"2","Clear Creek","VB",2020-01-08,"16:44:00",494,35,"CLR699",1,"night",NA,NA,2.31,NA
+"3","Clear Creek","VB",2020-01-15,"18:05:00",405,36,"CLR700",1,"night",NA,NA,2.38,NA
+"4","Clear Creek","VB",2020-01-23,"17:16:00",537,37,"CLR701",1,"night",NA,NA,2.42,NA
+"5","Clear Creek","VB",2020-01-31,"17:45:00",500,36,"CLR702",1,"night",NA,NA,3.61,NA
+"6","Clear Creek","VB",2020-02-07,"18:03:00",530,36,"CLR703",1,"night",NA,NA,1.4,NA
+"7","Clear Creek","VB",2020-02-19,"17:49:00",650,36,"CLR704",1,"night",NA,NA,1.38,NA
+"8","Clear Creek","VB",2020-03-03,"18:04:00",545,36,"CLR705",3,"night",NA,NA,2.49,NA
+"9","Clear Creek","CCRB",2020-12-08,"17:03:00",301,34,"CLR706",1,"night",NA,NA,1.38,NA
+"10","Clear Creek","CCRB",2020-12-15,"17:48:00",296,34,"CLR707",1,"night",NA,NA,1.43,NA
+"11","Clear Creek","CCRB",2020-12-22,"17:45:00",296,33,"CLR708",1,"night",NA,NA,1.18,NA
+"12","Clear Creek","VB",2020-12-25,"16:51:00",437,35,"CLR709",1,"night",NA,NA,3.1,NA
+"13","Clear Creek","CCRB",2020-12-28,"18:06:00",365,37,"CLR710",0,"night",NA,NA,1.7,NA
+"14","Clear Creek","VB",2021-01-05,"17:10:00",426,37,"CLR711",0,"night",NA,NA,2.04,NA
+"15","Clear Creek","VB",2021-01-11,"17:34:00",397,38,"CLR712",1,"night",NA,NA,3.16,NA
+"16","Clear Creek","VB",2021-01-19,"18:35:00",412,37,"CLR713",0,"night",NA,NA,1.24,NA
+"17","Clear Creek","CCRB",2021-01-19,"19:00:00",336,37,"CLR714",0,"night",NA,NA,0.66,NA
+"18","Clear Creek","CCRB",2021-02-16,"18:50:00",326,38,"CLR715",1,"night",NA,NA,2.58,NA
+"19","Upper Battle Creek",NA,2020-01-27,"17:33:00",208,40,"BAT341",1,"night",NA,806,6.2,NA
+"20","Upper Battle Creek",NA,2020-02-06,"19:23:00",906,38,"BAT342",1,"night",NA,325,2.16,NA
+"21","Upper Battle Creek",NA,2020-02-19,"19:16:00",1143,39,"BAT343",1,"night",NA,306,2.27,NA
+"22","Upper Battle Creek",NA,2020-11-06,"17:03:00",332,40,"BAT344",1,"night",NA,257,1.98,NA
+"23","Upper Battle Creek",NA,2020-11-13,"17:05:00",336,41,"BAT345",1,"night",NA,260,1.61,NA
+"24","Upper Battle Creek",NA,2020-12-19,"17:10:00",295,44,"BAT346",1,"night",NA,238,1.57,NA
+"25","Upper Battle Creek",NA,2021-02-02,"19:46:00",404,40,"BAT347",1,"night",NA,609,20.4,"hatchery"
+"26","Upper Battle Creek",NA,2021-02-09,"17:44:00",298,40,"BAT348",1,"night",NA,258,1.8,"hatchery"
+"27","Upper Battle Creek",NA,2021-03-02,"20:33:00",320,54,"BAT349",1,"night",NA,232,2.2,"hatchery"
+"28","Upper Battle Creek",NA,2021-03-08,"14:29:00",449,88,"BAT350",1,"night",NA,NA,2.3,NA

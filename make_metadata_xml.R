@@ -2,24 +2,14 @@ library(tidyverse)
 library(EMLaide)
 
 datatable_metadata <-
-  dplyr::tibble(filepath = c("data/battle_recapture.csv",
-                             "data/battle_release.csv",
-                             "data/clear_recapture.csv",
-                             "data/clear_release.csv",
-                             "data/catch_final.csv",
-                             "data/trap_final.csv"),
-                attribute_info = c("data-raw/metadata/battle-recapture-metadata.xlsx",
-                                   "data-raw/metadata/battle-release-metadata.xlsx",
-                                   "data-raw/metadata/clear-recapture-metadata.xlsx",
-                                   "data-raw/metadata/clear-release-metadata.xlsx",
-                                   "data-raw/metadata/catch-metadata.xlsx",
-                                   "data-raw/metadata/trap-metadata.xlsx"),
-                datatable_description = c("Recapture table for Battle",
-                                          "Release table for Battle",
-                                          "Recapture table for Clear Creek",
-                                          "Release table for Clear Creek",
-                                          "Catch table",
-                                          "Trap visit table"))
+  dplyr::tibble(filepath = c("data/catch.csv",
+                             "data/trap.csv",
+                             "data/recapture.csv",
+                             "data/release.csv"),
+                attribute_info = c(),
+                datatable_description = c("Catch table",
+                                          "Trap visit table")),
+                                          # TODO))
 
 excel_path <- "data-raw/metadata/project-metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)
