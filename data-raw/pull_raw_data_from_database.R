@@ -185,7 +185,8 @@ detach(package:Hmisc)
 
 # catch -------------------------------------------------------------------
 
-# TODO dates go up to 2029
+# TODO 4 entries with year(date) = 2029
+# TODO what are ReportCatch, ReportAgeClass, and ReportRace?
 catch <- catch_raw |> 
   left_join(LU_tables$OrganismsLookUp |> 
               select(OrganismCode, CommonName),
@@ -211,10 +212,14 @@ catch <- catch_raw |>
          Report_Race = if_else(Report_Race_Description == "N/P", "not provided", Report_Race_Description),
          Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
          FishFLTS = gsub("[()]", "", FishFLTS),
-         Date = mdy(str_replace_all(str_sub(FishFLTS, 1, 8), "/", "-"))) |> 
+         Date = mdy(str_replace_all(str_sub(FishFLTS, 1, 8), "/", "-")),
+         Dead = ifelse(Dead %in% c("Yes", "Y"), TRUE, FALSE),
+         Interp = ifelse(Interp == "NO", FALSE, TRUE)) |> 
   select(-c(FWS_Race_Description, Race_Description, Report_Race_Description,
-            CatchRowID, SampleRowID)) |> 
+            CatchRowID, SampleRowID, FishFLTS, KFactor, RCatchCom,
+            ReportCatch, ReportAgeClass, Report_Race)) |> 
   clean_names() |> 
+  filter(year(date) != "2029") |> 
   glimpse()
 
 catch |> filter(year(date) > 2023) |> glimpse()
@@ -259,7 +264,8 @@ trap <- trap_raw |>
   select(-c(WeatherCode, Habitat, TrapSampleType, Diel, DebrisType,
             UserName, UserName2, LunarPhase, GearConditionCode,
             SampleRowID, UserName, UserName2, TrapComments, 
-            LunarPhase, TrapSampleType)) |> 
+            LunarPhase, TrapSampleType, BaileysEff, ReportBaileysEff,
+            NumReleased)) |> 
   rename(Habitat = Habitat_Description, 
          TrapSampleType = TrapSampleType_Description,
          Diel = Diel_Description,
