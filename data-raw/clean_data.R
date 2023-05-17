@@ -9,7 +9,7 @@ catch_early <- read.csv(here::here("data", "catch_final.csv")) |> glimpse()
 catch_late <- read.csv(here::here("data", "catch_2022.csv")) |> glimpse()
 
 catch <- bind_rows(catch_early |> 
-                     filter(date > min(catch_late$date)),
+                     filter(date < min(catch_late$date)),
                    catch_late) |> 
   rename(run = race, fws_run = fws_race) |> 
   glimpse()
@@ -59,8 +59,15 @@ release <- bind_rows(release_clear, release_battle) |>
 
 # write full datasets -----------------------------------------------------
 
-write.csv(catch, here::here("data", "catch.csv"))
-write.csv(trap, here::here("data", "trap.csv"))
-write.csv(recapture, here::here("data", "recapture.csv"))
-write.csv(release, here::here("data", "release.csv"))
+write.csv(catch, here::here("data", "catch.csv"), row.names = FALSE)
+write.csv(trap, here::here("data", "trap.csv"), row.names = FALSE)
+write.csv(recapture, here::here("data", "recapture.csv"), row.names = FALSE)
+write.csv(release, here::here("data", "release.csv"), row.names = FALSE)
 
+
+# read and glimpse --------------------------------------------------------
+
+catch <- read_csv(here::here("data", "catch.csv")) |> glimpse()
+trap <- read.csv(here::here("data", "trap.csv")) |> glimpse()
+recapture <- read.csv(here::here("data", "recapture.csv")) |> glimpse()
+release <- read.csv(here::here("data", "release.csv")) |> glimpse()
