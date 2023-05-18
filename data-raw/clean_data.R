@@ -20,6 +20,9 @@ trap_late <- read.csv(here::here("data", "trap_2022.csv")) |> glimpse()
 
 trap <- bind_rows(trap_early, trap_late) |>
   select(-c(lunar_phase)) |> 
+  mutate(thalweg = ifelse(thalweg %in% c("Yes", "Y"), TRUE, FALSE),
+         trap_fishing = ifelse(trap_fishing == 1, TRUE, FALSE),
+         partial_sample = ifelse(partial_sample == 1, TRUE, FALSE)) |> 
   glimpse()
 
 
