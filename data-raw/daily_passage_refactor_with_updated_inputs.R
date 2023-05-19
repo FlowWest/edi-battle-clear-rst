@@ -40,7 +40,7 @@ julian_dates <- c(85, 98)
 # Load needed data sets, rename columns, separate SampleID into julian date
 # and year. Format columns and subset data to two week period.
 # 
-# ORIGIONAL TABLES -------------------------------------------------------------
+# ORIGINAL TABLES -------------------------------------------------------------
 catch_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", "BOR Data.csv")) |> 
   rename(Date = SampleDate) |> 
   separate(SampleID, c("jdate", "year"), "_") |>
@@ -56,39 +56,41 @@ sample_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", 
 
 
 # CREATE NEW TABLES BASED ON EDI TABLES AND OLD TABLES -------------------------
-catch <- read_csv("data/catch.csv") |> 
-  mutate(year = year(SampleDate),
-         week = week(SampleDate)) |> glimpse()
+catch <- read.csv("data/catch.csv") |> 
+  mutate(year = year(date),
+         week = week(date)) |> glimpse()
 
-release <- read_csv("data/clear_release.csv") |> 
-  bind_rows(read_csv("data/battle_release.csv")) |> glimpse()
+release <- read.csv("data/release.csv") |> 
+  glimpse()
 
-recapture <- read_csv("data/clear_recapture.csv") |> 
-  bind_rows(read_csv("data/battle_recapture.csv")) |>
-  group_by(site, release_site, release_id) %>% 
-  summarize(number_recaptured = sum(number_recaptured, na.rm = T),
-            median_fork_length_recaptured = median(median_fork_length_recaptured, na.rm = T))
+recapture <- read.csv("data/recapture.csv") |> 
+  group_by(site, release_site, release_id) |> 
+  summarise(number_recaptured = sum(number_recaptured, na.rm = T),
+            median_fork_length_recaptured = median(median_fork_length_recaptured, na.rm = T)) |> 
+  ungroup() |> 
+  glimpse()
 
-weekly_mark_recap <- left_join(release, recapture, by = c("release_id" = "release_id", 
-                                                   "site" = "site", 
-                                                   "release_site" = "release_site")) |> 
-  mutate(year = year(date_released), 
+weekly_mark_recap <- left_join(release, recapture, by = c("release_id", "site", "release_site")) |> 
+  mutate(date_released = as.Date(date_released),
+         year = year(date_released), 
          week = week(date_released)) |> 
   group_by(site, release_site, release_id, year, week) |> 
   summarize(number_recaptured = ifelse(is.na(number_recaptured), 0, number_recaptured),
-            efficiency = (number_recaptured + 1)/(number_released + 1)) |> glimpse()
+            efficiency = (number_recaptured + 1)/(number_released + 1)) |> 
+  ungroup() |> 
+  glimpse()
 
 # join catch to mark recaps 
-# TODO currently no overlap for mark recap and catch table that we have so cannot do this 
-catch_data <- left_join(catch, weekly_mark_recap, by = c("week" = "week", 
-                                                         "year" = "year")) |> #TODO see if we can map release sites to traps 
+catch_data <- left_join(catch, weekly_mark_recap, 
+                        by = c("week", "year")) |> #TODO see if we can map release sites to traps 
+  select(-c(sample_row_id)) |> 
   glimpse()
 
 
-sample <- read_csv("data/trap.csv") |> 
-  select(StationCode, SampleID, SampleDate, Turbidity) |> 
-  mutate(year = year(SampleDate), 
-         week = week(SampleDate)) |> glimpse()
+sample_data <- read_csv("data/trap.csv") |> 
+  select(station_code, sample_id, sample_date, turbidity) |> 
+  mutate(year = year(sample_date), 
+         week = week(sample_date)) |> glimpse()
 
 # daily passage ---------------------------------------------------------------
 
@@ -96,11 +98,17 @@ sample <- read_csv("data/trap.csv") |>
 # group by trap, race, date, station, and sum catch data. Join with
 # sample_data to get dates. replace NAs in catch with 0
 daily_catch_summary <- catch_data |> 
-  filter(OrganismCode %in% c("RBT", "CHN")) |> 
-  group_by(BroodYear, OrganismCode, FWSRace, jdate, StationCode, Date) |>
-  summarise(catch = sum(RCatch, na.rm = TRUE)) |> 
-  full_join(sample_data, by = c("StationCode", "Date")) |> #TODO re add julian date if needed
-  mutate(catch = if_else(is.na(catch), 0, catch, BaileysEff)) |> 
+  mutate(date = as.Date(date)) |> 
+  filter(common_name %in% c("Rainbow Trout", "Chinook Salmon")) |> 
+  group_by(brood_year, common_name, fws_run, date, release_site) |> # TODO no jdate
+  summarise(catch = sum(r_catch, na.rm = TRUE)) |> 
+  ungroup() |> 
+  full_join(sample_data |> 
+              mutate(site = case_when(station_code %in% c("UCC", "LCC") ~ "Clear Creek",
+                                      station_code == "UBC" ~ "Upper Battle Creek",
+                                      TRUE ~ station_code)), 
+            by = c("site" = "site", "date" = "sample_date")) |> glimpse() # TODO re add jdate if needed
+  mutate(catch = if_else(is.na(catch), 0, catch, efficiency)) |>
   select(SampleID, Date, catch, BaileysEff, OrganismCode, FWSRace, StationCode) |> 
   glimpse()
 
