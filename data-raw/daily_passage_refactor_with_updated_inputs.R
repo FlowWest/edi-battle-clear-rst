@@ -56,8 +56,9 @@ sample_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", 
 
 # CREATE NEW TABLES BASED ON EDI TABLES AND OLD TABLES -------------------------
 catch <- read.csv("data/catch.csv") |> 
-  mutate(year = year(date),
-         week = week(date)) |> glimpse()
+  mutate(year = year(sample_date),
+         week = week(sample_date),
+         jdate = yday(sample_date)) |> glimpse()
 
 release <- read.csv("data/release.csv") |> 
   glimpse()
@@ -75,12 +76,12 @@ weekly_mark_recap <- left_join(release, recapture, by = c("release_id", "site", 
   group_by(site, release_site, release_id, year, week) |> 
   summarize(number_recaptured = ifelse(is.na(number_recaptured), 0, number_recaptured),
             efficiency = (number_recaptured + 1)/(number_released + 1)) |> 
+  ungroup() |> 
   glimpse()
 
 # join catch to mark recaps 
 catch_data <- left_join(catch, weekly_mark_recap, 
                         by = c("week", "year")) |> #TODO see if we can map release sites to traps 
-  select(-c(sample_row_id)) |> 
   glimpse()
 
 
