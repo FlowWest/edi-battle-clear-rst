@@ -96,31 +96,26 @@ sample_data <- read_csv("data/trap.csv") |>
 # group by trap, race, date, station, and sum catch data. Join with
 # sample_data to get dates. replace NAs in catch with 0
 daily_catch_summary <- catch_data |> 
-  mutate(date = as.Date(date)) |> 
+  mutate(date = as.Date(sample_date)) |> 
   filter(common_name %in% c("Rainbow Trout", "Chinook Salmon")) |> 
-  group_by(brood_year, common_name, fws_run, date, site) |> # TODO no jdate
+  group_by(brood_year, common_name, fws_run, date, station_code) |> 
   summarise(catch = sum(r_catch, na.rm = TRUE),
-            efficiency = mean(efficiency, na.rm = TRUE)) |> # TODO how to keep efficiency?
-  left_join(sample_data |>
-              distinct_all() |> 
-              mutate(site = case_when(station_code %in% c("UCC", "LCC") ~ "Clear Creek",
-                                      station_code == "UBC" ~ "Upper Battle Creek",
-                                      TRUE ~ station_code)),
-            by = c("site", "date" = "sample_date")) |> # TODO re add jdate if needed
-  mutate(efficiency = ifelse(efficiency == "NaN", NA, efficiency),
-         catch = if_else(is.na(catch), 0, catch, efficiency)) |> 
-  select(sample_id, date, catch, efficiency, common_name, fws_run, station_code, brood_year) |> 
+            efficiency = mean(efficiency, na.rm = TRUE),
+            efficiency = ifelse(efficiency == "NaN", NA, efficiency)) |>  # TODO how to keep efficiency? 
+  ungroup() |> 
+  mutate(catch = if_else(is.na(catch), 0, catch, efficiency)) |> 
+  select(date, catch, efficiency, common_name, fws_run, station_code, brood_year) |> 
   glimpse()
 
 # calculate daily passage
 daily_passage <- daily_catch_summary |> 
-  filter(!is.na(efficiency)) |> # TODO remove weeks where there's no efficiency data?
   mutate(passage = round((catch / efficiency), 0)) |> 
   select(date, passage, common_name, fws_run, station_code, brood_year) |> 
   glimpse()
 
 # wide format to match original code
 daily_passage_wide <- daily_passage |> 
+  filter(!is.na(passage)) |> 
   group_by(common_name, fws_run, station_code, brood_year) |> 
   pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
               values_from = passage) |>
@@ -145,23 +140,19 @@ names(fcs.p) <- f.names
 # filter out any NA Dates
 # summarise by minimum and maximum fork lengths
 fork_length_summary <- catch_data |> 
-  mutate(date = as.Date(date)) |> 
-  select(date, brood_year, year, fws_run, fork_length, common_name, site) |> 
+  mutate(date = as.Date(sample_date)) |> 
+  select(date, brood_year, year, fws_run, fork_length, common_name, station_code) |> 
   filter(common_name %in% c("Rainbow Trout", "Chinook Salmon"),
          fork_length != 0,
          !is.na(date),
          between(brood_year, brood_years[1], brood_years[2])) |> 
-  group_by(brood_year, common_name, fws_run, site, date) |>
-  left_join(sample_data |>
-              distinct_all() |> 
-              mutate(site = case_when(station_code %in% c("UCC", "LCC") ~ "Clear Creek",
-                                      station_code == "UBC" ~ "Upper Battle Creek",
-                                      TRUE ~ station_code)), by = c("site", "date" = "sample_date")) |> 
+  group_by(brood_year, common_name, fws_run, station_code, date) |>
   summarise(minimum = min(fork_length), maximum = max(fork_length)) |> 
+  ungroup() |> 
   glimpse()
 
 fork_length_summary_wide <- fork_length_summary |> 
-  pivot_wider(names_from = c(common_name, fws_run, site, brood_year), 
+  pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
               values_from = c(minimum, maximum)) |> 
   glimpse()
 
@@ -184,16 +175,13 @@ names(rbt.flb) <- r.names.flb
 
 # reformat date
 daily_summary_full <- daily_passage |> 
-  mutate(site = case_when(station_code %in% c("UCC", "LCC") ~ "Clear Creek",
-                          station_code == "UBC" ~ "Upper Battle Creek",
-                          TRUE ~ station_code)) |> 
-  left_join(fork_length_summary, by = c("date", "common_name", "fws_run", "site", 
+  left_join(fork_length_summary, by = c("date", "common_name", "fws_run", "station_code", 
                                         "brood_year")) |> 
   glimpse()
 
 # pivot wide to match original code
 daily_summary_full_wide <- daily_summary_full |> 
-  pivot_wider(names_from = c(common_name, fws_run, site, station_code, brood_year), 
+  pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
               values_from = c(minimum, maximum, passage)) |> 
   glimpse()
 
