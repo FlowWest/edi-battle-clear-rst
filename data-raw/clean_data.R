@@ -3,20 +3,18 @@ library(tidyverse)
 library(janitor)
 library(lubridate)
 
-# TODO decide which catch to use
 # catch
-catch_early <- read.csv(here::here("data", "catch_final.csv")) |> glimpse()
-catch_late <- read.csv(here::here("data", "catch_2022.csv")) |> glimpse()
+catch_early <- read.csv(here::here("data", "catch_early.csv")) |> glimpse()
+catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
 
 catch <- bind_rows(catch_early |> 
-                     filter(date < min(catch_late$date)),
+                     filter(sample_date < min(catch_late$sample_date)),
                    catch_late) |> 
-  rename(run = race, fws_run = fws_race) |> 
   glimpse()
 
 # trap
-trap_early <- read.csv(here::here("data", "trap_final.csv")) |> glimpse()
-trap_late <- read.csv(here::here("data", "trap_2022.csv")) |> glimpse()
+trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
+trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
 
 trap <- bind_rows(trap_early, trap_late) |>
   select(-c(lunar_phase)) |> 
