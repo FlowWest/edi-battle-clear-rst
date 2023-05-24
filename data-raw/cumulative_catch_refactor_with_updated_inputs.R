@@ -36,51 +36,57 @@ if (!require("lubridate")) {         # for for dealing with dates
 
 # prep data ---------------------------------------------------------------
 
-sample <- read_csv(here::here("data", "trap.csv")) |> 
-  select(date = sample_date, station_code) |> 
-  distinct_all() |> glimpse()
-
-catch <- read.csv("data/catch.csv") |> 
-  select(date, brood_year, fws_run, r_catch, common_name, interp) |> 
-  mutate(date = as.Date(date)) |> 
+catch <- read.csv(here::here("data", "catch.csv")) |> 
+  select(date = sample_date, brood_year, fws_run, r_catch, 
+         common_name, station_code, interp) |> 
   glimpse()
 
 
-
 # cumulative catch --------------------------------------------------------
-by <- 2019
+# by <- 2019 
+by <- 2021 # 2019 is original value; too restrictive for checking code
 
 sample_data <- catch |> # TODO how to get station code?
-  filter(#brood_year == by, 
+  filter(brood_year == by, 
          interp == FALSE,
          common_name %in% c("Chinook Salmon", "Rainbow Trout")) |> 
   glimpse()
 
-min_date <- min(sample_data$date)
-max_date <- max(sample_data$date)
+min_date <- as.Date(min(sample_data$date, na.rm = T))
+max_date <- as.Date(max(sample_data$date, na.rm = T))
 
 # insert missing dates and set new dates Rcatch to 0
 sample_data_full <- sample_data |> 
+  mutate(date = as.Date(date)) |> 
   pad(interval = "day",
       start_val = min_date,
-      end_val = max_date) |> 
-      # start_val = lubridate::ymd("2019-01-01"),
-      # end_val = lubridate::ymd("2020-06-30")) |> 
+      end_val = max_date) |>
   fill_by_value(r_catch, value = 0) |> glimpse()
 
+# daily_catch <- sample_data_full |>
+#   group_by(date, fws_run, common_name, station_code) |> 
+#   summarise(catch = sum(r_catch, na.rm = TRUE)) |> 
+#   ungroup() |>
+#   group_by(fws_run, common_name, station_code) |>
+#   summarise(cumulative_catch = cumsum(catch),
+#             total_catch = sum(catch, na.rm = TRUE),
+#             cumulative_percent_catch = round((cumulative_catch / total_catch * 100), 3)) |> 
+#   glimpse()
+
 daily_catch <- sample_data_full |>
-  select(-c(brood_year, interp)) |> 
-  group_by(date, fws_run, common_name) |> 
+  group_by(date, fws_run, common_name, station_code) |> 
   summarise(catch = sum(r_catch, na.rm = TRUE),
-            cumulative_catch = cumsum(catch)) |>
-  ungroup() |> 
-  group_by(date, fws_run, common_name) |> 
-  summarise(total_catch = sum(catch, na.rm = TRUE),
-            cumulative_percent_catch = round((cumulative_catch / total_catch * 100), 0)) |> 
+            cumulative_catch = cumsum(catch)) |> # TODO move total_catch into summarise?
+  mutate(total_catch = sum(catch, na.rm = TRUE), 
+         cumulative_percent_catch = round((cumulative_catch / total_catch * 100), 0),
+         cumulative_percent_catch = ifelse(cumulative_percent_catch == "NaN", NA, cumulative_percent_catch)) |> 
   glimpse()
 
 daily_catch_wide <- daily_catch |> 
-  pivot_wider(names_from = c(fws_run, common_name),
+  select(-c(cumulative_catch, total_catch)) |> 
+  group_by(station_code, fws_run, common_name) |> 
+  pivot_wider(id_cols = date,
+              names_from = c(station_code, fws_run, common_name),
               values_from = cumulative_percent_catch) |> 
   glimpse()
   
