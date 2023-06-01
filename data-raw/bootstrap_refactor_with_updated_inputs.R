@@ -17,12 +17,6 @@ if (!require("openxlsx")) {         # for writing xlsx files to the desk top
   library(openxlsx)
 }
 
-# FW addition - for bootstrapping
-if(!require("boot")) {
-  install.packages("boot")
-  library(boot)
-}
-
 
 # load in data ------------------------------------------------------------
 release <- read.csv("data/release.csv") |> 
@@ -130,6 +124,7 @@ bootstrap_function <- function(x, replicates) {
 # filters
 brood_years <- c(2021, 2022)
 subset_weeks <- c("13", "14")
+subset_weeks <- as.character(50:51)
 
 
 set.seed(2323)
@@ -137,7 +132,7 @@ set.seed(2323)
 # TODO no efficiency data for weeks 13 & 14 in the database
 biweekly_bootstraps <- strata_catch_summary |> 
   filter(!is.na(efficiency),
-         id_week %in% subset_weeks) |> 
+         id_week %in% subset_weeks) |> # for biweekly bootstrapping, filter to selected weeks
   group_by(common_name, fws_run, brood_year, station_code) |> 
   group_split() |> 
   purrr::map(function(x) {
@@ -159,12 +154,16 @@ biweekly_bootstraps <- strata_catch_summary |>
     }
     
   }) |> 
-  list_rbind()
+  list_rbind() |> 
+  mutate(selected_strata = paste0(subset_weeks[1], "_", subset_weeks[2])) |> 
+  select(station_code, selected_strata, brood_year, common_name, fws_run, 
+         LCL, passage, UCL, se) |> 
+  glimpse()
 
 
 # run bootstraps for brood year -------------------------------------------
 brood_year_bootstraps <- strata_catch_summary |> 
-  filter(!is.na(efficiency)) |> 
+  filter(!is.na(efficiency)) |> # function will not work if efficiency is missing for that strata
   group_by(common_name, fws_run, brood_year, station_code) |> 
   group_split() |> 
   purrr::map(function(x) {
@@ -186,7 +185,10 @@ brood_year_bootstraps <- strata_catch_summary |>
     }
     
   }) |> 
-  list_rbind()
+  list_rbind() |> 
+  select(station_code, brood_year, common_name, fws_run, 
+         LCL, passage, UCL, se) |> 
+  glimpse()
 
 
 # write table -------------------------------------------------------------
