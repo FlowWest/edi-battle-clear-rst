@@ -123,7 +123,7 @@ bootstrap_function <- function(x, replicates) {
 
 # filters
 brood_years <- c(2021, 2022)
-subset_weeks <- c("13", "14")
+subset_weeks <- c("14", "15")
 subset_weeks <- as.character(50:51)
 
 
