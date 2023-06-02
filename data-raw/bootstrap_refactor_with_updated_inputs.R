@@ -98,22 +98,23 @@ bootstrap_function <- function(x, replicates) {
     number_released <- x$number_released[i]
     
     if(is.na(efficiency)) {
-      return(paste0("efficiency is missing for strata ", strata_name))
+      bootstraps[, i] <- rep(NA, replicates)
+    } else {
+      catch_sample <- rep(weekly_catch, replicates)
+      efficiency_sample <- rep(efficiency, replicates)
+      
+      random_recaptures <- round(rbinom(replicates, number_released, efficiency), 0)
+      random_weekly_passage <- round(weekly_catch * (number_released + 1) / (random_recaptures + 1), 0)
+      
+      lcl <- quantile(random_weekly_passage, 0.05)
+      ucl <- quantile(random_weekly_passage, 0.95)
+      se <- sd(random_weekly_passage) / sqrt(replicates)
+      bootstraps[, i] <- random_weekly_passage
     }
     
-    catch_sample <- rep(weekly_catch, replicates)
-    efficiency_sample <- rep(efficiency, replicates)
-    
-    random_recaptures <- round(rbinom(replicates, number_released, efficiency), 0)
-    random_weekly_passage <- round(weekly_catch * (number_released + 1) / (random_recaptures + 1), 0)
-    
-    lcl <- quantile(random_weekly_passage, 0.05)
-    ucl <- quantile(random_weekly_passage, 0.95)
-    se <- sd(random_weekly_passage) / sqrt(replicates)
-    bootstraps[, i] <- random_weekly_passage
   }
   # data frame for CIs and SE results
-  bootstraps_totals <- rowSums(bootstraps)
+  bootstraps_totals <- rowSums(bootstraps, na.rm = TRUE)
   results_df <- tibble("LCL" = quantile(bootstraps_totals, 0.05, na.rm = TRUE),
                        "passage" = sum(x$weekly_passage, na.rm = TRUE),
                        "UCL" = quantile(bootstraps_totals, 0.95, na.rm = TRUE),
@@ -127,13 +128,11 @@ bootstrap_function <- function(x, replicates) {
 
 # filters
 brood_years <- c(2021, 2022)
-subset_weeks <- c("14", "15")
-subset_weeks <- as.character(50:51)
+subset_weeks <- c("01", "02")
 
 
 set.seed(2323)
 
-# TODO no efficiency data for weeks 13 & 14 in the database
 biweekly_bootstraps <- strata_catch_summary |> 
   filter(id_week %in% subset_weeks) |> # for biweekly bootstrapping, filter to selected weeks
   group_by(common_name, fws_run, brood_year, station_code) |> 
