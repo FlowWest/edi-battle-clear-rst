@@ -97,6 +97,10 @@ bootstrap_function <- function(x, replicates) {
     efficiency <- x$efficiency[i]
     number_released <- x$number_released[i]
     
+    if(is.na(efficiency)) {
+      return(paste0("efficiency is missing for strata ", strata_name))
+    }
+    
     catch_sample <- rep(weekly_catch, replicates)
     efficiency_sample <- rep(efficiency, replicates)
     
@@ -131,8 +135,7 @@ set.seed(2323)
 
 # TODO no efficiency data for weeks 13 & 14 in the database
 biweekly_bootstraps <- strata_catch_summary |> 
-  filter(!is.na(efficiency),
-         id_week %in% subset_weeks) |> # for biweekly bootstrapping, filter to selected weeks
+  filter(id_week %in% subset_weeks) |> # for biweekly bootstrapping, filter to selected weeks
   group_by(common_name, fws_run, brood_year, station_code) |> 
   group_split() |> 
   purrr::map(function(x) {
@@ -163,7 +166,6 @@ biweekly_bootstraps <- strata_catch_summary |>
 
 # run bootstraps for brood year -------------------------------------------
 brood_year_bootstraps <- strata_catch_summary |> 
-  filter(!is.na(efficiency)) |> # function will not work if efficiency is missing for that strata
   group_by(common_name, fws_run, brood_year, station_code) |> 
   group_split() |> 
   purrr::map(function(x) {
@@ -227,8 +229,7 @@ BOR_strata_summary <- BOR_data |>
 
 # biweekly
 biweekly_bootstraps <- BOR_strata_summary |> 
-  filter(!is.na(efficiency),
-         id_week %in% subset_weeks) |> 
+  filter(id_week %in% subset_weeks) |> 
   group_by(common_name, fws_run, brood_year, station_code) |> 
   group_split() |> 
   purrr::map(function(x) {
@@ -254,7 +255,6 @@ biweekly_bootstraps <- BOR_strata_summary |>
 
 # brood year
 brood_year_bootstraps <- BOR_strata_summary |> 
-  filter(!is.na(efficiency)) |> 
   group_by(common_name, fws_run, brood_year, station_code) |> 
   group_split() |> 
   purrr::map(function(x) {
