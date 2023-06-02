@@ -8,8 +8,9 @@ datatable_metadata <-
                              "data/release.csv"),
                 attribute_info = c(),
                 datatable_description = c("Catch table",
-                                          "Trap visit table")),
-                                          # TODO))
+                                          "Trap visit table",
+                                          "Recaptures",
+                                          "Release summary"))
 
 excel_path <- "data-raw/metadata/project-metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)
