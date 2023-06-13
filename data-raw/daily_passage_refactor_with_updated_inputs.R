@@ -33,14 +33,13 @@ brood_years <- c(2021, 2022)
 weeks <- c(13, 14)
 julian_dates <- c(85, 98) 
 
-# TODO figure out if we need julian date, 
-# TODO figure out why database is only nov and dec 2022 
+# TODO figure out if we need julian date
 # data prep --------------------------------------------------------------
 
 # Load needed data sets, rename columns, separate SampleID into julian date
 # and year. Format columns and subset data to two week period.
 # 
-# ORIGIONAL TABLES -------------------------------------------------------------
+# ORIGINAL TABLES -------------------------------------------------------------
 catch_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", "BOR Data.csv")) |> 
   rename(Date = SampleDate) |> 
   separate(SampleID, c("jdate", "year"), "_") |>
@@ -56,39 +55,40 @@ sample_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", 
 
 
 # CREATE NEW TABLES BASED ON EDI TABLES AND OLD TABLES -------------------------
-catch <- read_csv("data/catch.csv") |> 
-  mutate(year = year(SampleDate),
-         week = week(SampleDate)) |> glimpse()
+catch <- read.csv("data/catch.csv") |> 
+  mutate(year = year(sample_date),
+         week = week(sample_date),
+         jdate = yday(sample_date)) |> glimpse()
 
-release <- read_csv("data/clear_release.csv") |> 
-  bind_rows(read_csv("data/battle_release.csv")) |> glimpse()
+release <- read.csv("data/release.csv") |> 
+  glimpse()
 
-recapture <- read_csv("data/clear_recapture.csv") |> 
-  bind_rows(read_csv("data/battle_recapture.csv")) |>
-  group_by(site, release_site, release_id) %>% 
-  summarize(number_recaptured = sum(number_recaptured, na.rm = T),
-            median_fork_length_recaptured = median(median_fork_length_recaptured, na.rm = T))
+recapture <- read.csv("data/recapture.csv") |> 
+  group_by(site, release_site, release_id) |> 
+  summarise(number_recaptured = sum(number_recaptured, na.rm = T),
+            median_fork_length_recaptured = median(median_fork_length_recaptured, na.rm = T)) |> 
+  glimpse()
 
-weekly_mark_recap <- left_join(release, recapture, by = c("release_id" = "release_id", 
-                                                   "site" = "site", 
-                                                   "release_site" = "release_site")) |> 
-  mutate(year = year(date_released), 
+weekly_mark_recap <- left_join(release, recapture, by = c("release_id", "site", "release_site")) |> 
+  mutate(date_released = as.Date(date_released),
+         year = year(date_released), 
          week = week(date_released)) |> 
   group_by(site, release_site, release_id, year, week) |> 
   summarize(number_recaptured = ifelse(is.na(number_recaptured), 0, number_recaptured),
-            efficiency = (number_recaptured + 1)/(number_released + 1)) |> glimpse()
+            efficiency = (number_recaptured + 1)/(number_released + 1)) |> 
+  ungroup() |> 
+  glimpse()
 
 # join catch to mark recaps 
-# TODO currently no overlap for mark recap and catch table that we have so cannot do this 
-catch_data <- left_join(catch, weekly_mark_recap, by = c("week" = "week", 
-                                                         "year" = "year")) |> #TODO see if we can map release sites to traps 
+catch_data <- left_join(catch, weekly_mark_recap, 
+                        by = c("week", "year")) |> #TODO see if we can map release sites to traps 
   glimpse()
 
 
-sample <- read_csv("data/trap.csv") |> 
-  select(StationCode, SampleID, SampleDate, Turbidity) |> 
-  mutate(year = year(SampleDate), 
-         week = week(SampleDate)) |> glimpse()
+sample_data <- read_csv("data/trap.csv") |> 
+  select(station_code, sample_id, sample_date, turbidity) |> 
+  mutate(year = year(sample_date), 
+         week = week(sample_date)) |> glimpse()
 
 # daily passage ---------------------------------------------------------------
 
@@ -96,23 +96,28 @@ sample <- read_csv("data/trap.csv") |>
 # group by trap, race, date, station, and sum catch data. Join with
 # sample_data to get dates. replace NAs in catch with 0
 daily_catch_summary <- catch_data |> 
-  filter(OrganismCode %in% c("RBT", "CHN")) |> 
-  group_by(BroodYear, OrganismCode, FWSRace, jdate, StationCode, Date) |>
-  summarise(catch = sum(RCatch, na.rm = TRUE)) |> 
-  full_join(sample_data, by = c("StationCode", "Date")) |> #TODO re add julian date if needed
-  mutate(catch = if_else(is.na(catch), 0, catch, BaileysEff)) |> 
-  select(SampleID, Date, catch, BaileysEff, OrganismCode, FWSRace, StationCode) |> 
+  mutate(date = as.Date(sample_date)) |> 
+  filter(common_name %in% c("Rainbow Trout", "Chinook Salmon")) |> 
+  group_by(brood_year, common_name, fws_run, date, station_code) |> 
+  summarise(catch = sum(r_catch, na.rm = TRUE),
+            efficiency = mean(efficiency, na.rm = TRUE),
+            efficiency = ifelse(efficiency == "NaN", NA, efficiency)) |>  # TODO how to keep efficiency? 
+  ungroup() |> 
+  mutate(catch = if_else(is.na(catch), 0, catch, efficiency)) |> 
+  select(date, catch, efficiency, common_name, fws_run, station_code, brood_year) |> 
   glimpse()
 
 # calculate daily passage
 daily_passage <- daily_catch_summary |> 
-  mutate(passage = round(catch / BaileysEff), 0) |> 
-  select(Date, passage, OrganismCode, FWSRace, StationCode) |> 
+  mutate(passage = round((catch / efficiency), 0)) |> 
+  select(date, passage, common_name, fws_run, station_code, brood_year) |> 
   glimpse()
 
 # wide format to match original code
 daily_passage_wide <- daily_passage |> 
-  pivot_wider(names_from = c(OrganismCode, FWSRace, StationCode, BroodYear), 
+  filter(!is.na(passage)) |> 
+  group_by(common_name, fws_run, station_code, brood_year) |> 
+  pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
               values_from = passage) |>
   glimpse()
 
@@ -135,18 +140,19 @@ names(fcs.p) <- f.names
 # filter out any NA Dates
 # summarise by minimum and maximum fork lengths
 fork_length_summary <- catch_data |> 
-  select(Date, BroodYear, IDYear, FWSRace, ForkLength, OrganismCode, StationCode, jdate) |> 
-  filter(OrganismCode %in% c("RBT", "CHN"),
-         ForkLength != 0,
-         !is.na(Date),
-         between(BroodYear, brood_years[1], brood_years[2])) |> 
-  group_by(BroodYear, OrganismCode, FWSRace, StationCode, Date, jdate) |>
-  full_join(sample_data, by = c("StationCode", "Date", "jdate")) |> 
-  summarise(minimum = min(ForkLength), maximum = max(ForkLength)) |> 
+  mutate(date = as.Date(sample_date)) |> 
+  select(date, brood_year, year, fws_run, fork_length, common_name, station_code) |> 
+  filter(common_name %in% c("Rainbow Trout", "Chinook Salmon"),
+         fork_length != 0,
+         !is.na(date),
+         between(brood_year, brood_years[1], brood_years[2])) |> 
+  group_by(brood_year, common_name, fws_run, station_code, date) |>
+  summarise(minimum = min(fork_length), maximum = max(fork_length)) |> 
+  ungroup() |> 
   glimpse()
 
 fork_length_summary_wide <- fork_length_summary |> 
-  pivot_wider(names_from = c(OrganismCode, FWSRace, StationCode, BroodYear), 
+  pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
               values_from = c(minimum, maximum)) |> 
   glimpse()
 
@@ -169,14 +175,13 @@ names(rbt.flb) <- r.names.flb
 
 # reformat date
 daily_summary_full <- daily_passage |> 
-  full_join(fork_length_summary, by = c("Date", "OrganismCode", "FWSRace", "StationCode", 
-                                        "jdate", "BroodYear")) |>
-  mutate(Date = as.Date(as.POSIXct(Date, format = "%m/%d/%Y"))) |> 
+  left_join(fork_length_summary, by = c("date", "common_name", "fws_run", "station_code", 
+                                        "brood_year")) |> 
   glimpse()
 
 # pivot wide to match original code
 daily_summary_full_wide <- daily_summary_full |> 
-  pivot_wider(names_from = c(OrganismCode, FWSRace, StationCode, BroodYear), 
+  pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
               values_from = c(minimum, maximum, passage)) |> 
   glimpse()
 
@@ -212,8 +217,7 @@ mean_temp_daily <- temp |>
 # turbidity ---------------------------------------------------------------
 
 turbidity <- sample_data |> 
-  select(Date, Turbidity) |> 
-  mutate(Date = as.Date(as.POSIXct(Date, format = "%m/%d/%Y"))) |> 
+  select(Date = sample_date, turbidity) |> 
   glimpse()
 
 
@@ -224,10 +228,11 @@ turbidity <- sample_data |>
 environmental_data_forklength <- peak_flow_daily |> 
   full_join(mean_temp_daily, by = "Date") |> 
   full_join(turbidity, by = "Date") |> 
-  full_join(fork_length_summary, by = "Date") |> 
+  full_join(fork_length_summary |> 
+              rename(Date = date), by = "Date") |> 
   rename("Discharge volume (cfs)" = maximum_cfs,
          "Water temperature (C)" = Temperature,
-         "Water turbidity (NTU)" = Turbidity,
+         "Water turbidity (NTU)" = turbidity,
          maximum_fl = maximum,
          minimum_fl = minimum) |> 
   glimpse()
