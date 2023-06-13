@@ -6,11 +6,20 @@ datatable_metadata <-
                              "data/trap.csv",
                              "data/recapture.csv",
                              "data/release.csv"),
-                attribute_info = c(),
+                attribute_info = c("data-raw/metadata/catch-metadata.xlsx",
+                                   "data-raw/metadata/trap-metadata.xlsx",
+                                   "data-raw/metadata/recapture-metadata.xlsx",
+                                   "data-raw/metadata/release-metadata.xlsx"),
                 datatable_description = c("Catch table",
                                           "Trap visit table",
                                           "Recaptures",
                                           "Release summary"))
+# ,
+#                 datatable_url = paste0("https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/",
+#                                        c("catch.csv",
+#                                          "trap",
+#                                          "recapture",
+#                                          "release")))
 
 excel_path <- "data-raw/metadata/project-metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)
@@ -38,13 +47,15 @@ dataset <- list() %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
   add_datatable(datatable_metadata)
 
-custom_units <- data.frame(id = c("Day", "count of fish", "NTU"),
-                           unitType = c(NA, NA, NA),
-                           parentSI = c(NA, NA, NA),
-                           multiplierToSI = c(NA, NA, NA),
+custom_units <- data.frame(id = c("Day", "count of fish", "NTU", "count", "revolutionsPerMinute"),
+                           unitType = c(NA, NA, NA, NA, NA),
+                           parentSI = c(NA, NA, NA, NA, NA),
+                           multiplierToSI = c(NA, NA, NA, NA, NA),
                            description = c("Number of days",
                                            "Count of fish",
-                                           "Turbidity measured in Nephelometric Turbidity Units"))
+                                           "Turbidity measured in Nephelometric Turbidity Units",
+                                           "Count of 10 gallon debris tubs",
+                                           "Number of revolutions per minute"))
 
 unitList <- EML::set_unitList(custom_units)
 
