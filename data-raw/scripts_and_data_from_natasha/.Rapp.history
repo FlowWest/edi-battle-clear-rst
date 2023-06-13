@@ -1,0 +1,5 @@
+setwd("Users/liz/Documents/code/edi-battle-clear-rst/data-raw/scripts_and_data_from_natasha")
+getwd()
+setwd("/Users/liz/Documents/code/edi-battle-clear-rst/data-raw/scripts_and_data_from_natasha")
+library(Hmisc)
+mdb.get("2022-2023_rst Database unproofed 11-22-22.accdb", tables = TRUE)
