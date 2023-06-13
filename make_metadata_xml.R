@@ -13,13 +13,23 @@ datatable_metadata <-
                 datatable_description = c("Catch table",
                                           "Trap visit table",
                                           "Recaptures",
-                                          "Release summary"))
-# ,
-#                 datatable_url = paste0("https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/",
-#                                        c("catch.csv",
-#                                          "trap",
-#                                          "recapture",
-#                                          "release")))
+                                          "Release summary"),
+                datatable_url = paste0("https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/",
+                                       c("catch.csv",
+                                         "trap",
+                                         "recapture",
+                                         "release")))
+
+other_entity_metadata <- tibble(file_name = c("data-raw/daily_passage_refactor_with_updated_inputs.R",
+                                              "data-raw/cumulative_catch_with_updated_inputs.R",
+                                              "data-raw/bootstrap_refactor_with_updated_inputs.R"),
+                                file_description = c("R script producing daily passage from catch table",
+                                                     "R script for producing cumulative catch from catch table",
+                                                     "R script for producing biweekly and brood-year passage via bootstrapping"),
+                                file_type = c("R script", 
+                                              "R script",
+                                              "R script"))
+
 
 excel_path <- "data-raw/metadata/project-metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)
@@ -45,7 +55,8 @@ dataset <- list() %>%
   add_maintenance(metadata$maintenance) %>%
   add_project(metadata$funding) %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
-  add_datatable(datatable_metadata)
+  add_datatable(datatable_metadata) |> 
+  add_other_entity(other_entity_metadata)
 
 custom_units <- data.frame(id = c("Day", "count of fish", "NTU", "count", "revolutionsPerMinute"),
                            unitType = c(NA, NA, NA, NA, NA),
