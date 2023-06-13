@@ -126,7 +126,7 @@ bootstrap_function <- function(x, replicates) {
 
 # run bootstraps for biweekly ---------------------------------------------
 
-# filters
+# filters for brood years and weeks
 brood_years <- c(2021, 2022)
 subset_weeks <- c("01", "02")
 
@@ -134,7 +134,8 @@ subset_weeks <- c("01", "02")
 set.seed(2323)
 
 biweekly_bootstraps <- strata_catch_summary |> 
-  filter(id_week %in% subset_weeks) |> # for biweekly bootstrapping, filter to selected weeks
+  filter(#id_week %in% subset_weeks,
+         brood_year %in% brood_years) |> # for biweekly bootstrapping, filter to selected weeks
   group_by(common_name, fws_run, brood_year, station_code) |> 
   group_split() |> 
   purrr::map(function(x) {
