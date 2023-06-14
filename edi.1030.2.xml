@@ -1,0 +1,1357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1030.2" system="EDI" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+    <allow>
+      <principal>cvpia</principal>
+      <permission>write</permission>
+    </allow>
+  </access>
+  <dataset>
+    <shortName>Battle and Clear RST</shortName>
+    <title>Monitoring juvenile Chinook salmon outmigration using rotary screw traps on Battle and Clear Creek</title>
+    <creator>
+      <individualName>
+        <givenName>Natasha</givenName>
+        <surName>Wingerter</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+    </creator>
+    <associatedParty>
+      <individualName>
+        <givenName>Mike</givenName>
+        <surName>Schraml</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
+      <role>principal investigator</role>
+    </associatedParty>
+    <pubDate>2023-06-14</pubDate>
+    <abstract>
+      <para>
+    This is the abstract for the Battle/Clear RST EDI package.
+  </para>
+    </abstract>
+    <keywordSet>
+      <keyword>spring run</keyword>
+      <keyword>fall run</keyword>
+      <keyword>trap</keyword>
+      <keyword>catch</keyword>
+      <keyword>juvenile production estimate</keyword>
+      <keyword>Oncorhynchus tshawytscha</keyword>
+      <keyword>RST</keyword>
+      <keyword>California</keyword>
+      <keyword>Central Valley</keyword>
+    </keywordSet>
+    <intellectualRights>
+      <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.</para>
+    </intellectualRights>
+    <licensed>
+      <licenseName>Creative Commons Attribution 4.0 International</licenseName>
+      <url>https://spdx.org/licenses/CC-BY-4.0.html</url>
+      <identifier>CC-BY-4.0</identifier>
+    </licensed>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Battle and Clear Rotary Screw Traps</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-122.4964</westBoundingCoordinate>
+          <eastBoundingCoordinate>-121.7504</eastBoundingCoordinate>
+          <northBoundingCoordinate>40.5058</northBoundingCoordinate>
+          <southBoundingCoordinate>39.6223</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>2020-01-01</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2023-01-02</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+      <taxonomicCoverage>
+        <taxonomicClassification>
+          <taxonRankName>kingdom</taxonRankName>
+          <taxonRankValue>Animalia</taxonRankValue>
+          <taxonomicClassification>
+            <taxonRankName>phylum</taxonRankName>
+            <taxonRankValue>Chordata</taxonRankValue>
+            <taxonomicClassification>
+              <taxonRankName>class</taxonRankName>
+              <taxonRankValue>Teleostei</taxonRankValue>
+              <taxonomicClassification>
+                <taxonRankName>order</taxonRankName>
+                <taxonRankValue>Salmoniformes</taxonRankValue>
+                <taxonomicClassification>
+                  <taxonRankName>family</taxonRankName>
+                  <taxonRankValue>Salmonidae</taxonRankValue>
+                  <taxonomicClassification>
+                    <taxonRankName>genus</taxonRankName>
+                    <taxonRankValue>Oncorhynchus</taxonRankValue>
+                    <taxonomicClassification>
+                      <taxonRankName>species</taxonRankName>
+                      <taxonRankValue>Oncorhynchus tshawytscha</taxonRankValue>
+                      <commonName>Chinook Salmon</commonName>
+                      <taxonId provider="https://itis.gov">161980</taxonId>
+                    </taxonomicClassification>
+                  </taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicClassification>
+            </taxonomicClassification>
+          </taxonomicClassification>
+        </taxonomicClassification>
+      </taxonomicCoverage>
+    </coverage>
+    <maintenance>
+      <description>ongoing</description>
+      <maintenanceUpdateFrequency>monthly</maintenanceUpdateFrequency>
+    </maintenance>
+    <contact>
+      <individualName>
+        <givenName>Natasha</givenName>
+        <surName>Wingerter</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <para>
+    These are the methods for the Battle/Clear RST EDI package.
+  </para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>Monitoring juvenile Chinook salmon outmigration using rotary screw traps on Battle and Clear Creek</title>
+      <personnel>
+        <individualName>
+          <givenName>Natasha</givenName>
+          <surName>Wingerter</surName>
+        </individualName>
+        <organizationName>U.S. Fish and Wildlife Service</organizationName>
+        <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+        <role>Project Lead</role>
+      </personnel>
+    </project>
+    <dataTable>
+      <entityName>catch.csv</entityName>
+      <entityDescription>Catch table</entityDescription>
+      <physical>
+        <objectName>catch.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/catch.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>fork_length</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Fork length of the fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1121</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>dead</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Whether or not the fish was dead. Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Whether or not the fish was dead. Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>weight</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Weight of the fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">168.7</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>count</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Count of fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">8451</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>r_catch</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Catch number used to generate passage indices for reports, plus counts are split into races, zero fork lengths have been assigned</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">8451</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>interp</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Is RCatch value an interpolated catch for times the trap did not fish? . Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Is RCatch value an interpolated catch for times the trap did not fish? . Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>age_class</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Age class of the fish, if identified. Levels = c("AGE0+", "", "YOY")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Age class of the fish, if identified. Levels = c("AGE0+", "", "YOY")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>brood_year</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Brood year</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Brood year</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>subsample</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Levels = c("not provided", "1/4", "1/8", "1/2", "1/16", "1/32", "1/64", &#13;
+"1/256", "")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Levels = c("not provided", "1/4", "1/8", "1/2", "1/16", "1/32", "1/64", &#13;
+"1/256", "")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>common_name</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Common name of the fish. Levels = c("Chinook Salmon", "Hardhead", "Rainbow Trout", "Sacramento Sucker", &#13;
+"Sacramento Pikeminnow", "Speckled Dace", "Unidentified ammocoete", &#13;
+"Tule Perch", "Pacific Lamprey macropthalmia", "Threespine Stickleback", &#13;
+"Pacific Lamprey ammocoete", "Unidentified Cyprinid fry", "California Roach", &#13;
+"Riffle Sculpin", "Sacramento Sucker fry", "Golden Shiner", "Green Sunfish", &#13;
+"Prickly Sculpin")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Common name of the fish. Levels = c("Chinook Salmon", "Hardhead", "Rainbow Trout", "Sacramento Sucker", &#13;
+"Sacramento Pikeminnow", "Speckled Dace", "Unidentified ammocoete", &#13;
+"Tule Perch", "Pacific Lamprey macropthalmia", "Threespine Stickleback", &#13;
+"Pacific Lamprey ammocoete", "Unidentified Cyprinid fry", "California Roach", &#13;
+"Riffle Sculpin", "Sacramento Sucker fry", "Golden Shiner", "Green Sunfish", &#13;
+"Prickly Sculpin")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>life_stage</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Lifestage of the fish. Levels = c("not provided", "parr", "silvery parr", "obvious fry", "smolt", &#13;
+"yolk sac fry", "fry")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Lifestage of the fish. Levels = c("not provided", "parr", "silvery parr", "obvious fry", "smolt", &#13;
+"yolk sac fry", "fry")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_date</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Date sample was taken</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2020-07-06</minimum>
+                  <maximum exclusive="false">2023-01-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_id</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Sample identifier linking catch to trap table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>run</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Database generated Sheila Greene run designation of catch. Levels = c("not provided", "Winter", "Fall", "Spring", "Late-Fall", NA&#13;
+)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Database generated Sheila Greene run designation of catch. Levels = c("not provided", "Winter", "Fall", "Spring", "Late-Fall", NA&#13;
+)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fws_run</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
+)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
+)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>56471</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>trap.csv</entityName>
+      <entityDescription>Trap visit table</entityDescription>
+      <physical>
+        <objectName>trap.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/trap</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_date</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Date sample was taken</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2020-07-06</minimum>
+                  <maximum exclusive="false">2023-01-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_time</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Time sample was taken</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>HH:MM:SS</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">02:40:00</minimum>
+                  <maximum exclusive="false">20:36:00</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_id</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Sample identifier linking catch to trap table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>depth_adjust</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The depth of the bottom of the cone</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">25</minimum>
+                  <maximum exclusive="false">39</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>avg_time_per_rev</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The average time per cone rotation (average of three rotations)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>second</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">393</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flow_start_meter</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Reading on the flow meter at start</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">985000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flow_end_meter</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Reading on the flow meter at end</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">997529</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flow_set_time</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>How long the General Oceanics meachanical flow meter (Oceanic ® Model 2030)was in the water taking a reading, used to calculate water velocity in front of the cone</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>second</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">300</minimum>
+                  <maximum exclusive="false">3071</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>river_left_depth</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>River depth from inside of the river left (facing down stream) pontoon off crossbeam #2 (cone crossbeam)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">2.4</minimum>
+                  <maximum exclusive="false">5.8</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>river_center_depth</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>River depth from directly in the center of cone off crossbeam #2 (cone crossbeam)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">2.5</minimum>
+                  <maximum exclusive="false">5.8</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>river_right_depth</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>River depth from inside of the river right (facing down stream) pontoon off crossbeam #2 (cone crossbeam)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">2.6</minimum>
+                  <maximum exclusive="false">5.8</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>thalweg</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Was trap fishing in the thalweg at SampleDate and SampleTime. Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Was trap fishing in the thalweg at SampleDate and SampleTime. Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>cone</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Was the trap finshed at cone full-cone (1.0) or half-cone (0.5) setting. Levels = c(1, 0.5, NA)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Was the trap finshed at cone full-cone (1.0) or half-cone (0.5) setting. Levels = c(1, 0.5, NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>start_counter</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Reading on the rotation counter at the end of the trap visit</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>revolutionsPerMinute</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">0</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>counter</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Reading on the rotation counter</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>revolutionsPerMinute</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">18632</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>debris_tubs</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The number of 10-g tubs of debris removed from the trap during the sample period (volumetrically)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">23.5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>velocity</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Water velocity measured at trap</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>feetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.67267580000000005</minimum>
+                  <maximum exclusive="false">4.7827500000000001</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>turbidity</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Turbidity measured at trap</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>NTU</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">9.8000000000000004E-2</minimum>
+                  <maximum exclusive="false">258</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_fishing</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Did the trap fish on the sample date. Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Did the trap fish on the sample date. Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>partial_sample</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Is it a partial sample? Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Is it a partial sample? Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sub_week</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>If sample week has more than one efficiency, which part of week is sample from. Levels = c("A", "B", "", NA)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>If sample week has more than one efficiency, which part of week is sample from. Levels = c("A", "B", "", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_start_date</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The date the trap was started sampling prior to the SampleDate (the beginning of the sample period)</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2000-04-14</minimum>
+                  <maximum exclusive="false">2023-01-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_start_time</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The time the trap was started on the TrapStartDate (the beginning of the sample period)</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm:ss</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">06:10:00</minimum>
+                  <maximum exclusive="false">19:50:45</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>weather</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The weather conditions on the SampleDate and SampleTime. Levels = c("sunny", "precipitation", "partly cloudy", "overcast", NA, &#13;
+"foggy", "")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The weather conditions on the SampleDate and SampleTime. Levels = c("sunny", "precipitation", "partly cloudy", "overcast", NA, &#13;
+"foggy", "")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>habitat</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The type of flow habitat the trap fished in. Levels = c("run", NA)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The type of flow habitat the trap fished in. Levels = c("run", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_sample_type</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The type of sample regime. Levels = c("non-intensive", NA)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The type of sample regime. Levels = c("non-intensive", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>diel</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The time of day relative to the sun. Levels = c("day", NA)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The time of day relative to the sun. Levels = c("day", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>debris_type</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The type of debris found in the live-box. Levels = c("Aquatic Vegetation, Leaves, and Sticks", "Leaves", NA, "Aquatic Vegetation and Sticks", &#13;
+"Leaves and Sticks", "Aquatic Vegetation and Leaves", "Aquatic Vegetation"&#13;
+)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The type of debris found in the live-box. Levels = c("Aquatic Vegetation, Leaves, and Sticks", "Leaves", NA, "Aquatic Vegetation and Sticks", &#13;
+"Leaves and Sticks", "Aquatic Vegetation and Leaves", "Aquatic Vegetation"&#13;
+)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>gear_condition</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The condition of the trap on the SampleDate and SampleTime. Levels = c("Trap is fishing normal", "The cone is not rotating", NA, "There is a partial block in the cone", &#13;
+"There is a total block in the cone")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The condition of the trap on the SampleDate and SampleTime. Levels = c("Trap is fishing normal", "The cone is not rotating", NA, "There is a partial block in the cone", &#13;
+"There is a total block in the cone")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>375065</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>recapture.csv</entityName>
+      <entityDescription>Recaptures</entityDescription>
+      <physical>
+        <objectName>recapture.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/recapture</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>site</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_site</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Site where fish were released. Levels = c("CCRB", "VB", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site where fish were released. Levels = c("CCRB", "VB", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_id</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Key to link with recapture table</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Key to link with recapture table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>date_recaptured</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Date fish was recaptured</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2020-01-01</minimum>
+                  <maximum exclusive="false">2021-03-13</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>number_recaptured</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Number of fish recaptured</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">48</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>median_fork_length_recaptured</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Median fork length of the recaptured fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">33</minimum>
+                  <maximum exclusive="false">55</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>144</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>release.csv</entityName>
+      <entityDescription>Release summary</entityDescription>
+      <physical>
+        <objectName>release.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/release</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>site</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_site</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Location of release site. Levels = c("CCRB", "VB", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Location of release site. Levels = c("CCRB", "VB", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>date_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Date of release</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2020-01-04</minimum>
+                  <maximum exclusive="false">2021-03-08</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>time_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Time of release</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm:ss</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">14:29:00</minimum>
+                  <maximum exclusive="false">20:33:00</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>number_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Number of fish released</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">208</minimum>
+                  <maximum exclusive="false">1143</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>median_fork_length_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Median fork length of the released fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">33</minimum>
+                  <maximum exclusive="false">88</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_id</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Release ID (to connect to recapture table)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Release ID (to connect to recapture table)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>days_held_post_mark</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>How many days the fish was held post-marking</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>Day</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">3</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>day_or_night_release</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Whether the release was conducted at day or night, levels = c("night", "day", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Whether the release was conducted at day or night, levels = c("night", "day", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_temp</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Temperature recorded at release</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">0</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_flow</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Flow recorded at release</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">232</minimum>
+                  <maximum exclusive="false">806</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_turbidity</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Turbidity recorded at release</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>NTU</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.66</minimum>
+                  <maximum exclusive="false">20.399999999999999</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>origin_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Origin of released fish. Levels = c(NA, "hatchery")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Origin of released fish. Levels = c(NA, "hatchery")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>28</numberOfRecords>
+    </dataTable>
+    <otherEntity>
+      <entityName>data-raw/battle_clear_data_processing_scripts.zip</entityName>
+      <entityDescription>R scripts that produce daily passage and cumulative catch tables from the raw catch table 
+                                                     and biweekly and brood-year passage via bootstrapping</entityDescription>
+      <entityType>ZIP file containing three R scripts</entityType>
+    </otherEntity>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="Day" name="Day">
+          <description>Number of days</description>
+        </unit>
+        <unit id="count of fish" name="count of fish">
+          <description>Count of fish</description>
+        </unit>
+        <unit id="NTU" name="NTU">
+          <description>Turbidity measured in Nephelometric Turbidity Units</description>
+        </unit>
+        <unit id="count" name="count">
+          <description>Count of 10 gallon debris tubs</description>
+        </unit>
+        <unit id="revolutionsPerMinute" name="revolutionsPerMinute">
+          <description>Number of revolutions per minute</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>
