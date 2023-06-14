@@ -20,15 +20,10 @@ datatable_metadata <-
                                          "recapture",
                                          "release")))
 
-other_entity_metadata <- tibble(file_name = c("data-raw/daily_passage_refactor_with_updated_inputs.R",
-                                              "data-raw/cumulative_catch_with_updated_inputs.R",
-                                              "data-raw/bootstrap_refactor_with_updated_inputs.R"),
-                                file_description = c("R script producing daily passage from catch table",
-                                                     "R script for producing cumulative catch from catch table",
-                                                     "R script for producing biweekly and brood-year passage via bootstrapping"),
-                                file_type = c("R script", 
-                                              "R script",
-                                              "R script"))
+other_entity_metadata <- tibble(file_name = "data-raw/battle_clear_data_processing_scripts.zip",
+                                file_description = "R scripts that produce daily passage and cumulative catch tables from the raw catch table 
+                                                     and biweekly and brood-year passage via bootstrapping",
+                                file_type = "ZIP file containing three R scripts")
 
 
 excel_path <- "data-raw/metadata/project-metadata.xlsx"
@@ -57,7 +52,7 @@ dataset <- list() %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
   add_datatable(datatable_metadata) |> 
   add_other_entity(other_entity_metadata)
-
+  
 custom_units <- data.frame(id = c("Day", "count of fish", "NTU", "count", "revolutionsPerMinute"),
                            unitType = c(NA, NA, NA, NA, NA),
                            parentSI = c(NA, NA, NA, NA, NA),
