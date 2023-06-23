@@ -93,7 +93,8 @@ daily_catch_summary <- catch_data |>
 
 # calculate daily passage
 daily_passage <- daily_catch_summary |> 
-  mutate(passage = round((catch / efficiency), 0)) |> 
+  mutate(passage = ifelse(is.na(efficiency), catch, round((catch / efficiency), 0))) |> 
+  #mutate(passage = round((catch / efficiency), 0)) |> 
   select(date, passage, common_name, fws_run, station_code, brood_year) |> 
   glimpse()
 
