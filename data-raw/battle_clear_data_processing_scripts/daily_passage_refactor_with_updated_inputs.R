@@ -9,6 +9,7 @@
 # Create the SampleID.xls spreadsheet
 
 # This script is a refactor of Daily Passage and FL LCC.R
+# Mike Schraml, USFWS
 # 12-22-2022
 
 # Load needed Packages

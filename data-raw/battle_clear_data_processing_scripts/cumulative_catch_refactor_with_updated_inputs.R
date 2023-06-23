@@ -5,6 +5,7 @@
 
 
 # This script is a refactor of Cumulative catch LCC.R
+# Mike Schraml, USFWS
 # 05-23-2023
 
 # Load needed Packages
@@ -63,16 +64,6 @@ sample_data_full <- sample_data |>
       end_val = max_date) |>
   fill_by_value(r_catch, value = 0) |> glimpse()
 
-# daily_catch <- sample_data_full |>
-#   group_by(date, fws_run, common_name, station_code) |> 
-#   summarise(catch = sum(r_catch, na.rm = TRUE)) |> 
-#   ungroup() |>
-#   group_by(fws_run, common_name, station_code) |>
-#   summarise(cumulative_catch = cumsum(catch),
-#             total_catch = sum(catch, na.rm = TRUE),
-#             cumulative_percent_catch = round((cumulative_catch / total_catch * 100), 3)) |> 
-#   glimpse()
-
 daily_catch <- sample_data_full |>
   group_by(date, fws_run, common_name, station_code) |> 
   summarise(catch = sum(r_catch, na.rm = TRUE),
@@ -91,6 +82,7 @@ daily_catch_wide <- daily_catch |>
   glimpse()
   
 
-# Run this Code to output the Excel file
-write.xlsx(cum.catch, "C:/Users/mschraml/Desktop/ROutput/LCC Cumulative Catch.xlsx")
+# write file
+write.csv(daily_catch_wide, here::here("data-raw", "cumulative_catch.csv"),
+          row.names = FALSE)
 

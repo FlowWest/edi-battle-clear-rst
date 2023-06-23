@@ -1,6 +1,8 @@
 # This code will calculate the biweekly and brood year
 # passage indices (to date), 95% confidence limits and standard error.
 
+# This script is a refactor of code by Mike Schraml, USFWS
+
 # Load needed Packages
 if (!require("readxl")) {            # for importing data sets
   install.packages("readxl")
@@ -194,87 +196,7 @@ brood_year_bootstraps <- strata_catch_summary |>
 
 
 # write table -------------------------------------------------------------
-
-# test with original data -------------------------------------------------
-
-# original data to test function
-BOR_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha",
-                                "BOR Data.csv")) |> 
-  janitor::clean_names() |> 
-  rename(common_name = organism_code,
-         fws_run = fws_race,
-         efficiency = baileys_eff,
-         number_released = num_released) |> 
-  mutate(sample_date = mdy(sample_date),
-         id_week = ifelse(id_week < 10, paste0("0", id_week), as.character(id_week))) |> 
-  unite(strata, c(id_week, sub_week), sep = "") |> 
-  glimpse()
-
-BOR_efficiency <- BOR_data |> 
-  select(station_code, fws_run, strata, efficiency, number_released,
-         common_name, brood_year) |> 
-  distinct_all() |> 
-  glimpse()
-
-BOR_strata_summary <- BOR_data |>
-  group_by(common_name, station_code, fws_run, brood_year, strata) |> 
-  summarise(weekly_catch = sum(r_catch, na.rm = T)) |> 
-  left_join(BOR_efficiency, by = c("common_name", "station_code", "fws_run", 
-                                   "brood_year", "strata")) |> 
-  arrange(strata) |>
-  mutate(weekly_passage = round(weekly_catch / efficiency),
-         fws_run = ifelse(fws_run == "", NA, fws_run),
-         id_week = substr(strata, 1, 2)) |> 
-  glimpse()
-
-# biweekly
-biweekly_bootstraps <- BOR_strata_summary |> 
-  filter(id_week %in% subset_weeks) |> 
-  group_by(common_name, fws_run, brood_year, station_code) |> 
-  group_split() |> 
-  purrr::map(function(x) {
-    if(length(x$common_name)<= 1) {
-      return(tibble("LCL" = NA,
-                    "passage" = sum(x$weekly_passage, na.rm = TRUE),
-                    "UCL" = NA,
-                    "se" = NA,
-                    "common_name" = unique(x$common_name),
-                    "fws_run" = unique(x$fws_run),
-                    "brood_year" = unique(x$brood_year),
-                    "station_code" = unique(x$station_code)))
-    } else {
-      bootstrap_function(x, replicates = 1000) |> 
-        mutate("common_name" = unique(x$common_name),
-               "fws_run" = unique(x$fws_run),
-               "brood_year" = unique(x$brood_year),
-               "station_code" = unique(x$station_code))
-    }
-    
-  }) |> 
-  list_rbind()
-
-# brood year
-brood_year_bootstraps <- BOR_strata_summary |> 
-  group_by(common_name, fws_run, brood_year, station_code) |> 
-  group_split() |> 
-  purrr::map(function(x) {
-    if(length(x$common_name)<= 1) {
-      return(tibble("LCL" = NA,
-                    "passage" = sum(x$weekly_passage, na.rm = TRUE),
-                    "UCL" = NA,
-                    "se" = NA,
-                    "common_name" = unique(x$common_name),
-                    "fws_run" = unique(x$fws_run),
-                    "brood_year" = unique(x$brood_year),
-                    "station_code" = unique(x$station_code)))
-    } else {
-      bootstrap_function(x, replicates = 1000) |> 
-        mutate("common_name" = unique(x$common_name),
-               "fws_run" = unique(x$fws_run),
-               "brood_year" = unique(x$brood_year),
-               "station_code" = unique(x$station_code))
-    }
-    
-  }) |> 
-  list_rbind()
-
+write.csv(biweekly_bootstraps,
+          here::here("data-raw", "bootstrap_biweekly_passage.csv"), row.names = FALSE)
+write.csv(brood_year_bootstraps,
+          here::here("data-raw", "bootstrap_brood_year_passage.csv"), row.names = FALSE)
