@@ -30,7 +30,7 @@
       <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2023-06-14</pubDate>
+    <pubDate>2023-06-23</pubDate>
     <abstract>
       <para>
     This is the abstract for the Battle/Clear RST EDI package.
@@ -398,22 +398,6 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>run</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Database generated Sheila Greene run designation of catch. Levels = c("not provided", "Winter", "Fall", "Spring", "Late-Fall", NA&#13;
-)</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Database generated Sheila Greene run designation of catch. Levels = c("not provided", "Winter", "Fall", "Spring", "Late-Fall", NA&#13;
-)</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
           <attributeName>fws_run</attributeName>
           <attributeLabel>catch</attributeLabel>
           <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
@@ -451,7 +435,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/trap</url>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/trap.csv</url>
           </online>
         </distribution>
       </physical>
@@ -979,7 +963,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/recapture</url>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/recapture.csv</url>
           </online>
         </distribution>
       </physical>
@@ -1102,7 +1086,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/release</url>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/release.csv</url>
           </online>
         </distribution>
       </physical>
@@ -1325,6 +1309,231 @@
         </attribute>
       </attributeList>
       <numberOfRecords>28</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>passage_summary.csv</entityName>
+      <entityDescription>Daily passage summary with fork length</entityDescription>
+      <physical>
+        <objectName>passage_summary.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/passage_summary.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>date</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Date for which passage data is summarized</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2020-07-06</minimum>
+                  <maximum exclusive="false">2023-01-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>common_name</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Common name of the fish. Levels = c("Chinook Salmon", "Hardhead", "Rainbow Trout", "Sacramento Sucker", &#13;
+"Sacramento Pikeminnow", "Speckled Dace", "Unidentified ammocoete", &#13;
+"Tule Perch", "Pacific Lamprey macropthalmia", "Threespine Stickleback", &#13;
+"Pacific Lamprey ammocoete", "Unidentified Cyprinid fry", "California Roach", &#13;
+"Riffle Sculpin", "Sacramento Sucker fry", "Golden Shiner", "Green Sunfish", &#13;
+"Prickly Sculpin")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Common name of the fish. Levels = c("Chinook Salmon", "Hardhead", "Rainbow Trout", "Sacramento Sucker", &#13;
+"Sacramento Pikeminnow", "Speckled Dace", "Unidentified ammocoete", &#13;
+"Tule Perch", "Pacific Lamprey macropthalmia", "Threespine Stickleback", &#13;
+"Pacific Lamprey ammocoete", "Unidentified Cyprinid fry", "California Roach", &#13;
+"Riffle Sculpin", "Sacramento Sucker fry", "Golden Shiner", "Green Sunfish", &#13;
+"Prickly Sculpin")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fws_run</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
+)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
+)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>brood_year</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Brood year</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Brood year</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>passage</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Summarized daily passage value</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">522855</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>minimum_fl</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Minimum fork length on date</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">19</minimum>
+                  <maximum exclusive="false">430</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>maximum_fl</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Maximum fork length on date</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">22</minimum>
+                  <maximum exclusive="false">430</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>discharge_volume_cfs</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Volume of discharge measured at Igo</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">218</minimum>
+                  <maximum exclusive="false">230</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>water_temperature_c</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Water temperature measured at Igo</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">49.9</minimum>
+                  <maximum exclusive="false">51.6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>water_turbidity_ntu</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Water turbidity measured at Igo</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>NTU</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">9.8000000000000004E-2</minimum>
+                  <maximum exclusive="false">258</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>739354</numberOfRecords>
     </dataTable>
     <otherEntity>
       <entityName>data-raw/battle_clear_data_processing_scripts.zip</entityName>

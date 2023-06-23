@@ -10,6 +10,7 @@ catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
 catch <- bind_rows(catch_early |> 
                      filter(sample_date < min(catch_late$sample_date, na.rm = T)),
                    catch_late) |> 
+  select(-run) |> 
   glimpse()
 
 # trap
