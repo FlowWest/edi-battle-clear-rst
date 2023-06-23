@@ -57,6 +57,14 @@ release_battle <- read_csv(here::here("data", "battle_release.csv")) |>
 release <- bind_rows(release_clear, release_battle) |> 
   glimpse()
 
+# SacPAS daily passage summary
+passage_summary <- read.csv(here::here("data-raw", "BOR Daily Passage and FL.csv")) |> 
+  janitor::clean_names() |> 
+  select(date, station_code, common_name, fws_run, brood_year, passage,
+         minimum_fl, maximum_fl, discharge_volume_cfs, water_temperature_c, 
+         water_turbidity_ntu) |> 
+  glimpse()
+
 
 # write full datasets -----------------------------------------------------
 
@@ -64,6 +72,7 @@ write.csv(catch, here::here("data", "catch.csv"), row.names = FALSE)
 write.csv(trap, here::here("data", "trap.csv"), row.names = FALSE)
 write.csv(recapture, here::here("data", "recapture.csv"), row.names = FALSE)
 write.csv(release, here::here("data", "release.csv"), row.names = FALSE)
+write.csv(passage_summary, here::here("data", "passage_summary.csv"), row.names = FALSE)
 
 
 # read and glimpse --------------------------------------------------------
@@ -72,3 +81,4 @@ catch <- read_csv(here::here("data", "catch.csv")) |> glimpse()
 trap <- read.csv(here::here("data", "trap.csv")) |> glimpse()
 recapture <- read.csv(here::here("data", "recapture.csv")) |> glimpse()
 release <- read.csv(here::here("data", "release.csv")) |> glimpse()
+passage_summary <- read.csv(here::here("data", "passage_summary.csv")) |> glimpse()
