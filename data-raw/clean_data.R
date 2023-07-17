@@ -7,9 +7,17 @@ library(lubridate)
 catch_early <- read.csv(here::here("data", "catch_early.csv")) |> glimpse()
 catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
 
+# to convert subsample column
+frac_to_decimal <- function(x) {
+  new_vals <- sapply(x, function(x) eval(parse(text = x)))
+  return(new_vals)
+}
+
 catch <- bind_rows(catch_early |> 
                      filter(sample_date < min(catch_late$sample_date, na.rm = T)),
                    catch_late) |> 
+  mutate(subsample = ifelse(subsample %in% c("", "not provided"), NA, subsample),
+         subsample = frac_to_decimal(subsample)) |> 
   select(-run) |> 
   glimpse()
 
@@ -21,7 +29,8 @@ trap <- bind_rows(trap_early, trap_late) |>
   select(-c(lunar_phase)) |> 
   mutate(thalweg = ifelse(thalweg %in% c("Yes", "Y"), TRUE, FALSE),
          trap_fishing = ifelse(trap_fishing == 1, TRUE, FALSE),
-         partial_sample = ifelse(partial_sample == 1, TRUE, FALSE)) |> 
+         partial_sample = ifelse(partial_sample == 1, TRUE, FALSE),
+         baileys_efficiency = NA_real_) |> # placeholder for official trap efficiency
   glimpse()
 
 
@@ -41,6 +50,7 @@ recapture_battle <- read_csv(here::here("data", "battle_recapture.csv")) |>
   glimpse()
 
 recapture <- bind_rows(recapture_clear, recapture_battle) |> 
+  mutate(subsite = NA_character_) |> # to distinguish between LCC/UCC for Clear Creek and RM 8.3/8.4 for UBC
   glimpse()
 
 # release - clear
@@ -56,6 +66,8 @@ release_battle <- read_csv(here::here("data", "battle_release.csv")) |>
   glimpse()
 
 release <- bind_rows(release_clear, release_battle) |> 
+  mutate(subsite = NA_character_, # to distinguish between LCC/UCC in Clear Creek and RM 8.3/8.4 in UBC
+         run = NA_character_) |> 
   glimpse()
 
 # SacPAS daily passage summary
