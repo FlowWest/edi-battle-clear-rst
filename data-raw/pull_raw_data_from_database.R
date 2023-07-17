@@ -145,10 +145,13 @@ trap <- trap_raw |>
               filter(CodeListName == "DebrisTypeList") |> 
               select(ValueCode, DebrisType_Description = FormDisplay),
             by = c("DebrisType" = "ValueCode")) |> 
-  left_join(LU_tables$LunarPhaseLookUp |> 
-              select(LunarPhase = strPhase, 
-                     lunar_phase_description = formDisplay),
-            by = c("LunarPhase")) |> 
+  mutate(LunarPhase = ifelse(LunarPhase == "", NA_character_, LunarPhase)) |> 
+  left_join(LU_tables$LunarPhaseLookUp |>
+              select(LunarPhase = strPhase,
+                     lunar_phase_description = formDisplay) |> 
+              distinct(LunarPhase, lunar_phase_description) |> 
+              filter(lunar_phase_description != ""),
+            by = c("LunarPhase")) |>
   left_join(LU_tables$VariableCodesLookUp |> 
               filter(CodeListName == "ConditionList") |> 
               select(ValueCode, Gear_Description = CodeDescription),
