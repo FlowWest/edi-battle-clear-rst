@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1030.2" system="EDI" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="38ced8c6-6253-44da-a16f-e7e695b283ca" system="uuid" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
   <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
     <allow>
       <principal>public</principal>
@@ -10,9 +10,33 @@
       <permission>write</permission>
     </allow>
   </access>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="Day" name="Day">
+          <description>Number of days</description>
+        </unit>
+        <unit id="count of fish" name="count of fish">
+          <description>Count of fish</description>
+        </unit>
+        <unit id="NTU" name="NTU">
+          <description>Turbidity measured in Nephelometric Turbidity Units</description>
+        </unit>
+        <unit id="count" name="count">
+          <description>Count of 10 gallon debris tubs</description>
+        </unit>
+        <unit id="revolutionsPerMinute" name="revolutionsPerMinute">
+          <description>Number of revolutions per minute</description>
+        </unit>
+        <unit id="percentage" name="percentage">
+          <description>Baileys efficiency in percentage</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
   <dataset>
     <shortName>Battle and Clear RST</shortName>
-    <title>Monitoring juvenile Chinook salmon outmigration using rotary screw traps on Battle and Clear Creek</title>
+    <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
     <creator>
       <individualName>
         <givenName>Natasha</givenName>
@@ -30,10 +54,10 @@
       <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2023-06-23</pubDate>
+    <pubDate>2023-08-30</pubDate>
     <abstract>
       <para>
-    This is the abstract for the Battle/Clear RST EDI package.
+    abstract
   </para>
     </abstract>
     <keywordSet>
@@ -46,6 +70,24 @@
       <keyword>RST</keyword>
       <keyword>California</keyword>
       <keyword>Central Valley</keyword>
+      <keyword>Salmonid</keyword>
+      <keyword>Chinook</keyword>
+      <keyword>Salmon</keyword>
+      <keyword>Juvenile</keyword>
+      <keyword>Passage</keyword>
+      <keyword>Catch</keyword>
+      <keyword>Oncorhynchus</keyword>
+      <keyword>tshawytscha</keyword>
+      <keyword>mykiss</keyword>
+      <keyword>Rotary screw trap</keyword>
+      <keyword>Winter-run</keyword>
+      <keyword>Spring-run</keyword>
+      <keyword>Fall-run</keyword>
+      <keyword>Late fall-run</keyword>
+      <keyword>Rainbow Trout</keyword>
+      <keyword>Steelhead</keyword>
+      <keyword>Clear Creek</keyword>
+      <keyword>Battle Creek</keyword>
     </keywordSet>
     <intellectualRights>
       <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.</para>
@@ -57,12 +99,12 @@
     </licensed>
     <coverage>
       <geographicCoverage>
-        <geographicDescription>Battle and Clear Rotary Screw Traps</geographicDescription>
+        <geographicDescription>Battle Creek (Shasta and Tehama Cointies) and Clear Creek (Shasta Cointy) as one square</geographicDescription>
         <boundingCoordinates>
-          <westBoundingCoordinate>-122.4964</westBoundingCoordinate>
-          <eastBoundingCoordinate>-121.7504</eastBoundingCoordinate>
-          <northBoundingCoordinate>40.5058</northBoundingCoordinate>
-          <southBoundingCoordinate>39.6223</southBoundingCoordinate>
+          <westBoundingCoordinate>-122.4967</westBoundingCoordinate>
+          <eastBoundingCoordinate>-122.1416</eastBoundingCoordinate>
+          <northBoundingCoordinate>40.5064</northBoundingCoordinate>
+          <southBoundingCoordinate>40.3979</southBoundingCoordinate>
         </boundingCoordinates>
       </geographicCoverage>
       <temporalCoverage>
@@ -107,6 +149,38 @@
           </taxonomicClassification>
         </taxonomicClassification>
       </taxonomicCoverage>
+      <taxonomicCoverage>
+        <taxonomicClassification>
+          <taxonRankName>kingdom</taxonRankName>
+          <taxonRankValue>Animalia</taxonRankValue>
+          <taxonomicClassification>
+            <taxonRankName>phylum</taxonRankName>
+            <taxonRankValue>Chordata</taxonRankValue>
+            <taxonomicClassification>
+              <taxonRankName>class</taxonRankName>
+              <taxonRankValue>Teleostei</taxonRankValue>
+              <taxonomicClassification>
+                <taxonRankName>order</taxonRankName>
+                <taxonRankValue>Salmoniformes</taxonRankValue>
+                <taxonomicClassification>
+                  <taxonRankName>family</taxonRankName>
+                  <taxonRankValue>Salmonidae</taxonRankValue>
+                  <taxonomicClassification>
+                    <taxonRankName>genus</taxonRankName>
+                    <taxonRankValue>Oncorhynchus</taxonRankValue>
+                    <taxonomicClassification>
+                      <taxonRankName>species</taxonRankName>
+                      <taxonRankValue>Oncorhynchus mykiss</taxonRankValue>
+                      <commonName>Steelhead Trout</commonName>
+                      <taxonId provider="https://itis.gov">161989</taxonId>
+                    </taxonomicClassification>
+                  </taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicClassification>
+            </taxonomicClassification>
+          </taxonomicClassification>
+        </taxonomicClassification>
+      </taxonomicCoverage>
     </coverage>
     <maintenance>
       <description>ongoing</description>
@@ -124,13 +198,13 @@
       <methodStep>
         <description>
           <para>
-    These are the methods for the Battle/Clear RST EDI package.
+    Methods
   </para>
         </description>
       </methodStep>
     </methods>
     <project>
-      <title>Monitoring juvenile Chinook salmon outmigration using rotary screw traps on Battle and Clear Creek</title>
+      <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
       <personnel>
         <individualName>
           <givenName>Natasha</givenName>
@@ -941,8 +1015,27 @@
             </nominal>
           </measurementScale>
         </attribute>
+        <attribute>
+          <attributeName>baileys_efficiency</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The estimated Bailey's efficiency.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percentage</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">0</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
       </attributeList>
-      <numberOfRecords>375065</numberOfRecords>
+      <numberOfRecords>1987</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>recapture.csv</entityName>
@@ -1062,6 +1155,20 @@
                 </bounds>
               </numericDomain>
             </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>subsite</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Subsite for release.</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Subsite for release.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
           </measurementScale>
         </attribute>
       </attributeList>
@@ -1307,6 +1414,34 @@
             </nominal>
           </measurementScale>
         </attribute>
+        <attribute>
+          <attributeName>subsite</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Subsite of released fish.</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Subsite of released fish.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>run</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Run identified of the fish.</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Run identified of the fish.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
       </attributeList>
       <numberOfRecords>28</numberOfRecords>
     </dataTable>
@@ -1542,25 +1677,5 @@
       <entityType>ZIP file containing three R scripts</entityType>
     </otherEntity>
   </dataset>
-  <additionalMetadata>
-    <metadata>
-      <unitList>
-        <unit id="Day" name="Day">
-          <description>Number of days</description>
-        </unit>
-        <unit id="count of fish" name="count of fish">
-          <description>Count of fish</description>
-        </unit>
-        <unit id="NTU" name="NTU">
-          <description>Turbidity measured in Nephelometric Turbidity Units</description>
-        </unit>
-        <unit id="count" name="count">
-          <description>Count of 10 gallon debris tubs</description>
-        </unit>
-        <unit id="revolutionsPerMinute" name="revolutionsPerMinute">
-          <description>Number of revolutions per minute</description>
-        </unit>
-      </unitList>
-    </metadata>
-  </additionalMetadata>
+  <packageID>edi.1030.2</packageID>
 </eml:eml>
