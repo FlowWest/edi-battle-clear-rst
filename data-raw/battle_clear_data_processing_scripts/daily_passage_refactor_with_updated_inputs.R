@@ -9,6 +9,7 @@
 # Create the SampleID.xls spreadsheet
 
 # This script is a refactor of Daily Passage and FL LCC.R
+# Mike Schraml, USFWS
 # 12-22-2022
 
 # Load needed Packages
@@ -33,27 +34,11 @@ brood_years <- c(2021, 2022)
 weeks <- c(13, 14)
 julian_dates <- c(85, 98) 
 
-# TODO figure out if we need julian date
 # data prep --------------------------------------------------------------
 
 # Load needed data sets, rename columns, separate SampleID into julian date
 # and year. Format columns and subset data to two week period.
 # 
-# ORIGINAL TABLES -------------------------------------------------------------
-catch_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", "BOR Data.csv")) |> 
-  rename(Date = SampleDate) |> 
-  separate(SampleID, c("jdate", "year"), "_") |>
-  mutate(RCatch = as.double(RCatch),
-         jdate = as.numeric(jdate),
-         year = as.numeric(year),
-         Date = as.Date(as.POSIXct(Date, format = "%m/%d/%Y"))) |> 
-  filter(between(jdate, julian_dates[1], julian_dates[2])) |> glimpse()
-
-sample_data <- read.csv(here::here("data-raw", "scripts_and_data_from_natasha", "LCC SampleID.csv")) |> 
-  rename(Date = SampleDate) |> 
-  mutate(Date = as.Date(as.POSIXct(Date, format = "%m/%d/%Y"))) |> glimpse()
-
-
 # CREATE NEW TABLES BASED ON EDI TABLES AND OLD TABLES -------------------------
 catch <- read.csv("data/catch.csv") |> 
   mutate(year = year(sample_date),
@@ -109,7 +94,8 @@ daily_catch_summary <- catch_data |>
 
 # calculate daily passage
 daily_passage <- daily_catch_summary |> 
-  mutate(passage = round((catch / efficiency), 0)) |> 
+  mutate(passage = ifelse(is.na(efficiency), catch, round((catch / efficiency), 0))) |> 
+  #mutate(passage = round((catch / efficiency), 0)) |> 
   select(date, passage, common_name, fws_run, station_code, brood_year) |> 
   glimpse()
 
@@ -120,17 +106,6 @@ daily_passage_wide <- daily_passage |>
   pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
               values_from = passage) |>
   glimpse()
-
-
-# rename headers
-names(rbt.pa) <- r.names.a
-names(rbt.pb) <- r.names.b
-names(lfcs.pa) <- l.names.a
-names(lfcs.pb) <- l.names.b
-names(wcs.pa) <- w.names.a
-names(wcs.pb) <- w.names.b
-names(scs.p) <- s.names
-names(fcs.p) <- f.names
 
 
 # fork lengths ------------------------------------------------------------
@@ -156,20 +131,6 @@ fork_length_summary_wide <- fork_length_summary |>
               values_from = c(minimum, maximum)) |> 
   glimpse()
 
-# TODO: some columns are all NAs - where does this happen?
-# TODO: rename columns? Might be iffy for automation
-
-
-# Rename headers
-names(fl.wa) <- w.names.fl.a
-names(fl.wb) <- w.names.fl.b
-names(fl.s) <- s.names.fl
-names(fl.f) <- f.names.fl
-names(fl.lfa) <- l.names.fl.a
-names(fl.lfb) <- l.names.fl.b
-names(rbt.fla) <- r.names.fla
-names(rbt.flb) <- r.names.flb
-
 
 # join fork length to passage ---------------------------------------------
 
@@ -181,8 +142,9 @@ daily_summary_full <- daily_passage |>
 
 # pivot wide to match original code
 daily_summary_full_wide <- daily_summary_full |> 
-  pivot_wider(names_from = c(common_name, fws_run, station_code, brood_year), 
-              values_from = c(minimum, maximum, passage)) |> 
+  pivot_wider(id_cols = date,
+              names_from = c(common_name, fws_run, station_code, brood_year), 
+              values_from = passage) |> 
   glimpse()
 
 
@@ -237,14 +199,17 @@ environmental_data_forklength <- peak_flow_daily |>
          minimum_fl = minimum) |> 
   glimpse()
 
+# table with passage to reflect SacPAS format:
+# https://www.cbr.washington.edu/sacramento/data/query_redbluff_daily.html
+environmental_data_forklength_passage <- environmental_data_forklength |> 
+  full_join(daily_summary_full |> 
+              select(-c(minimum, maximum)), 
+            by = c("Date" = "date", "brood_year",
+                   "common_name", "fws_run", "station_code")) |> glimpse()
+
 
 # write data --------------------------------------------------------------
 
-write.csv(environmental_data_forklength, here::here("data-raw", "BOR Daily Passage and FL.csv", row.names = FALSE))
-
-
-
-
-
+write.csv(environmental_data_forklength_passage, here::here("data-raw", "BOR Daily Passage and FL.csv"), row.names = FALSE)
 
 

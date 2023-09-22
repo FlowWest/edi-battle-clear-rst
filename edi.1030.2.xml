@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1030.2" system="EDI" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="38ced8c6-6253-44da-a16f-e7e695b283ca" system="uuid" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
   <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
     <allow>
       <principal>public</principal>
@@ -10,9 +10,33 @@
       <permission>write</permission>
     </allow>
   </access>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="Day" name="Day">
+          <description>Number of days</description>
+        </unit>
+        <unit id="count of fish" name="count of fish">
+          <description>Count of fish</description>
+        </unit>
+        <unit id="NTU" name="NTU">
+          <description>Turbidity measured in Nephelometric Turbidity Units</description>
+        </unit>
+        <unit id="count" name="count">
+          <description>Count of 10 gallon debris tubs</description>
+        </unit>
+        <unit id="revolutionsPerMinute" name="revolutionsPerMinute">
+          <description>Number of revolutions per minute</description>
+        </unit>
+        <unit id="percentage" name="percentage">
+          <description>Baileys efficiency in percentage</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
   <dataset>
     <shortName>Battle and Clear RST</shortName>
-    <title>Monitoring juvenile Chinook salmon outmigration using rotary screw traps on Battle and Clear Creek</title>
+    <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
     <creator>
       <individualName>
         <givenName>Natasha</givenName>
@@ -30,10 +54,10 @@
       <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2023-06-14</pubDate>
+    <pubDate>2023-08-30</pubDate>
     <abstract>
       <para>
-    This is the abstract for the Battle/Clear RST EDI package.
+    abstract
   </para>
     </abstract>
     <keywordSet>
@@ -46,6 +70,24 @@
       <keyword>RST</keyword>
       <keyword>California</keyword>
       <keyword>Central Valley</keyword>
+      <keyword>Salmonid</keyword>
+      <keyword>Chinook</keyword>
+      <keyword>Salmon</keyword>
+      <keyword>Juvenile</keyword>
+      <keyword>Passage</keyword>
+      <keyword>Catch</keyword>
+      <keyword>Oncorhynchus</keyword>
+      <keyword>tshawytscha</keyword>
+      <keyword>mykiss</keyword>
+      <keyword>Rotary screw trap</keyword>
+      <keyword>Winter-run</keyword>
+      <keyword>Spring-run</keyword>
+      <keyword>Fall-run</keyword>
+      <keyword>Late fall-run</keyword>
+      <keyword>Rainbow Trout</keyword>
+      <keyword>Steelhead</keyword>
+      <keyword>Clear Creek</keyword>
+      <keyword>Battle Creek</keyword>
     </keywordSet>
     <intellectualRights>
       <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.</para>
@@ -57,12 +99,12 @@
     </licensed>
     <coverage>
       <geographicCoverage>
-        <geographicDescription>Battle and Clear Rotary Screw Traps</geographicDescription>
+        <geographicDescription>Battle Creek (Shasta and Tehama Cointies) and Clear Creek (Shasta Cointy) as one square</geographicDescription>
         <boundingCoordinates>
-          <westBoundingCoordinate>-122.4964</westBoundingCoordinate>
-          <eastBoundingCoordinate>-121.7504</eastBoundingCoordinate>
-          <northBoundingCoordinate>40.5058</northBoundingCoordinate>
-          <southBoundingCoordinate>39.6223</southBoundingCoordinate>
+          <westBoundingCoordinate>-122.4967</westBoundingCoordinate>
+          <eastBoundingCoordinate>-122.1416</eastBoundingCoordinate>
+          <northBoundingCoordinate>40.5064</northBoundingCoordinate>
+          <southBoundingCoordinate>40.3979</southBoundingCoordinate>
         </boundingCoordinates>
       </geographicCoverage>
       <temporalCoverage>
@@ -107,6 +149,38 @@
           </taxonomicClassification>
         </taxonomicClassification>
       </taxonomicCoverage>
+      <taxonomicCoverage>
+        <taxonomicClassification>
+          <taxonRankName>kingdom</taxonRankName>
+          <taxonRankValue>Animalia</taxonRankValue>
+          <taxonomicClassification>
+            <taxonRankName>phylum</taxonRankName>
+            <taxonRankValue>Chordata</taxonRankValue>
+            <taxonomicClassification>
+              <taxonRankName>class</taxonRankName>
+              <taxonRankValue>Teleostei</taxonRankValue>
+              <taxonomicClassification>
+                <taxonRankName>order</taxonRankName>
+                <taxonRankValue>Salmoniformes</taxonRankValue>
+                <taxonomicClassification>
+                  <taxonRankName>family</taxonRankName>
+                  <taxonRankValue>Salmonidae</taxonRankValue>
+                  <taxonomicClassification>
+                    <taxonRankName>genus</taxonRankName>
+                    <taxonRankValue>Oncorhynchus</taxonRankValue>
+                    <taxonomicClassification>
+                      <taxonRankName>species</taxonRankName>
+                      <taxonRankValue>Oncorhynchus mykiss</taxonRankValue>
+                      <commonName>Steelhead Trout</commonName>
+                      <taxonId provider="https://itis.gov">161989</taxonId>
+                    </taxonomicClassification>
+                  </taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicClassification>
+            </taxonomicClassification>
+          </taxonomicClassification>
+        </taxonomicClassification>
+      </taxonomicCoverage>
     </coverage>
     <maintenance>
       <description>ongoing</description>
@@ -124,13 +198,13 @@
       <methodStep>
         <description>
           <para>
-    These are the methods for the Battle/Clear RST EDI package.
+    Methods
   </para>
         </description>
       </methodStep>
     </methods>
     <project>
-      <title>Monitoring juvenile Chinook salmon outmigration using rotary screw traps on Battle and Clear Creek</title>
+      <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
       <personnel>
         <individualName>
           <givenName>Natasha</givenName>
@@ -398,22 +472,6 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>run</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Database generated Sheila Greene run designation of catch. Levels = c("not provided", "Winter", "Fall", "Spring", "Late-Fall", NA&#13;
-)</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Database generated Sheila Greene run designation of catch. Levels = c("not provided", "Winter", "Fall", "Spring", "Late-Fall", NA&#13;
-)</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
           <attributeName>fws_run</attributeName>
           <attributeLabel>catch</attributeLabel>
           <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
@@ -451,7 +509,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/trap</url>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/trap.csv</url>
           </online>
         </distribution>
       </physical>
@@ -957,8 +1015,27 @@
             </nominal>
           </measurementScale>
         </attribute>
+        <attribute>
+          <attributeName>baileys_efficiency</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The estimated Bailey's efficiency.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percentage</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">0</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
       </attributeList>
-      <numberOfRecords>375065</numberOfRecords>
+      <numberOfRecords>1987</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>recapture.csv</entityName>
@@ -979,7 +1056,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/recapture</url>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/recapture.csv</url>
           </online>
         </distribution>
       </physical>
@@ -1080,6 +1157,20 @@
             </ratio>
           </measurementScale>
         </attribute>
+        <attribute>
+          <attributeName>subsite</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Subsite for release.</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Subsite for release.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
       </attributeList>
       <numberOfRecords>144</numberOfRecords>
     </dataTable>
@@ -1102,7 +1193,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/release</url>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/release.csv</url>
           </online>
         </distribution>
       </physical>
@@ -1323,8 +1414,261 @@
             </nominal>
           </measurementScale>
         </attribute>
+        <attribute>
+          <attributeName>subsite</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Subsite of released fish.</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Subsite of released fish.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>run</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Run identified of the fish.</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Run identified of the fish.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
       </attributeList>
       <numberOfRecords>28</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>passage_summary.csv</entityName>
+      <entityDescription>Daily passage summary with fork length</entityDescription>
+      <physical>
+        <objectName>passage_summary.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/passage_summary.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>date</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Date for which passage data is summarized</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2020-07-06</minimum>
+                  <maximum exclusive="false">2023-01-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>common_name</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Common name of the fish. Levels = c("Chinook Salmon", "Hardhead", "Rainbow Trout", "Sacramento Sucker", &#13;
+"Sacramento Pikeminnow", "Speckled Dace", "Unidentified ammocoete", &#13;
+"Tule Perch", "Pacific Lamprey macropthalmia", "Threespine Stickleback", &#13;
+"Pacific Lamprey ammocoete", "Unidentified Cyprinid fry", "California Roach", &#13;
+"Riffle Sculpin", "Sacramento Sucker fry", "Golden Shiner", "Green Sunfish", &#13;
+"Prickly Sculpin")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Common name of the fish. Levels = c("Chinook Salmon", "Hardhead", "Rainbow Trout", "Sacramento Sucker", &#13;
+"Sacramento Pikeminnow", "Speckled Dace", "Unidentified ammocoete", &#13;
+"Tule Perch", "Pacific Lamprey macropthalmia", "Threespine Stickleback", &#13;
+"Pacific Lamprey ammocoete", "Unidentified Cyprinid fry", "California Roach", &#13;
+"Riffle Sculpin", "Sacramento Sucker fry", "Golden Shiner", "Green Sunfish", &#13;
+"Prickly Sculpin")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fws_run</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
+)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "Winter", "Fall", "Spring", "Late-Fall", "not provided"&#13;
+)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>brood_year</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Brood year</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Brood year</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>passage</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Summarized daily passage value</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">522855</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>minimum_fl</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Minimum fork length on date</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">19</minimum>
+                  <maximum exclusive="false">430</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>maximum_fl</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Maximum fork length on date</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">22</minimum>
+                  <maximum exclusive="false">430</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>discharge_volume_cfs</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Volume of discharge measured at Igo</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">218</minimum>
+                  <maximum exclusive="false">230</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>water_temperature_c</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Water temperature measured at Igo</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">49.9</minimum>
+                  <maximum exclusive="false">51.6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>water_turbidity_ntu</attributeName>
+          <attributeLabel>passage_summary</attributeLabel>
+          <attributeDefinition>Water turbidity measured at Igo</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>NTU</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">9.8000000000000004E-2</minimum>
+                  <maximum exclusive="false">258</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>739354</numberOfRecords>
     </dataTable>
     <otherEntity>
       <entityName>data-raw/battle_clear_data_processing_scripts.zip</entityName>
@@ -1333,25 +1677,5 @@
       <entityType>ZIP file containing three R scripts</entityType>
     </otherEntity>
   </dataset>
-  <additionalMetadata>
-    <metadata>
-      <unitList>
-        <unit id="Day" name="Day">
-          <description>Number of days</description>
-        </unit>
-        <unit id="count of fish" name="count of fish">
-          <description>Count of fish</description>
-        </unit>
-        <unit id="NTU" name="NTU">
-          <description>Turbidity measured in Nephelometric Turbidity Units</description>
-        </unit>
-        <unit id="count" name="count">
-          <description>Count of 10 gallon debris tubs</description>
-        </unit>
-        <unit id="revolutionsPerMinute" name="revolutionsPerMinute">
-          <description>Number of revolutions per minute</description>
-        </unit>
-      </unitList>
-    </metadata>
-  </additionalMetadata>
+  <packageID>edi.1030.2</packageID>
 </eml:eml>
