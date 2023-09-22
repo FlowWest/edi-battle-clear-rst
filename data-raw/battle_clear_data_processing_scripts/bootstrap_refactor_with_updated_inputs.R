@@ -4,19 +4,9 @@
 # This script is a refactor of code by Mike Schraml, USFWS
 
 # Load needed Packages
-if (!require("readxl")) {            # for importing data sets
-  install.packages("readxl")
-  library(readxl)
-}
-
 if (!require("tidyverse")) {            # for data manipulations and summaries
   install.packages("tidyverse")
   library(tidyverse)
-}
-
-if (!require("openxlsx")) {         # for writing xlsx files to the desk top
-  install.packages("openxlsx")
-  library(openxlsx)
 }
 
 
@@ -30,7 +20,7 @@ recapture <- read.csv("data/recapture.csv") |>
             median_fork_length_recaptured = median(median_fork_length_recaptured, na.rm = T)) |> 
   glimpse()
 
-# calculate efficiency
+# calculate efficiency by joining release and recapture tables
 weekly_mark_recap <- left_join(release, recapture, by = c("release_id", "site", "release_site")) |> 
   mutate(date_released = as.Date(date_released),
          year = year(date_released), 
@@ -43,7 +33,7 @@ weekly_mark_recap <- left_join(release, recapture, by = c("release_id", "site", 
   select(year, week, number_released, efficiency) |> 
   glimpse()
 
-trap <- read.csv(here::here("data", "trap.csv")) |> 
+trap <- read.csv("data/trap.csv") |> 
   select(station_code, sample_date, sub_week) |> 
   distinct_all() |> 
   glimpse()
@@ -51,7 +41,7 @@ trap <- read.csv(here::here("data", "trap.csv")) |>
 
 # pull in sub weeks from trap table and efficiency/num_released from weekly_mark_recap table
 # recreates the BOR Data.csv table used in original scripts
-catch <- read.csv(here::here("data", "catch.csv")) |> 
+catch <- read.csv("data/catch.csv") |> 
   mutate(date = as.Date(sample_date),
          week = week(date),
          year = year(date)) |> 
@@ -72,7 +62,14 @@ efficiency_summary <- catch_data |>
   distinct_all() |> 
   glimpse()
 
+# calculate proxy efficiency summarized within traps for weeks with no efficiency data
+global_efficiency <- efficiency_summary |> 
+  filter(!station_code %in% c("", NA)) |> 
+  group_by(station_code) |> 
+  summarise(global_efficiency = mean(efficiency, na.rm = T))
+
 # summarize catch by strata week and join with efficiency values
+
 strata_catch_summary <- catch_data |> 
   group_by(common_name, station_code, fws_run, brood_year, strata) |> 
   summarise(weekly_catch = sum(r_catch, na.rm = T)) |> 
@@ -129,16 +126,16 @@ bootstrap_function <- function(x, replicates) {
 # run bootstraps for biweekly ---------------------------------------------
 
 # filters for brood years and weeks
-brood_years <- c(2021, 2022)
-subset_weeks <- c("01", "02")
-
+# brood_years <- c(2021, 2022)
+# subset_weeks <- c("01", "02")
 
 set.seed(2323)
 
-biweekly_bootstraps <- strata_catch_summary |> 
-  filter(#id_week %in% subset_weeks,
-         brood_year %in% brood_years) |> # for biweekly bootstrapping, filter to selected weeks
-  group_by(common_name, fws_run, brood_year, station_code) |> 
+# this will only calculate a bootstrap if efficiency data is available for that week and trap
+weekly_bootstraps <- strata_catch_summary |> 
+  # filter(id_week %in% subset_weeks,
+  #        brood_year %in% brood_years) |> # for biweekly bootstrapping, filter to selected weeks
+  group_by(common_name, fws_run, brood_year, station_code, id_week) |> # group by week 
   group_split() |> 
   purrr::map(function(x) {
     if(length(x$common_name)<= 1) {
@@ -149,26 +146,29 @@ biweekly_bootstraps <- strata_catch_summary |>
                     "common_name" = unique(x$common_name),
                     "fws_run" = unique(x$fws_run),
                     "brood_year" = unique(x$brood_year),
-                    "station_code" = unique(x$station_code)))
+                    "station_code" = unique(x$station_code),
+                    "selected_strata" = unique(x$id_week)))
     } else {
       bootstrap_function(x, replicates = 1000) |> 
         mutate("common_name" = unique(x$common_name),
                "fws_run" = unique(x$fws_run),
                "brood_year" = unique(x$brood_year),
-               "station_code" = unique(x$station_code))
+               "station_code" = unique(x$station_code),
+               "selected_strata" = unique(x$id_week))
     }
     
   }) |> 
   list_rbind() |> 
-  mutate(selected_strata = paste0(subset_weeks[1], "_", subset_weeks[2])) |> 
-  select(station_code, selected_strata, brood_year, common_name, fws_run, 
-         LCL, passage, UCL, se) |> 
+  # mutate(selected_strata = paste0(subset_weeks[1], "_", subset_weeks[2])) |> # formatting of selected weeks
+  select(selected_strata, station_code, selected_strata, brood_year, 
+         common_name, fws_run, LCL, passage, UCL, se) |>
+  filter(!is.na(LCL)) |> # removes weeks with no efficiency data
   glimpse()
 
 
 # run bootstraps for brood year -------------------------------------------
 brood_year_bootstraps <- strata_catch_summary |> 
-  group_by(common_name, fws_run, brood_year, station_code) |> 
+  group_by(common_name, fws_run, brood_year, station_code) |> # group by brood year
   group_split() |> 
   purrr::map(function(x) {
     if(length(x$common_name)<= 1) {
@@ -192,11 +192,9 @@ brood_year_bootstraps <- strata_catch_summary |>
   list_rbind() |> 
   select(station_code, brood_year, common_name, fws_run, 
          LCL, passage, UCL, se) |> 
+  filter(!is.na(LCL)) |> # removes weeks with no efficiency data
   glimpse()
 
 
 # write table -------------------------------------------------------------
-write.csv(biweekly_bootstraps,
-          here::here("data-raw", "bootstrap_biweekly_passage.csv"), row.names = FALSE)
-write.csv(brood_year_bootstraps,
-          here::here("data-raw", "bootstrap_brood_year_passage.csv"), row.names = FALSE)
+# as appropriate
