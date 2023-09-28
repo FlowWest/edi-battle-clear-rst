@@ -43,18 +43,24 @@ sample_data_full <- sample_data |>
   glimpse()
 
 daily_catch <- sample_data_full |>
-  group_by(date, fws_run, common_name, station_code) |> 
-  summarise(catch = sum(r_catch, na.rm = TRUE),
-            cumulative_catch = cumsum(catch)) |> 
-  mutate(total_catch = sum(catch, na.rm = TRUE), 
+  group_by(date, brood_year, fws_run, common_name, station_code) |> 
+  summarise(catch = sum(r_catch, na.rm = TRUE)) |> 
+  ungroup() |> 
+  group_by(brood_year, fws_run, common_name, station_code) |> 
+  mutate(cumulative_catch = cumsum(catch),
+         total_catch = sum(catch, na.rm = TRUE),
          cumulative_percent_catch = round((cumulative_catch / total_catch * 100), 0),
-         cumulative_percent_catch = ifelse(cumulative_percent_catch == "NaN", NA, cumulative_percent_catch)) |> 
+         cumulative_percent_catch = ifelse(cumulative_percent_catch == "NaN", NA, cumulative_percent_catch)) |>
+  select(-catch) |> 
+  arrange(common_name, fws_run, brood_year, date) |> 
+  ungroup() |> 
   glimpse()
 
 daily_catch_wide <- daily_catch |> 
+  filter(!is.na(brood_year)) |> 
   select(-c(cumulative_catch, total_catch)) |> 
-  group_by(station_code, fws_run, common_name) |> 
-  pivot_wider(id_cols = date,
+  group_by(brood_year, station_code, fws_run, common_name) |> 
+  pivot_wider(id_cols = c(brood_year, date),
               names_from = c(station_code, fws_run, common_name),
               values_from = cumulative_percent_catch) |> 
   glimpse()
