@@ -29,7 +29,7 @@ trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
 trap_historical <- read.csv(here::here("data", "trap_historical.csv")) |> glimpse()
 
 trap <- bind_rows(trap_historical, trap_late) |>
-  select(-c(lunar_phase)) |> 
+  select(-c(lunar_phase, ubc_site)) |> 
   mutate(thalweg = case_when(thalweg == "Y" ~ TRUE, 
                              thalweg == "N" ~ FALSE,
                              thalweg %in% c("", "R") ~ NA),
