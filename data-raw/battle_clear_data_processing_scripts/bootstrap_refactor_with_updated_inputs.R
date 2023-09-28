@@ -30,7 +30,7 @@ weekly_mark_recap <- left_join(release, recapture, by = c("release_id", "site", 
             efficiency = (number_recaptured + 1)/(number_released + 1),
             number_released = ifelse(is.na(number_released), 0, number_released)) |> 
   ungroup() |> 
-  select(year, week, number_released, efficiency) |> 
+  select(year, week, number_released, efficiency, site) |> 
   glimpse()
 
 trap <- read.csv("data/trap.csv") |> 
@@ -168,6 +168,8 @@ weekly_bootstraps <- strata_catch_summary |>
 
 # run bootstraps for brood year -------------------------------------------
 brood_year_bootstraps <- strata_catch_summary |> 
+  # filter(station_code == "UCC",
+  #        brood_year == 2020) |>  
   group_by(common_name, fws_run, brood_year, station_code) |> # group by brood year
   group_split() |> 
   purrr::map(function(x) {

@@ -51,10 +51,14 @@ weekly_mark_recap <- left_join(release, recapture, by = c("release_id", "site", 
 # join catch to mark recaps 
 catch_data <- left_join(catch, weekly_mark_recap, 
                         by = c("week", "year")) |> 
+  filter(!is.na(brood_year),
+         !station_code %in% c("", NA)) |> 
+  mutate(fws_run = ifelse(fws_run == "not provided", NA, fws_run)) |> 
   glimpse()
 
 
 sample_data <- read_csv("data/trap.csv") |> 
+  filter(!is.na(station_code)) |> 
   select(station_code, sample_id, sample_date, turbidity) |> 
   mutate(year = year(sample_date), 
          week = week(sample_date)) |> 
@@ -63,9 +67,9 @@ sample_data <- read_csv("data/trap.csv") |>
 # daily passage ---------------------------------------------------------------
 
 global_efficiency <- catch_data |> 
-  filter(!station_code %in% c("", NA)) |> 
-  group_by(station_code) |> 
+  group_by(station_code, year) |> 
   summarise(global_efficiency = mean(efficiency, na.rm = T)) |> 
+  fill(global_efficiency) |> 
   glimpse()
 
 # filter to Chinook and Rainbow trout and group by race and brood year
@@ -75,7 +79,7 @@ daily_catch_summary <- catch_data |>
   mutate(date = as.Date(sample_date)) |> 
   filter(common_name %in% c("Rainbow Trout", "Chinook Salmon")) |> 
   group_by(brood_year, common_name, fws_run, date, station_code) |> 
-  left_join(global_efficiency, by = "station_code") |> 
+  left_join(global_efficiency, by = c("station_code", "year")) |> 
   summarise(catch = sum(r_catch, na.rm = TRUE),
             efficiency = mean(efficiency, na.rm = TRUE),
             efficiency = ifelse(efficiency %in% c("NaN", NA), global_efficiency, efficiency)) |>  # uses global efficiency in place of NA efficiency 
