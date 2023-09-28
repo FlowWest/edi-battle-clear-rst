@@ -4,8 +4,9 @@ library(janitor)
 library(lubridate)
 
 # catch
-catch_early <- read.csv(here::here("data", "catch_early.csv")) |> glimpse()
+# catch_early <- read.csv(here::here("data", "catch_early.csv")) |> glimpse() # no longer needed thanks to historical db
 catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
+catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glimpse()
 
 # to convert subsample column
 frac_to_decimal <- function(x) {
@@ -13,21 +14,25 @@ frac_to_decimal <- function(x) {
   return(new_vals)
 }
 
-catch <- bind_rows(catch_early |> 
+catch <- bind_rows(catch_historical |> 
                      filter(sample_date < min(catch_late$sample_date, na.rm = T)),
-                   catch_late) |> 
-  mutate(subsample = ifelse(subsample %in% c("", "not provided"), NA, subsample),
-         subsample = frac_to_decimal(subsample)) |> 
+                   catch_late |> 
+                     mutate(subsample = ifelse(subsample %in% c("", "not provided"), NA, subsample),
+                            subsample = as.character(frac_to_decimal(subsample)))) |> 
+  filter(!is.na(sample_date)) |> 
   select(-run) |> 
   glimpse()
 
 # trap
-trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
+# trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
 trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
+trap_historical <- read.csv(here::here("data", "trap_historical.csv")) |> glimpse()
 
-trap <- bind_rows(trap_early, trap_late) |>
+trap <- bind_rows(trap_historical, trap_late) |>
   select(-c(lunar_phase)) |> 
-  mutate(thalweg = ifelse(thalweg %in% c("Yes", "Y"), TRUE, FALSE),
+  mutate(thalweg = case_when(thalweg == "Y" ~ TRUE, 
+                             thalweg == "N" ~ FALSE,
+                             thalweg %in% c("", "R") ~ NA),
          trap_fishing = ifelse(trap_fishing == 1, TRUE, FALSE),
          partial_sample = ifelse(partial_sample == 1, TRUE, FALSE),
          baileys_efficiency = NA_real_) |> # placeholder for official trap efficiency
@@ -36,17 +41,16 @@ trap <- bind_rows(trap_early, trap_late) |>
 
 
 # recapture and release ---------------------------------------------------
-# TODO update date filter once we have more catch/trap data
 # TODO link release sites to trap sites
 
 # recapture - clear
 recapture_clear <- read_csv(here::here("data", "clear_recapture.csv")) |> 
-  filter(year(date_recaptured) >= "2020") |> 
+  # filter(year(date_recaptured) >= "2020") |> 
   glimpse()
 
 # recapture - battle
 recapture_battle <- read_csv(here::here("data", "battle_recapture.csv")) |> 
-  filter(year(date_recaptured) >= "2020") |> 
+  # filter(year(date_recaptured) >= "2020") |> 
   glimpse()
 
 recapture <- bind_rows(recapture_clear, recapture_battle) |> 
@@ -55,13 +59,13 @@ recapture <- bind_rows(recapture_clear, recapture_battle) |>
 
 # release - clear
 release_clear <- read_csv(here::here("data", "clear_release.csv")) |> 
-  filter(year(date_released) >= "2020") |> 
+  # filter(year(date_released) >= "2020") |> 
   mutate(time_released = as.character(time_released)) |> 
   glimpse()
 
 # release - battle
 release_battle <- read_csv(here::here("data", "battle_release.csv")) |> 
-  filter(year(date_released) >= "2020") |> 
+  # filter(year(date_released) >= "2020") |> 
   mutate(time_released = as.character(time_released)) |> 
   glimpse()
 
