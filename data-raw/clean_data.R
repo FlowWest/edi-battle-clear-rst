@@ -19,7 +19,9 @@ catch <- bind_rows(catch_historical |>
                    catch_late |> 
                      mutate(subsample = ifelse(subsample %in% c("", "not provided"), NA, subsample),
                             subsample = as.character(frac_to_decimal(subsample)))) |> 
+  relocate(c(sample_id, sample_date, station_code, count, r_catch), .before = fork_length) |> 
   filter(!is.na(sample_date)) |> 
+  
   select(-run) |> 
   glimpse()
 
@@ -28,14 +30,16 @@ catch <- bind_rows(catch_historical |>
 trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
 trap_historical <- read.csv(here::here("data", "trap_historical.csv")) |> glimpse()
 
-trap <- bind_rows(trap_historical, trap_late) |>
+trap <- bind_rows(trap_historical, trap_late) |> 
   select(-c(lunar_phase, ubc_site)) |> 
   mutate(thalweg = case_when(thalweg == "Y" ~ TRUE, 
                              thalweg == "N" ~ FALSE,
                              thalweg %in% c("", "R") ~ NA),
          trap_fishing = ifelse(trap_fishing == 1, TRUE, FALSE),
-         partial_sample = ifelse(partial_sample == 1, TRUE, FALSE),
-         baileys_efficiency = NA_real_) |> # placeholder for official trap efficiency
+         partial_sample = ifelse(partial_sample == 1, TRUE, FALSE)) |> 
+  #baileys_efficiency = NA_real_) |> # placeholder for official trap efficiency
+  relocate(c(sample_id, sample_date, sample_time, trap_start_date, trap_start_time, station_code),
+           .before = depth_adjust) |> 
   glimpse()
 
 
