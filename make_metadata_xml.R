@@ -21,6 +21,10 @@ datatable_metadata <-
                                          "trap.csv",
                                          "recapture.csv",
                                          "release.csv")))
+
+other_entity_metadata <- tibble(file_name = "data-raw/Battle_Clear_Methods.pdf",
+                                file_description = "Additional methods for the Battle and Clear Creek EDI package containing equations",
+                                file_type = "PDF")
 # 
 # other_entity_metadata <- tibble(file_name = "data-raw/battle_clear_data_processing_scripts.zip",
 #                                 file_description = "R scripts that produce daily passage and cumulative catch tables from the raw catch table 
@@ -52,8 +56,8 @@ dataset <- list() %>%
   add_maintenance(metadata$maintenance) %>%
   add_project(metadata$funding) %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
-  add_datatable(datatable_metadata)
-  # add_other_entity(other_entity_metadata)
+  add_datatable(datatable_metadata) |> 
+  add_other_entity(other_entity_metadata)
   
 custom_units <- data.frame(id = c("Day", "count of fish", "NTU", "count", 
                                   "revolutionsPerMinute", "percentage"),
