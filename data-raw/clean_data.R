@@ -9,23 +9,38 @@ catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
 catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glimpse()
 
 # to convert subsample column
-frac_to_decimal <- function(x) {
-  new_vals <- sapply(x, function(x) eval(parse(text = x)))
-  return(new_vals)
-}
+# frac_to_decimal <- function(x) {
+#   new_vals <- sapply(x, function(x) eval(parse(text = x)))
+#   return(new_vals)
+# }
 
 catch <- bind_rows(catch_historical |> 
                      filter(sample_date < min(catch_late$sample_date, na.rm = T)),
-                   catch_late |> 
-                     mutate(subsample = ifelse(subsample %in% c("", "not provided"), NA, subsample),
-                            subsample = as.character(frac_to_decimal(subsample)))) |> 
+                   catch_late) |> 
   relocate(c(sample_id, sample_date, station_code, count, r_catch), .before = fork_length) |> 
-  filter(!is.na(sample_date)) |> 
+  filter(!is.na(sample_date),
+         as.Date(sample_date) <= as.Date("2022-09-30")) |> 
   mutate(fws_run = case_when(fws_run == "F" ~ "fall",
                              fws_run == "W" ~ "winter",
                              fws_run == "S" ~ "spring",
-                             fws_run == "L" ~ "late-fall")) |> 
-  select(-run) |> 
+                             fws_run == "L" ~ "late-fall"),
+         subsample = case_when(subsample %in% c("2004", "2005", "2007", "2008", "2009", "2010", "2011", 
+                                                "2015", "2016", "2017", "2018", "F", "S") ~ NA_character_,
+                               subsample == "2-Jan" ~ "1/2",
+                               subsample == "4-Jan" ~ "1/4",
+                               subsample == "8-Jan" ~ "1/8",
+                               subsample == "16-Jan" ~ "1/16",
+                               subsample == "Jan-32" ~ "1/32",
+                               subsample == "Jan-64" ~ "1/64",
+                               TRUE ~ subsample),
+         station_code = case_when(station_code == "LCC" ~ "lower clear creek",
+                                  station_code == "UCC" ~ "upper clear creek",
+                                  station_code == "UBC" ~ "upper battle creek",
+                                  station_code == "LBC" ~ "lower battle creek",
+                                  station_code == "PHB" ~ "power house battle creek",
+                                  station_code == "" ~ NA,
+                                  TRUE ~ station_code)) |> 
+  select(-c(dead, age_class, run)) |> 
   glimpse()
 
 # trap
@@ -34,13 +49,14 @@ trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
 trap_historical <- read.csv(here::here("data", "trap_historical.csv")) |> glimpse()
 
 trap <- bind_rows(trap_historical, trap_late) |> 
-  select(-c(lunar_phase, ubc_site)) |> 
+  filter(as.Date(sample_date) <= as.Date("2022-09-30")) |> # until newer data is QC'd - check with Mike
+  select(-c(lunar_phase, start_counter)) |> 
+  rename(end_counter = counter) |> 
   mutate(thalweg = case_when(thalweg == "Y" ~ TRUE, 
                              thalweg == "N" ~ FALSE,
                              thalweg %in% c("", "R") ~ NA),
          trap_fishing = ifelse(trap_fishing == 1, TRUE, FALSE),
          partial_sample = ifelse(partial_sample == 1, TRUE, FALSE)) |> 
-  #baileys_efficiency = NA_real_) |> # placeholder for official trap efficiency
   relocate(c(sample_id, sample_date, sample_time, trap_start_date, trap_start_time, station_code),
            .before = depth_adjust) |> 
   glimpse()
