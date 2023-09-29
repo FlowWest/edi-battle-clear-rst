@@ -30,7 +30,7 @@
       <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2023-09-28</pubDate>
+    <pubDate>2023-09-29</pubDate>
     <abstract>
       <para>
     Clear Creek
@@ -915,6 +915,88 @@
       </physical>
       <attributeList>
         <attribute>
+          <attributeName>sample_id</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Sample identifier linking catch to trap table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_date</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Date sample was taken</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">1998-09-01</minimum>
+                  <maximum exclusive="false">2023-01-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LBC", "LCC", "UCC", NA, "PHB")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LBC", "LCC", "UCC", NA, "PHB")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>count</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Count of fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">84426</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>r_catch</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Catch number used to generate passage indices for reports, plus counts are split into races, zero fork lengths have been assigned</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">150776</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
           <attributeName>fork_length</attributeName>
           <attributeLabel>catch</attributeLabel>
           <attributeDefinition>Fork length of the fish</attributeDefinition>
@@ -967,55 +1049,17 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>count</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Count of fish</attributeDefinition>
-          <measurementScale>
-            <ratio>
-              <unit>
-                <customUnit>count of fish</customUnit>
-              </unit>
-              <numericDomain>
-                <numberType>integer</numberType>
-                <bounds>
-                  <minimum exclusive="false">1</minimum>
-                  <maximum exclusive="false">84426</maximum>
-                </bounds>
-              </numericDomain>
-            </ratio>
-          </measurementScale>
-        </attribute>
-        <attribute>
           <attributeName>fws_run</attributeName>
           <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "F", "W", "S", "L", "not provided")</attributeDefinition>
+          <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "fall", "winter", "spring", "late-fall")</attributeDefinition>
           <measurementScale>
             <nominal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "F", "W", "S", "L", "not provided")</definition>
+                  <definition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "fall", "winter", "spring", "late-fall")</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>r_catch</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Catch number used to generate passage indices for reports, plus counts are split into races, zero fork lengths have been assigned</attributeDefinition>
-          <measurementScale>
-            <ratio>
-              <unit>
-                <customUnit>count of fish</customUnit>
-              </unit>
-              <numericDomain>
-                <numberType>integer</numberType>
-                <bounds>
-                  <minimum exclusive="false">1</minimum>
-                  <maximum exclusive="false">150776</maximum>
-                </bounds>
-              </numericDomain>
-            </ratio>
           </measurementScale>
         </attribute>
         <attribute>
@@ -1104,50 +1148,6 @@
             </nominal>
           </measurementScale>
         </attribute>
-        <attribute>
-          <attributeName>station_code</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LBC", "LCC", "UCC", NA, "PHB")</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LBC", "LCC", "UCC", NA, "PHB")</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>sample_date</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Date sample was taken</attributeDefinition>
-          <measurementScale>
-            <dateTime>
-              <formatString>YYYY-MM-DD</formatString>
-              <dateTimeDomain>
-                <bounds>
-                  <minimum exclusive="false">1998-09-01</minimum>
-                  <maximum exclusive="false">2023-01-02</maximum>
-                </bounds>
-              </dateTimeDomain>
-            </dateTime>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>sample_id</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Sample identifier linking catch to trap table</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
-          </measurementScale>
-        </attribute>
       </attributeList>
       <numberOfRecords>551624</numberOfRecords>
     </dataTable>
@@ -1176,17 +1176,17 @@
       </physical>
       <attributeList>
         <attribute>
-          <attributeName>station_code</attributeName>
+          <attributeName>sample_id</attributeName>
           <attributeLabel>trap</attributeLabel>
-          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</attributeDefinition>
+          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
           <measurementScale>
-            <nominal>
+            <ordinal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</definition>
+                  <definition>Sample identifier linking catch to trap table</definition>
                 </textDomain>
               </nonNumericDomain>
-            </nominal>
+            </ordinal>
           </measurementScale>
         </attribute>
         <attribute>
@@ -1222,17 +1222,49 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>sample_id</attributeName>
+          <attributeName>trap_start_date</attributeName>
           <attributeLabel>trap</attributeLabel>
-          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
+          <attributeDefinition>The date the trap was started sampling prior to the SampleDate (the beginning of the sample period)</attributeDefinition>
           <measurementScale>
-            <ordinal>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">1998-08-31</minimum>
+                  <maximum exclusive="false">2023-01-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_start_time</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The time the trap was started on the TrapStartDate (the beginning of the sample period)</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm:ss</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">06:10:00</minimum>
+                  <maximum exclusive="false">23:45:00</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</attributeDefinition>
+          <measurementScale>
+            <nominal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Sample identifier linking catch to trap table</definition>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</definition>
                 </textDomain>
               </nonNumericDomain>
-            </ordinal>
+            </nominal>
           </measurementScale>
         </attribute>
         <attribute>
@@ -1553,38 +1585,6 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>trap_start_date</attributeName>
-          <attributeLabel>trap</attributeLabel>
-          <attributeDefinition>The date the trap was started sampling prior to the SampleDate (the beginning of the sample period)</attributeDefinition>
-          <measurementScale>
-            <dateTime>
-              <formatString>YYYY-MM-DD</formatString>
-              <dateTimeDomain>
-                <bounds>
-                  <minimum exclusive="false">1998-08-31</minimum>
-                  <maximum exclusive="false">2023-01-02</maximum>
-                </bounds>
-              </dateTimeDomain>
-            </dateTime>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>trap_start_time</attributeName>
-          <attributeLabel>trap</attributeLabel>
-          <attributeDefinition>The time the trap was started on the TrapStartDate (the beginning of the sample period)</attributeDefinition>
-          <measurementScale>
-            <dateTime>
-              <formatString>hh:mm:ss</formatString>
-              <dateTimeDomain>
-                <bounds>
-                  <minimum exclusive="false">06:10:00</minimum>
-                  <maximum exclusive="false">23:45:00</maximum>
-                </bounds>
-              </dateTimeDomain>
-            </dateTime>
-          </measurementScale>
-        </attribute>
-        <attribute>
           <attributeName>weather</attributeName>
           <attributeLabel>trap</attributeLabel>
           <attributeDefinition>The weather conditions on the SampleDate and SampleTime. Levels = c("sunny", "overcast", "precipitation", NA, "foggy", "partly cloudy", "")</attributeDefinition>
@@ -1668,25 +1668,6 @@
             </nominal>
           </measurementScale>
         </attribute>
-        <attribute>
-          <attributeName>baileys_efficiency</attributeName>
-          <attributeLabel>trap</attributeLabel>
-          <attributeDefinition>The estimated Bailey's efficiency.</attributeDefinition>
-          <measurementScale>
-            <ratio>
-              <unit>
-                <customUnit>percentage</customUnit>
-              </unit>
-              <numericDomain>
-                <numberType>real</numberType>
-                <bounds>
-                  <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">0</maximum>
-                </bounds>
-              </numericDomain>
-            </ratio>
-          </measurementScale>
-        </attribute>
       </attributeList>
       <numberOfRecords>19839</numberOfRecords>
     </dataTable>
@@ -1715,34 +1696,6 @@
       </physical>
       <attributeList>
         <attribute>
-          <attributeName>site</attributeName>
-          <attributeLabel>recapture</attributeLabel>
-          <attributeDefinition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>release_site</attributeName>
-          <attributeLabel>recapture</attributeLabel>
-          <attributeDefinition>Site where fish were released. Levels =c("VB", "CCRB", "P4", NA)</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Site where fish were released. Levels =c("VB", "CCRB", "P4", NA)</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
-          </measurementScale>
-        </attribute>
-        <attribute>
           <attributeName>release_id</attributeName>
           <attributeLabel>recapture</attributeLabel>
           <attributeDefinition>Key to link with recapture table</attributeDefinition>
@@ -1770,6 +1723,34 @@
                 </bounds>
               </dateTimeDomain>
             </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_site</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Site where fish were released. Levels =c("VB", "CCRB", "P4", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site where fish were released. Levels =c("VB", "CCRB", "P4", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>site</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
           </measurementScale>
         </attribute>
         <attribute>
@@ -1810,20 +1791,6 @@
             </ratio>
           </measurementScale>
         </attribute>
-        <attribute>
-          <attributeName>subsite</attributeName>
-          <attributeLabel>recapture</attributeLabel>
-          <attributeDefinition>Subsite for release.</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Subsite for release.</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
-          </measurementScale>
-        </attribute>
       </attributeList>
       <numberOfRecords>4000</numberOfRecords>
     </dataTable>
@@ -1852,28 +1819,14 @@
       </physical>
       <attributeList>
         <attribute>
-          <attributeName>site</attributeName>
+          <attributeName>release_id</attributeName>
           <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
+          <attributeDefinition>Release ID (to connect to recapture table)</attributeDefinition>
           <measurementScale>
             <ordinal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>release_site</attributeName>
-          <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Location of release site. Levels = c("VB", "CCRB", "P4", NA)</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Location of release site. Levels = c("VB", "CCRB", "P4", NA)</definition>
+                  <definition>Release ID (to connect to recapture table)</definition>
                 </textDomain>
               </nonNumericDomain>
             </ordinal>
@@ -1912,6 +1865,34 @@
           </measurementScale>
         </attribute>
         <attribute>
+          <attributeName>release_site</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Location of release site. Levels = c("VB", "CCRB", "P4", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Location of release site. Levels = c("VB", "CCRB", "P4", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>site</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
           <attributeName>number_released</attributeName>
           <attributeLabel>release</attributeLabel>
           <attributeDefinition>Number of fish released</attributeDefinition>
@@ -1947,20 +1928,6 @@
                 </bounds>
               </numericDomain>
             </ratio>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>release_id</attributeName>
-          <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Release ID (to connect to recapture table)</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Release ID (to connect to recapture table)</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
           </measurementScale>
         </attribute>
         <attribute>
@@ -2062,34 +2029,6 @@
               <nonNumericDomain>
                 <textDomain>
                   <definition>Origin of released fish. Levels = c(NA, "natural", "hatchery")</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>subsite</attributeName>
-          <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Subsite of released fish.</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Subsite of released fish.</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>run</attributeName>
-          <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Run identified of the fish.</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Run identified of the fish.</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
