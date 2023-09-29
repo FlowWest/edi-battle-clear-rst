@@ -15,19 +15,19 @@
     <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
     <creator>
       <individualName>
-        <givenName>Natasha</givenName>
-        <surName>Wingerter</surName>
-      </individualName>
-      <organizationName>U.S. Fish and Wildlife Service</organizationName>
-      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
-    </creator>
-    <associatedParty>
-      <individualName>
         <givenName>Mike</givenName>
         <surName>Schraml</surName>
       </individualName>
       <organizationName>U.S. Fish and Wildlife Service</organizationName>
       <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
+    </creator>
+    <associatedParty>
+      <individualName>
+        <givenName>Natasha</givenName>
+        <surName>Wingerter</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
     <pubDate>2023-09-29</pubDate>
@@ -164,7 +164,7 @@
             <calendarDate>1998-09-01</calendarDate>
           </beginDate>
           <endDate>
-            <calendarDate>2023-01-02</calendarDate>
+            <calendarDate>2022-09-30</calendarDate>
           </endDate>
         </rangeOfDates>
       </temporalCoverage>
@@ -239,11 +239,11 @@
     </maintenance>
     <contact>
       <individualName>
-        <givenName>Natasha</givenName>
-        <surName>Wingerter</surName>
+        <givenName>Mike</givenName>
+        <surName>Schraml</surName>
       </individualName>
       <organizationName>U.S. Fish and Wildlife Service</organizationName>
-      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+      <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
     </contact>
     <methods>
       <methodStep>
@@ -575,11 +575,11 @@
       <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
       <personnel>
         <individualName>
-          <givenName>Natasha</givenName>
-          <surName>Wingerter</surName>
+          <givenName>Mike</givenName>
+          <surName>Schraml</surName>
         </individualName>
         <organizationName>U.S. Fish and Wildlife Service</organizationName>
-        <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+        <electronicMailAddress>mike_schraml@fws.gov</electronicMailAddress>
         <role>Project Lead</role>
       </personnel>
     </project>
@@ -631,7 +631,7 @@
               <dateTimeDomain>
                 <bounds>
                   <minimum exclusive="false">1998-09-01</minimum>
-                  <maximum exclusive="false">2023-01-02</maximum>
+                  <maximum exclusive="false">2022-09-30</maximum>
                 </bounds>
               </dateTimeDomain>
             </dateTime>
@@ -640,12 +640,12 @@
         <attribute>
           <attributeName>station_code</attributeName>
           <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LBC", "LCC", "UCC", NA, "PHB")</attributeDefinition>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek", "upper clear creek", NA, "power house battle creek")</attributeDefinition>
           <measurementScale>
             <nominal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LBC", "LCC", "UCC", NA, "PHB")</definition>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek", "upper clear creek", NA, "power house battle creek")</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
@@ -654,7 +654,7 @@
         <attribute>
           <attributeName>count</attributeName>
           <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Count of fish</attributeDefinition>
+          <attributeDefinition>Raw count of fish</attributeDefinition>
           <measurementScale>
             <ratio>
               <unit>
@@ -673,7 +673,7 @@
         <attribute>
           <attributeName>r_catch</attributeName>
           <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Catch number used to generate passage indices for reports, plus counts are split into races, zero fork lengths have been assigned</attributeDefinition>
+          <attributeDefinition>Catch number used to generate passage indices for reports,  Plus counts are split into fws runs, zero fork lengths are assigned. This is the column used in reports.</attributeDefinition>
           <measurementScale>
             <ratio>
               <unit>
@@ -706,20 +706,6 @@
                 </bounds>
               </numericDomain>
             </ratio>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>dead</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Whether or not the fish was dead. Levels = c(FALSE, NA, TRUE)</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Whether or not the fish was dead. Levels = c(FALSE, NA, TRUE)</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
           </measurementScale>
         </attribute>
         <attribute>
@@ -770,20 +756,6 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>age_class</attributeName>
-          <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Age class of the fish, if identified. Levels =c(NA, "AGE0+", "YOY")</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Age class of the fish, if identified. Levels =c(NA, "AGE0+", "YOY")</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
           <attributeName>brood_year</attributeName>
           <attributeLabel>catch</attributeLabel>
           <attributeDefinition>Brood year</attributeDefinition>
@@ -800,14 +772,12 @@
         <attribute>
           <attributeName>subsample</attributeName>
           <attributeLabel>catch</attributeLabel>
-          <attributeDefinition>Levels = c(NA, "2017", "not provided", "F", "2004", "2007", "2008", "2010", &#13;
-"2011", "2-Jan", "8-Jan", "S", "2009", "2015", "2016", "2005", "4-Jan", "16-Jan", "Jan-32", "Jan-64", "1/256", "0.25", "0.5", "0.125", "0.0625")</attributeDefinition>
+          <attributeDefinition>Levels = c(NA, "not provided", "1/2", "1/8", "1/4", "1/16", "1/32", "1/64",  "1/256")</attributeDefinition>
           <measurementScale>
             <nominal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Levels = c(NA, "2017", "not provided", "F", "2004", "2007", "2008", "2010", &#13;
-"2011", "2-Jan", "8-Jan", "S", "2009", "2015", "2016", "2005", "4-Jan", "16-Jan", "Jan-32", "Jan-64", "1/256", "0.25", "0.5", "0.125", "0.0625")</definition>
+                  <definition>Levels = c(NA, "not provided", "1/2", "1/8", "1/4", "1/16", "1/32", "1/64",  "1/256")</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
@@ -842,7 +812,7 @@
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>551624</numberOfRecords>
+      <numberOfRecords>549277</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>trap.csv</entityName>
@@ -892,7 +862,7 @@
               <dateTimeDomain>
                 <bounds>
                   <minimum exclusive="false">1998-09-01</minimum>
-                  <maximum exclusive="false">2023-01-02</maximum>
+                  <maximum exclusive="false">2022-09-30</maximum>
                 </bounds>
               </dateTimeDomain>
             </dateTime>
@@ -924,7 +894,7 @@
               <dateTimeDomain>
                 <bounds>
                   <minimum exclusive="false">1998-08-31</minimum>
-                  <maximum exclusive="false">2023-01-02</maximum>
+                  <maximum exclusive="false">2022-09-30</maximum>
                 </bounds>
               </dateTimeDomain>
             </dateTime>
@@ -1029,7 +999,7 @@
               <numericDomain>
                 <numberType>real</numberType>
                 <bounds>
-                  <minimum exclusive="false">0</minimum>
+                  <minimum exclusive="false">73</minimum>
                   <maximum exclusive="false">1196242</maximum>
                 </bounds>
               </numericDomain>
@@ -1141,26 +1111,7 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>start_counter</attributeName>
-          <attributeLabel>trap</attributeLabel>
-          <attributeDefinition>Reading on the rotation counter at the end of the trap visit</attributeDefinition>
-          <measurementScale>
-            <ratio>
-              <unit>
-                <customUnit>revolutionsPerMinute</customUnit>
-              </unit>
-              <numericDomain>
-                <numberType>real</numberType>
-                <bounds>
-                  <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">0</maximum>
-                </bounds>
-              </numericDomain>
-            </ratio>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>counter</attributeName>
+          <attributeName>end_counter</attributeName>
           <attributeLabel>trap</attributeLabel>
           <attributeDefinition>Reading on the rotation counter</attributeDefinition>
           <measurementScale>
@@ -1278,6 +1229,20 @@
           </measurementScale>
         </attribute>
         <attribute>
+          <attributeName>ubc_site</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Where the trap was located at time of operation. In Battle Creek there are two locations that are used depending on flow conditions. Levels = c("Upper, "Lower")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Where the trap was located at time of operation. In Battle Creek there are two locations that are used depending on flow conditions. Levels = c("Upper, "Lower")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
           <attributeName>weather</attributeName>
           <attributeLabel>trap</attributeLabel>
           <attributeDefinition>The weather conditions on the SampleDate and SampleTime. Levels = c("sunny", "overcast", "precipitation", NA, "foggy", "partly cloudy", "")</attributeDefinition>
@@ -1362,7 +1327,7 @@
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>19839</numberOfRecords>
+      <numberOfRecords>19650</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>recapture.csv</entityName>
@@ -1421,12 +1386,12 @@
         <attribute>
           <attributeName>release_site</attributeName>
           <attributeLabel>recapture</attributeLabel>
-          <attributeDefinition>Site where fish were released. Levels =c("VB", "CCRB", "P4", NA)</attributeDefinition>
+          <attributeDefinition>Site where fish were released. Levels = c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</attributeDefinition>
           <measurementScale>
             <ordinal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Site where fish were released. Levels =c("VB", "CCRB", "P4", NA)</definition>
+                  <definition>Site where fish were released. Levels = c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</definition>
                 </textDomain>
               </nonNumericDomain>
             </ordinal>
@@ -1435,12 +1400,12 @@
         <attribute>
           <attributeName>site</attributeName>
           <attributeLabel>recapture</attributeLabel>
-          <attributeDefinition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
+          <attributeDefinition>Site where recapture samples were taken. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</attributeDefinition>
           <measurementScale>
             <ordinal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Site where recapture samples were taken. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
+                  <definition>Site where recapture samples were taken. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</definition>
                 </textDomain>
               </nonNumericDomain>
             </ordinal>
@@ -1482,6 +1447,34 @@
                 </bounds>
               </numericDomain>
             </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fws_run</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>FWS identified run of fish recaptured</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>FWS identified run of fish recaptured</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>hatchery_origin</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Origin of hatchery fish</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Origin of hatchery fish</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
           </measurementScale>
         </attribute>
       </attributeList>
@@ -1560,12 +1553,12 @@
         <attribute>
           <attributeName>release_site</attributeName>
           <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Location of release site. Levels = c("VB", "CCRB", "P4", NA)</attributeDefinition>
+          <attributeDefinition>Location of release site. Levels =c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</attributeDefinition>
           <measurementScale>
             <ordinal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Location of release site. Levels = c("VB", "CCRB", "P4", NA)</definition>
+                  <definition>Location of release site. Levels =c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</definition>
                 </textDomain>
               </nonNumericDomain>
             </ordinal>
@@ -1574,12 +1567,12 @@
         <attribute>
           <attributeName>site</attributeName>
           <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</attributeDefinition>
+          <attributeDefinition>Site location. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</attributeDefinition>
           <measurementScale>
             <ordinal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Site location. Levels = c("Clear Creek", "Upper Battle Creek")</definition>
+                  <definition>Site location. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</definition>
                 </textDomain>
               </nonNumericDomain>
             </ordinal>
@@ -1722,6 +1715,34 @@
               <nonNumericDomain>
                 <textDomain>
                   <definition>Origin of released fish. Levels = c(NA, "natural", "hatchery")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fws_run</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>FWS identified run of fish recaptured</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>FWS identified run of fish recaptured</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>hatchery_origin</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Origin of hatchery fish</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Origin of hatchery fish</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
