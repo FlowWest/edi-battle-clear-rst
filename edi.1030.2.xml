@@ -32,29 +32,6 @@
     </associatedParty>
     <pubDate>2023-09-28</pubDate>
     <abstract>
-      <section>
-        <title>Mark–recapture Trials</title>
-        <para>
-      Since the RST only captures fish from a small portion of the creek
-      cross section, it is necessary to implement a method to project
-      the RST catch numbers to portions of the creek outside of the RST
-      capture zone. Mark–recapture trials were attempted, when creek
-      conditions were conducive for such studies and when fish numbers
-      allowed, to determine the efficiency of the RSTs to catch juvenile
-      salmonids moving downstream during a given time period. If one or
-      no mark–recaptures trials were conducted, then the historic
-      monthly and global averages were used to calculate that passage
-      indices. Mark-recapture–trials on Battle Creek are conducted using
-      hatchery-origin fish (from Coleman National Fish Hatchery), while
-      on Clear Creek natural-origin fish are used. Fish used for the
-      trials were either single or dual marked. For the single mark
-      trials the fish were stained with Bismarck brown-Y. Dual marked
-      fish clipped with surgical scalpels, removing an area of
-      approximately 1–2 mm<superscript>2</superscript> from the tip of
-      either the upper or lower lobe of the caudal fin and then the fish
-      were stained as above.
-    </para>
-      </section>
       <para>
     Clear Creek
   </para>
@@ -109,6 +86,28 @@
     Salmon to enter the upper watershed (above the Coleman National Fish
     Hatchery barrier weir).
   </para>
+      <para>
+    Mark–recapture Trials
+  </para>
+      <para>
+    Since the RST only captures fish from a small portion of the creek
+    cross section, it is necessary to implement a method to project the
+    RST catch numbers to portions of the creek outside of the RST
+    capture zone. Mark–recapture trials were attempted, when creek
+    conditions were conducive for such studies and when fish numbers
+    allowed, to determine the efficiency of the RSTs to catch juvenile
+    salmonids moving downstream during a given time period. If one or no
+    mark–recaptures trials were conducted, then the historic monthly and
+    global averages were used to calculate that passage indices.
+    Mark-recapture–trials on Battle Creek are conducted using
+    hatchery-origin fish (from Coleman National Fish Hatchery), while on
+    Clear Creek natural-origin fish are used. Fish used for the trials
+    were either single or dual marked. For the single mark trials the
+    fish were stained with Bismarck brown-Y. Dual marked fish clipped
+    with surgical scalpels, removing an area of approximately 1–2 mm^2
+    from the tip of either the upper or lower lobe of the caudal fin and
+    then the fish were stained as above.
+  </para>
     </abstract>
     <keywordSet>
       <keyword>spring run</keyword>
@@ -160,7 +159,7 @@
       <temporalCoverage>
         <rangeOfDates>
           <beginDate>
-            <calendarDate>2020-01-01</calendarDate>
+            <calendarDate>1998-09-01</calendarDate>
           </beginDate>
           <endDate>
             <calendarDate>2023-01-02</calendarDate>
@@ -348,13 +347,8 @@
     are collected at the Coleman National Fish Hatchery gauging station
     (#11376550, [BAT]). At the RST site all environmental and biological
     data is or has been entered into a paper datasheet, or into a
-    Microsoft Access database using a Mesa</para>
-          <para>
-            <superscript>3</superscript>
-          </para>
-          <para> ®
-    tablet (Juniper Systems, Logan, UT), or Survey 123 using an IPad
-    (Apple, Cupertino, CA).
+    Microsoft Access database using a Mesa® tablet (Juniper Systems,
+    Logan, UT), or Survey 123 using an IPad (Apple, Cupertino, CA).
   </para>
           <para>
     Dip nets are used to remove the contents of the RST live-box (fish,
@@ -463,17 +457,13 @@
   </para>
           <para>
     Tissue samples are collected from select Chinook for the purpose of
-    run identification. Samples are taken by removing a 1–2
-    mm</para>
-          <para>
-            <superscript>2</superscript>
-          </para>
-          <para> tissue sample from the top or bottom
-    lobe of the caudal fin. The samples are divided into two equal parts
-    and placed in duplicate 2-ml vials containing 0.5 ml 100% ethanol,
-    each labeled with the same sample record number. The duplicate
-    samples are taken for USFWS archive and for future analysis. Since
-    2022 we have switched to collecting dry tissue samples.
+    run identification. Samples are taken by removing a 1–2 mm^2 tissue
+    sample from the top or bottom lobe of the caudal fin. The samples
+    are divided into two equal parts and placed in duplicate 2-ml vials
+    containing 0.5 ml 100% ethanol, each labeled with the same sample
+    record number. The duplicate samples are taken for USFWS archive and
+    for future analysis. Since 2022 we have switched to collecting dry
+    tissue samples.
   </para>
           <para>
     Samples at all RSTs are taken when the length-at-date tables
@@ -522,11 +512,10 @@
     gal of water for a duration of 50 min. This stain can be retained on
     the fish for up to a week. Dual marked fish are first anesthetized
     with a 60–80 mg/L solution of MS-222, and surgical scalpels are then
-    used to remove an area of approximately 1–2
-    mm</para>
-          <para> from the corner of either the upper
-    or lower caudal fin lobe. After the clipping process is complete,
-    the salmon are stained with Bismarck Brown Y stain.
+    used to remove an area of approximately 1–2 mm^2 from the corner of
+    either the upper or lower caudal fin lobe. After the clipping
+    process is complete, the salmon are stained with Bismarck Brown Y
+    stain.
   </para>
           <para>
     Recovery and release — Marked juvenile salmon are placed in a
@@ -571,29 +560,19 @@
     RST efficiencies are calculated by use of the equation:
   </para>
           <para>
-    Ê</para>
-          <para>
-            <subscript>h</subscript>
-          </para>
-          <para> = (r</para>
-          <para> +1) /
-    (m</para>
-          <para> + 1),
+    Ê_h = (r_h +1) / (m_h + 1),
   </para>
           <para>
     Where
   </para>
-          <para> = the calculated RST efficiency in week h,
+          <para>
+    Ê_h = the calculated RST efficiency in week h,
   </para>
           <para>
-    r</para>
-          <para> = the number of marked fish recaptured in
-    week h,
+    r_h = the number of marked fish recaptured in week h,
   </para>
           <para>
-    m</para>
-          <para> = the number of marked fish released in
-    week h.
+    m_h = the number of marked fish released in week h.
   </para>
           <para>
     Although RST efficiency is calculated for all mark–recapture trials,
@@ -609,14 +588,10 @@
     calculated using the equation:
   </para>
           <para>
-    E̅</para>
-          <para>
-            <subscript>s</subscript>
-          </para>
-          <para> = (r̅ + 1) / (m̅ + 1),
+    E̅_s = (r̅ + 1) / (m̅ + 1),
   </para>
-          <para> = the calculated season average RST
-    efficiency,
+          <para>
+    E̅_s = the calculated season average RST efficiency,
   </para>
           <para>
     r̅ = the average number of marked fish recaptured from all valid
@@ -664,15 +639,7 @@
     Interpolated catch data are generated by use of the equation:
   </para>
           <para>
-    I = (C</para>
-          <para>
-            <subscript>b</subscript>
-          </para>
-          <para> + C</para>
-          <para>
-            <subscript>a</subscript>
-          </para>
-          <para>)/(Dˑ2),
+    I = (C_b + C_a)/(Dˑ2),
   </para>
           <para>
     I = the interpolated catch for each day the RST did not fish in
@@ -682,12 +649,10 @@
     D = the number of days the RST did not fish
   </para>
           <para>
-    C</para>
-          <para> = the mean catch of D before the RST did
-    not fish
+    C_b = the mean catch of D before the RST did not fish
   </para>
-          <para> = the mean catch of D after the RST did
-    not fish.
+          <para>
+    C_a = the mean catch of D after the RST did not fish.
   </para>
           <para>
     Hourly proportion of daily catch method — We use the hourly
@@ -702,14 +667,10 @@
     operated a complete 24-h period, using the equation:
   </para>
           <para>
-    I</para>
-          <para>
-            <subscript>d</subscript>
-          </para>
-          <para> = C/P,
+    I_d = C/P,
   </para>
-          <para> = the estimated total daily catch rounded
-    to the nearest fish,
+          <para>
+    I_d = the estimated total daily catch rounded to the nearest fish,
   </para>
           <para>
     C = the actual catch for the time period the RST sampled,
@@ -723,13 +684,11 @@
     estimated total daily catch:
   </para>
           <para>
-            <subscript>m</subscript>
-          </para>
-          <para> = I</para>
-          <para> – C,
+    I_m = I_d – C,
   </para>
-          <para> = the estimated missing catch for the time
-    period that the RST did not sample.
+          <para>
+    I_m = the estimated missing catch for the time period that the RST
+    did not sample.
   </para>
           <para>
     Juvenile passage indices
@@ -743,51 +702,38 @@
     al. (2004), the weekly juvenile passage indices are estimated by:
   </para>
           <para>
-    N̂</para>
-          <para> = U</para>
-          <para> /
-    Ê</para>
-          <para>,
-  </para>
-          <para> = the passage during week h,
+    N̂_h = U_h / Ê_h,
   </para>
           <para>
-    U</para>
-          <para> = the unmarked catch during week h,
-  </para>
-          <para> = the calculated RST efficiency (either
-    during week h, or the seasonal average).
+    N̂_h = the passage during week h,
   </para>
           <para>
-    The variance and 95% CI for each week’s passage
-    (N̂</para>
-          <para>) for all RSTS are calculated by the
-    percentile bootstrap method with 1,000 iterations (Efron and
-    Tibshirani 1986; Buckland and Garthwaite 1991; Thedinga et al.
-    1994). Using data with simulated numbers of migrants and RST
-    efficiencies, Steinhorst et al. (2004) determined the percentile
-    bootstrap method performed the best as it had the best coverage of a
-    95% CI. The variance for N̂</para>
-          <para> is simply the
-    sample variance of the 1,000 iterations of N̂</para>
+    U_h = the unmarked catch during week h,
+  </para>
           <para>
-    produced by bootstrapping U</para>
-          <para>,
-    E</para>
-          <para> and m</para>
-          <para> for each
-    week.
+    Ê_h = the calculated RST efficiency (either during week h, or the
+    seasonal average).
+  </para>
+          <para>
+    The variance and 95% CI for each week’s passage (N̂_h) for all RSTS
+    are calculated by the percentile bootstrap method with 1,000
+    iterations (Efron and Tibshirani 1986; Buckland and Garthwaite 1991;
+    Thedinga et al. 1994). Using data with simulated numbers of migrants
+    and RST efficiencies, Steinhorst et al. (2004) determined the
+    percentile bootstrap method performed the best as it had the best
+    coverage of a 95% CI. The variance for N̂_h is simply the sample
+    variance of the 1,000 iterations of N̂h produced by bootstrapping
+    U_h, E_h and m_h for each week.
   </para>
           <para>
     As described by Steinhorst et al. (2004) and demonstrated by Whitton
     et al. (2006), the 95% CIs for the weekly juvenile passage indices
-    are found by producing 1,000 iterations of N</para>
-          <para>
-    and recording the 25th and 975th values of the ordered estimates.
-    The 1,000 iterations are produced by using R (version 3.5.0,
-    www.r-project.org), which uses the weekly catch, the calculated
-    efficiency, and the number of marked fish for each trial. The SE of
-    the sample means of each stratum are also included.
+    are found by producing 1,000 iterations of N_h and recording the
+    25th and 975th values of the ordered estimates. The 1,000 iterations
+    are produced by using R (version 3.5.0, www.r-project.org), which
+    uses the weekly catch, the calculated efficiency, and the number of
+    marked fish for each trial. The SE of the sample means of each
+    stratum are also included.
   </para>
           <para>
     Mortality
