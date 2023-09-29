@@ -54,6 +54,8 @@ recapture_battle <- read_csv(here::here("data", "battle_recapture.csv")) |>
   glimpse()
 
 recapture <- bind_rows(recapture_clear, recapture_battle) |> 
+  relocate(c(release_id, date_recaptured, release_site, site), 
+           .before = number_recaptured) |> 
   #mutate(subsite = NA_character_) |> # to distinguish between LCC/UCC for Clear Creek and RM 8.3/8.4 for UBC
   glimpse()
 
@@ -70,6 +72,8 @@ release_battle <- read_csv(here::here("data", "battle_release.csv")) |>
   glimpse()
 
 release <- bind_rows(release_clear, release_battle) |> 
+  relocate(c(release_id, date_released, time_released, release_site), 
+           .before = site) |> # reorder columns
   # mutate(subsite = NA_character_, # to distinguish between LCC/UCC in Clear Creek and RM 8.3/8.4 in UBC
   #        run = NA_character_) |> 
   glimpse()
