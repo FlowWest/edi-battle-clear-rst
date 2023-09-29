@@ -54,7 +54,7 @@ recapture_battle <- read_csv(here::here("data", "battle_recapture.csv")) |>
   glimpse()
 
 recapture <- bind_rows(recapture_clear, recapture_battle) |> 
-  mutate(subsite = NA_character_) |> # to distinguish between LCC/UCC for Clear Creek and RM 8.3/8.4 for UBC
+  #mutate(subsite = NA_character_) |> # to distinguish between LCC/UCC for Clear Creek and RM 8.3/8.4 for UBC
   glimpse()
 
 # release - clear
@@ -70,8 +70,8 @@ release_battle <- read_csv(here::here("data", "battle_release.csv")) |>
   glimpse()
 
 release <- bind_rows(release_clear, release_battle) |> 
-  mutate(subsite = NA_character_, # to distinguish between LCC/UCC in Clear Creek and RM 8.3/8.4 in UBC
-         run = NA_character_) |> 
+  # mutate(subsite = NA_character_, # to distinguish between LCC/UCC in Clear Creek and RM 8.3/8.4 in UBC
+  #        run = NA_character_) |> 
   glimpse()
 
 # SacPAS daily passage summary
@@ -89,7 +89,7 @@ write.csv(catch, here::here("data", "catch.csv"), row.names = FALSE)
 write.csv(trap, here::here("data", "trap.csv"), row.names = FALSE)
 write.csv(recapture, here::here("data", "recapture.csv"), row.names = FALSE)
 write.csv(release, here::here("data", "release.csv"), row.names = FALSE)
-write.csv(passage_summary, here::here("data", "passage_summary.csv"), row.names = FALSE)
+# write.csv(passage_summary, here::here("data", "passage_summary.csv"), row.names = FALSE)
 
 
 # read and glimpse --------------------------------------------------------
