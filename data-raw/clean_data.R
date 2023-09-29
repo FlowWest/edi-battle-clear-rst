@@ -21,7 +21,10 @@ catch <- bind_rows(catch_historical |>
                             subsample = as.character(frac_to_decimal(subsample)))) |> 
   relocate(c(sample_id, sample_date, station_code, count, r_catch), .before = fork_length) |> 
   filter(!is.na(sample_date)) |> 
-  
+  mutate(fws_run = case_when(fws_run == "F" ~ "fall",
+                             fws_run == "W" ~ "winter",
+                             fws_run == "S" ~ "spring",
+                             fws_run == "L" ~ "late-fall")) |> 
   select(-run) |> 
   glimpse()
 
