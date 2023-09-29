@@ -64,7 +64,6 @@ trap <- bind_rows(trap_historical, trap_late) |>
 
 
 # recapture and release ---------------------------------------------------
-# TODO link release sites to trap sites
 
 # recapture - clear
 recapture_clear <- read_csv(here::here("data", "clear_recapture.csv")) |> 
@@ -77,10 +76,22 @@ recapture_battle <- read_csv(here::here("data", "battle_recapture.csv")) |>
   glimpse()
 
 recapture <- bind_rows(recapture_clear, recapture_battle) |> 
+  select(-site) |> # TODO remove this in the other script
+  mutate(site = case_when(release_site %in% c("VB", "P4") ~ "lower clear creek",
+                          release_site == "CCRB" ~ "upper clear creek",
+                          is.na(release_site) ~ "upper battle creek",
+                          TRUE ~ release_site),
+         release_site = case_when(release_site == "VB" ~ "vulture bar",
+                                  release_site == "P4" ~ "grand matthews permanent turbidity monitoring site",
+                                  release_site == "CCRB" ~ "clear creek road bridge",
+                                  TRUE ~ release_site),
+         fws_run = NA_character_,
+         hatchery_origin = NA_character_) |> 
   relocate(c(release_id, date_recaptured, release_site, site), 
            .before = number_recaptured) |> 
-  #mutate(subsite = NA_character_) |> # to distinguish between LCC/UCC for Clear Creek and RM 8.3/8.4 for UBC
   glimpse()
+
+# to distinguish between LCC/UCC for Clear Creek and RM 8.3/8.4 for UBC
 
 # release - clear
 release_clear <- read_csv(here::here("data", "clear_release.csv")) |> 
@@ -95,10 +106,19 @@ release_battle <- read_csv(here::here("data", "battle_release.csv")) |>
   glimpse()
 
 release <- bind_rows(release_clear, release_battle) |> 
-  relocate(c(release_id, date_released, time_released, release_site), 
-           .before = site) |> # reorder columns
-  # mutate(subsite = NA_character_, # to distinguish between LCC/UCC in Clear Creek and RM 8.3/8.4 in UBC
-  #        run = NA_character_) |> 
+  select(-site) |> # TODO fix this in other script
+  mutate(site = case_when(release_site %in% c("VB", "P4") ~ "lower clear creek",
+                          release_site == "CCRB" ~ "upper clear creek",
+                          is.na(release_site) ~ "upper battle creek",
+                          TRUE ~ release_site),
+         release_site = case_when(release_site == "VB" ~ "vulture bar",
+                                  release_site == "P4" ~ "grand matthews permanent turbidity monitoring site",
+                                  release_site == "CCRB" ~ "clear creek road bridge",
+                                  TRUE ~ release_site),
+         fws_run = NA_character_,
+         hatchery_origin = NA_character_) |> 
+  relocate(c(release_id, date_released, time_released, release_site, site), 
+           .before = number_released) |> # reorder columns
   glimpse()
 
 # SacPAS daily passage summary
