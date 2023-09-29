@@ -75,12 +75,12 @@ release <- bind_rows(release_clear, release_battle) |>
   glimpse()
 
 # SacPAS daily passage summary
-passage_summary <- read.csv(here::here("data-raw", "BOR Daily Passage and FL.csv")) |> 
-  janitor::clean_names() |> 
-  select(date, station_code, common_name, fws_run, brood_year, passage,
-         minimum_fl, maximum_fl, discharge_volume_cfs, water_temperature_c, 
-         water_turbidity_ntu) |> 
-  glimpse()
+# passage_summary <- read.csv(here::here("data-raw", "BOR Daily Passage and FL.csv")) |> 
+#   janitor::clean_names() |> 
+#   select(date, station_code, common_name, fws_run, brood_year, passage,
+#          minimum_fl, maximum_fl, discharge_volume_cfs, water_temperature_c, 
+#          water_turbidity_ntu) |> 
+#   glimpse()
 
 
 # write full datasets -----------------------------------------------------
