@@ -56,7 +56,11 @@ trap <- bind_rows(trap_historical, trap_late) |>
                              thalweg == "N" ~ FALSE,
                              thalweg %in% c("", "R") ~ NA),
          trap_fishing = ifelse(trap_fishing == 1, TRUE, FALSE),
-         partial_sample = ifelse(partial_sample == 1, TRUE, FALSE)) |> 
+         partial_sample = ifelse(partial_sample == 1, TRUE, FALSE),
+         station_code = case_when(station_code == "LCC" ~ "lower clear creek",
+                                  station_code == "UCC" ~ "upper clear creek",
+                                  station_code == "UBC" ~ "upper battle creek",
+                                  TRUE ~ station_code)) |> 
   relocate(c(sample_id, sample_date, sample_time, trap_start_date, trap_start_time, station_code),
            .before = depth_adjust) |> 
   glimpse()
