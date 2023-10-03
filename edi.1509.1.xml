@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1030.2" system="EDI" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1509.1" system="EDI" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
   <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
     <allow>
       <principal>public</principal>
@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2023-10-02</pubDate>
+    <pubDate>2023-10-03</pubDate>
     <abstract>
       <section>
         <title>Clear Creek</title>
@@ -590,8 +590,8 @@
       <entityDescription>Catch table</entityDescription>
       <physical>
         <objectName>catch.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">57016679</size>
+        <authentication method="MD5">3e5067cc536d64e86c9eb9b16bb762cc</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -821,8 +821,8 @@
       <entityDescription>Trap visit table</entityDescription>
       <physical>
         <objectName>trap.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">4853722</size>
+        <authentication method="MD5">2cba1cbec712631823103dbc6f17d992</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -921,12 +921,12 @@
         <attribute>
           <attributeName>station_code</attributeName>
           <attributeLabel>trap</attributeLabel>
-          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</attributeDefinition>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek",  "upper clear creek", NA, "power house battle creek")</attributeDefinition>
           <measurementScale>
             <nominal>
               <nonNumericDomain>
                 <textDomain>
-                  <definition>Code referring to the station where the sample was taken. Levels = c("UBC", "LCC", "UCC")</definition>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek",  "upper clear creek", NA, "power house battle creek")</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>
@@ -1336,8 +1336,8 @@
       <entityDescription>Recaptures</entityDescription>
       <physical>
         <objectName>recapture.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">261997</size>
+        <authentication method="MD5">98562b19fff5708df6924b9c22c5272d</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -1487,8 +1487,8 @@
       <entityDescription>Release summary</entityDescription>
       <physical>
         <objectName>release.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">86080</size>
+        <authentication method="MD5">05b808a107ab9cc23ec512f7400be756</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -1754,8 +1754,23 @@
       <numberOfRecords>800</numberOfRecords>
     </dataTable>
     <otherEntity>
-      <entityName>data-raw/Battle_Clear_Methods.pdf</entityName>
+      <entityName>Battle_Clear_Methods.pdf</entityName>
       <entityDescription>Additional methods for the Battle and Clear Creek EDI package containing equations</entityDescription>
+      <physical>
+        <objectName>Battle_Clear_Methods.pdf</objectName>
+        <size unit="bytes">306811</size>
+        <authentication method="MD5">b9580844739e5fdc7ed1121d1bed58cf</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>PDF</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data-raw/metadata/Battle_Clear_Methods.pdf</url>
+          </online>
+        </distribution>
+      </physical>
       <entityType>PDF</entityType>
     </otherEntity>
   </dataset>

@@ -60,6 +60,9 @@ trap <- bind_rows(trap_historical, trap_late) |>
          station_code = case_when(station_code == "LCC" ~ "lower clear creek",
                                   station_code == "UCC" ~ "upper clear creek",
                                   station_code == "UBC" ~ "upper battle creek",
+                                  station_code == "LBC" ~ "lower battle creek",
+                                  station_code == "PHB" ~ "power house battle creek",
+                                  station_code == "" ~ NA,
                                   TRUE ~ station_code)) |> 
   relocate(c(sample_id, sample_date, sample_time, trap_start_date, trap_start_time, station_code),
            .before = depth_adjust) |> 

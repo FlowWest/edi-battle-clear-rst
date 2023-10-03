@@ -22,9 +22,14 @@ datatable_metadata <-
                                          "recapture.csv",
                                          "release.csv")))
 
-other_entity_metadata <- tibble(file_name = "data-raw/Battle_Clear_Methods.pdf",
-                                file_description = "Additional methods for the Battle and Clear Creek EDI package containing equations",
-                                file_type = "PDF")
+other_entity_metadata <- list("file_name" = "Battle_Clear_Methods.pdf",
+                              "file_description" = "Additional methods for the Battle and Clear Creek EDI package containing equations",
+                              "file_type" = "PDF",
+                              "physical" = create_physical("data-raw/metadata/Battle_Clear_Methods.pdf",
+                                                           data_url = "https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data-raw/metadata/Battle_Clear_Methods.pdf"))
+other_entity_metadata$physical$dataFormat <- list("externallyDefinedFormat" = list("formatName" = "PDF"))
+
+
 # 
 # other_entity_metadata <- tibble(file_name = "data-raw/battle_clear_data_processing_scripts.zip",
 #                                 file_description = "R scripts that produce daily passage and cumulative catch tables from the raw catch table 
@@ -40,10 +45,10 @@ names(metadata) <- sheets
 abstract_docx <- "data-raw/metadata/abstract.docx"
 methods_docx <- "data-raw/metadata/methods.docx"
 
-# edi_number <- reserve_edi_id(user_id = "user name", password = "password")
+# edi_number <- reserve_edi_id(user_id = Sys.getenv("edi_user_id"), password = Sys.getenv("edi_password"))
 
-# TODO update to correct version
-edi_number = "edi.1030.2"
+# reserved under JPE account 10-3-2023
+edi_number = "edi.1509.1"
 
 dataset <- list() %>%
   add_pub_date() %>%
@@ -82,3 +87,8 @@ eml <- list(packageId = edi_number,
 
 EML::write_eml(eml, paste0(edi_number, ".xml"))
 EML::eml_validate(paste0(edi_number, ".xml"))
+
+EMLaide::evaluate_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
+report_df |> filter(Status == "error")
+EMLaide::upload_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
+
