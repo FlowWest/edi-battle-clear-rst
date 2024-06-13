@@ -21,8 +21,7 @@ catch <- bind_rows(catch_historical |>
                      filter(sample_date < min(catch_current$sample_date, na.rm = T)), 
                      catch_current) |> 
   relocate(c(sample_id, sample_date, station_code, count, r_catch), .before = fork_length) |> 
-  filter(!is.na(sample_date),
-         as.Date(sample_date) <= as.Date("2022-09-30")) |> 
+  filter(!is.na(sample_date)) |> 
   mutate(fws_run = case_when(fws_run == "F" ~ "fall",
                              fws_run == "W" ~ "winter",
                              fws_run == "S" ~ "spring",
@@ -46,6 +45,8 @@ catch <- bind_rows(catch_historical |>
   select(-c(dead, age_class, run)) |> 
   glimpse()
 
+min(catch$sample_date)
+max(catch$sample_date)
 # trap
 # trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
 trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
