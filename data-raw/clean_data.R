@@ -5,6 +5,7 @@ library(lubridate)
 
 # catch
 # catch_early <- read.csv(here::here("data", "catch_early.csv")) |> glimpse() # no longer needed thanks to historical db
+catch_current <- read.csv(here::here("data", "catch_current.csv")) |> glimpse()
 catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
 catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glimpse()
 
@@ -16,7 +17,9 @@ catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glim
 
 catch <- bind_rows(catch_historical |> 
                      filter(sample_date < min(catch_late$sample_date, na.rm = T)),
-                   catch_late) |> 
+                   catch_late |> 
+                     filter(sample_date < min(catch_current$sample_date, na.rm = T)), 
+                     catch_current) |> 
   relocate(c(sample_id, sample_date, station_code, count, r_catch), .before = fork_length) |> 
   filter(!is.na(sample_date),
          as.Date(sample_date) <= as.Date("2022-09-30")) |> 
