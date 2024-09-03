@@ -73,7 +73,12 @@ trap <- bind_rows(trap_historical, trap_late) |>
   glimpse()
 
 
+ck <- trap |> 
+  group_by(sample_id, station_code, year(sample_date)) |> 
+  tally() |> 
+  filter(n > 1)
 
+trap |> filter(sample_id == "016_05")
 # recapture and release ---------------------------------------------------
 
 # recapture - clear
