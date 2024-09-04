@@ -138,6 +138,7 @@ clear_released <- clear_mark_recapture |>
   filter(release_date >= as_date("2003-10-01")) %>% 
   rename(date_released = release_date,
          time_released = release_time) %>% 
+  mutate(release_turbidity = as.numeric(release_turbidity)) |> 
   distinct() %>% 
   glimpse()
 
