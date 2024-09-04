@@ -49,11 +49,16 @@ min(catch$sample_date)
 max(catch$sample_date)
 # trap
 # trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
+trap_current <- read.csv(here::here("data", "trap_current.csv")) |> glimpse()
 trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
 trap_historical <- read.csv(here::here("data", "trap_historical.csv")) |> glimpse()
 
-trap <- bind_rows(trap_historical, trap_late) |> 
-  filter(as.Date(sample_date) <= as.Date("2022-09-30")) |> # until newer data is QC'd - check with Mike
+trap <- bind_rows(trap_historical |> 
+                    filter(sample_date < min(trap_late$sample_date, na.rm = T)),
+                  trap_late |> 
+                    filter(sample_date < min(trap_current$sample_date, na.rm = T)), 
+                  trap_current) |> 
+  #filter(as.Date(sample_date) <= as.Date("2022-09-30")) |> # until newer data is QC'd - check with Mike
   select(-c(lunar_phase, start_counter)) |> 
   rename(end_counter = counter) |> 
   mutate(thalweg = case_when(thalweg == "Y" ~ TRUE, 
@@ -148,17 +153,17 @@ release <- bind_rows(release_clear, release_battle) |>
 
 # write full datasets -----------------------------------------------------
 
-write.csv(catch, here::here("data", "catch.csv"), row.names = FALSE)
-write.csv(trap, here::here("data", "trap.csv"), row.names = FALSE)
-write.csv(recapture, here::here("data", "recapture.csv"), row.names = FALSE)
-write.csv(release, here::here("data", "release.csv"), row.names = FALSE)
+write_csv(catch, here::here("data", "catch.csv"))
+write_csv(trap, here::here("data", "trap.csv"))
+write_csv(recapture, here::here("data", "recapture.csv"))
+write_csv(release, here::here("data", "release.csv"))
 # write.csv(passage_summary, here::here("data", "passage_summary.csv"), row.names = FALSE)
 
 
 # read and glimpse --------------------------------------------------------
 
 catch <- read_csv(here::here("data", "catch.csv")) |> glimpse()
-trap <- read.csv(here::here("data", "trap.csv")) |> glimpse()
-recapture <- read.csv(here::here("data", "recapture.csv")) |> glimpse()
-release <- read.csv(here::here("data", "release.csv")) |> glimpse()
-passage_summary <- read.csv(here::here("data", "passage_summary.csv")) |> glimpse()
+trap <- read_csv(here::here("data", "trap.csv")) |> glimpse()
+recapture <- read_csv(here::here("data", "recapture.csv")) |> glimpse()
+release <- read_csv(here::here("data", "release.csv")) |> glimpse()
+passage_summary <- read_csv(here::here("data", "passage_summary.csv")) |> glimpse()
