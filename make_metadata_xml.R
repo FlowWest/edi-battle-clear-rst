@@ -15,12 +15,7 @@ datatable_metadata <-
                 datatable_description = c("Catch table",
                                           "Trap visit table",
                                           "Recaptures",
-                                          "Release summary"),
-                datatable_url = paste0("https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data/",
-                                       c("catch.csv",
-                                         "trap.csv",
-                                         "recapture.csv",
-                                         "release.csv")))
+                                          "Release summary"))
 
 other_entity_metadata <- list("file_name" = "Battle_Clear_Methods.pdf",
                               "file_description" = "Additional methods for the Battle and Clear Creek EDI package containing equations",
@@ -48,7 +43,7 @@ methods_docx <- "data-raw/metadata/methods.docx"
 # edi_number <- reserve_edi_id(user_id = Sys.getenv("edi_user_id"), password = Sys.getenv("edi_password"))
 
 # reserved under JPE account 10-3-2023
-edi_number = "edi.1509.1"
+edi_number = "edi.1509.2"
 
 dataset <- list() %>%
   add_pub_date() %>%
@@ -88,7 +83,7 @@ eml <- list(packageId = edi_number,
 EML::write_eml(eml, paste0(edi_number, ".xml"))
 EML::eml_validate(paste0(edi_number, ".xml"))
 
-EMLaide::evaluate_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
+EMLaide::evaluate_edi_package(Sys.getenv("EDI_USER_ID"), Sys.getenv("EDI_PASSWORD"), paste0(edi_number, ".xml"))
 report_df |> filter(Status == "error")
-EMLaide::upload_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
+#EMLaide::upload_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
 
