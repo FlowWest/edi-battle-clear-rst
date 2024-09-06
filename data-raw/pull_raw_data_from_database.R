@@ -9,11 +9,11 @@ library(janitor)
 # The 2022-2023 database originally only had data through January 2023 (we only included through Sept 2022 in EDI package)
 # TODO
 # Items to check with Mike and Kaitin
-filter(catch, is.na(sample_date)) 
-trap |> 
-  group_by(sample_id, station_code) |> 
-  tally() |> 
-  filter(n > 1)
+# filter(catch, is.na(sample_date)) 
+# trap |> 
+#   group_by(sample_id, station_code) |> 
+#   tally() |> 
+#   filter(n > 1)
 
 
 # 2023-2024 RST database --------------------------------------------------

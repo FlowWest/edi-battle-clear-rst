@@ -107,7 +107,7 @@ clear_mark_recapture <- mark_recapture_data_clear |>
          clip = clip_status, days_held_post_mark, release_water_temp_f, flow_cfs_release, release_turbidity_ntu, cone_status_h_f_recap = cone_status_h_alf_f_ull, 
          mean_temp_day_of_rel = mean_daily_water_temp_f_day_of_release, mean_flow_day_of_rel = mean_flow_cfs_day_of_release, caught_day_1, caught_day_2, 
          caught_day_3, caught_day_4, caught_day_5, release_site = clear_creek_site) |>
-  mutate(release_time = hms::hms(days = as.numeric(release_time)),
+  mutate(release_time = hms::as_hms(release_time),
          day_or_night_release = case_when(day_or_night_release == "?" ~ "unknown", 
                                           day_or_night_release == "D" ~ "day",
                                           day_or_night_release == "N" ~ "night"),
