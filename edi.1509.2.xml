@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2024-09-06</pubDate>
+    <pubDate>2024-09-20</pubDate>
     <abstract>
       <section>
         <title>Clear Creek</title>
@@ -1360,8 +1360,8 @@
       <entityDescription>Recaptures</entityDescription>
       <physical>
         <objectName>recapture.csv</objectName>
-        <size unit="bytes">254392</size>
-        <authentication method="MD5">6e0488dec89b87d08178347f6c819475</authentication>
+        <size unit="bytes">228958</size>
+        <authentication method="MD5">fefaf8befb6569c058822fd268b3e7bf</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -1475,34 +1475,6 @@
             </ratio>
           </measurementScale>
         </attribute>
-        <attribute>
-          <attributeName>fws_run</attributeName>
-          <attributeLabel>recapture</attributeLabel>
-          <attributeDefinition>FWS identified run of fish recaptured</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>FWS identified run of fish recaptured</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>hatchery_origin</attributeName>
-          <attributeLabel>recapture</attributeLabel>
-          <attributeDefinition>Origin of hatchery fish</attributeDefinition>
-          <measurementScale>
-            <ordinal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Origin of hatchery fish</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </ordinal>
-          </measurementScale>
-        </attribute>
       </attributeList>
       <numberOfRecords>4235</numberOfRecords>
     </dataTable>
@@ -1511,8 +1483,8 @@
       <entityDescription>Release summary</entityDescription>
       <physical>
         <objectName>release.csv</objectName>
-        <size unit="bytes">81311</size>
-        <authentication method="MD5">8e764a22cd2e89669025c96ff7121ceb</authentication>
+        <size unit="bytes">76205</size>
+        <authentication method="MD5">254507ec4af9728974914b3d1f2e59a5</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -1741,34 +1713,6 @@
               <nonNumericDomain>
                 <textDomain>
                   <definition>Origin of released fish. Levels = c(NA, "natural", "hatchery")</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>fws_run</attributeName>
-          <attributeLabel>release</attributeLabel>
-          <attributeDefinition>FWS identified run of fish recaptured</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>FWS identified run of fish recaptured</definition>
-                </textDomain>
-              </nonNumericDomain>
-            </nominal>
-          </measurementScale>
-        </attribute>
-        <attribute>
-          <attributeName>hatchery_origin</attributeName>
-          <attributeLabel>release</attributeLabel>
-          <attributeDefinition>Origin of hatchery fish</attributeDefinition>
-          <measurementScale>
-            <nominal>
-              <nonNumericDomain>
-                <textDomain>
-                  <definition>Origin of hatchery fish</definition>
                 </textDomain>
               </nonNumericDomain>
             </nominal>

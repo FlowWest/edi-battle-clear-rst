@@ -150,9 +150,7 @@ recapture <- bind_rows(recapture_clear, recapture_battle) |>
          release_site = case_when(release_site == "VB" ~ "vulture bar",
                                   release_site == "P4" ~ "grand matthews permanent turbidity monitoring site",
                                   release_site == "CCRB" ~ "clear creek road bridge",
-                                  TRUE ~ release_site),
-         fws_run = NA_character_,
-         hatchery_origin = NA_character_) |> 
+                                  TRUE ~ release_site)) |> 
   relocate(c(release_id, date_recaptured, release_site, site), 
            .before = number_recaptured) |> 
   glimpse()
@@ -168,7 +166,8 @@ max(recapture$median_fork_length_recaptured, na.rm = T)
 # release - clear
 release_clear <- read_csv(here::here("data", "clear_release.csv")) |> 
   # filter(year(date_released) >= "2020") |> 
-  mutate(time_released = as.character(time_released)) |> 
+  mutate(time_released = as.character(time_released),
+         release_turbidity = as.numeric(release_turbidity)) |> 
   glimpse()
 
 # release - battle
@@ -187,8 +186,7 @@ release <- bind_rows(release_clear, release_battle) |>
                                   release_site == "P4" ~ "grand matthews permanent turbidity monitoring site",
                                   release_site == "CCRB" ~ "clear creek road bridge",
                                   TRUE ~ release_site),
-         fws_run = NA_character_,
-         hatchery_origin = NA_character_) |> 
+         time_released = hms::as_hms(time_released)) |> 
   relocate(c(release_id, date_released, time_released, release_site, site), 
            .before = number_released) |> # reorder columns
   glimpse()
