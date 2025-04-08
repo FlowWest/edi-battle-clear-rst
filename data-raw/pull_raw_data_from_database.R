@@ -1,26 +1,122 @@
-# install.packages("RODBC")
 library(RODBC)
 library(Hmisc)
 library(tidyverse)
 library(lubridate)
 library(janitor)
 
-# Mike Schaml provided updated databased files June 2024: 2022-2023 database and 2023-2024 database
-# The 2022-2023 database originally only had data through January 2023 (we only included through Sept 2022 in EDI package)
-# TODO
-# Items to check with Mike and Kaitin
-# filter(catch, is.na(sample_date)) 
-# trap |> 
-#   group_by(sample_id, station_code) |> 
-#   tally() |> 
-#   filter(n > 1)
+# Data files are uploaded here by Mike Schraml: https://netorg629193-my.sharepoint.com/:x:/g/personal/avizek_flowwest_com/ERyKTmCM69ZMlFdXC5DSIm0BG6htU3inqC5aUflyLYBwvg?e=3NeQ3n
+# Note that when updating data, please update the filepath to the most up to date version
+# If a new database file is added, some parts of the script will need to be updated
+# in order to bind the new file to the older files. For instance, we would save out
+# tables from the older databases and then bind together in the clean_data.R script
 
+# 2024-2025 RST database --------------------------------------------------
+# read in mdb
+library(Hmisc)
+filepath <- here::here("data-raw", "scripts_and_data_from_natasha", 
+                       "2024-2025_RST_Database.accdb") # update to most recent version
+tables <- mdb.get(filepath, tables = TRUE) 
+tables
+
+# tables are: BioSample, Run, Sample, Catch, DataDscriptions, HistoricalSampleID
+# data
+catch_raw <- mdb.get(filepath, "Catch", mdbexportArgs = '') |> glimpse()
+trap_raw <- mdb.get(filepath, "Sample", mdbexportArgs = '') |> glimpse()
+
+# store all LU tables in a named list
+LU_table_names <- tables[! tables %in% c("Catch", "Sample")]
+LU_tables <- sapply(LU_table_names, function(x){
+  return(mdb.get(filepath, paste0(x)))
+}, USE.NAMES = T)
+
+detach(package:Hmisc)
+
+# trap
+trap <- trap_raw |> 
+  left_join(LU_tables$VariableCodesLookUp |> 
+              filter(CodeListName == "WeatherList") |> 
+              select(ValueCode, Weather = CodeDescription),
+            by = c("WeatherCode" = "ValueCode")) |> 
+  left_join(LU_tables$VariableCodesLookUp |> 
+              filter(CodeListName == "HabitatList") |> 
+              select(ValueCode, Habitat_Description = CodeDescription),
+            by = c("Habitat" = "ValueCode")) |> 
+  left_join(LU_tables$VariableCodesLookUp |> 
+              filter(CodeListName == "TrapSampleTypeList") |> 
+              select(ValueCode, TrapSampleType_Description = CodeDescription),
+            by = c("TrapSampleType" = "ValueCode")) |> 
+  left_join(LU_tables$VariableCodesLookUp |> 
+              filter(CodeListName == "DielList") |> 
+              select(ValueCode, Diel_Description = CodeDescription),
+            by = c("Diel" = "ValueCode")) |> 
+  left_join(LU_tables$VariableCodesLookUp |> 
+              filter(CodeListName == "DebrisTypeList") |> 
+              select(ValueCode, DebrisType_Description = FormDisplay),
+            by = c("DebrisType" = "ValueCode")) |>   
+  left_join(LU_tables$VariableCodesLookUp |> 
+              filter(CodeListName == "ConditionList") |> 
+              select(ValueCode, Gear_Description = CodeDescription),
+            by = c("GearConditionCode" = "ValueCode")) |> 
+  mutate(SampleTime = str_sub(as.character(SampleTime), 11, 18),
+         SampleTime = if_else(SampleTime == "", NA_character_, SampleTime),
+         TrapStartTime = str_sub(as.character(TrapStartTime), 11, 18),
+         TrapStartTime = if_else(TrapStartTime == "", NA_character_, TrapStartTime)) |> 
+  select(-c(WeatherCode, Habitat, TrapSampleType, Diel, DebrisType,
+            BaileysEff, ReportBaileysEff, NumReleased, UserName, UserName2,
+            TrapComments, GearConditionCode, SampleRowID)) |> 
+  rename(Habitat = Habitat_Description, 
+         TrapSampleType = TrapSampleType_Description,
+         Diel = Diel_Description,
+         DebrisType = DebrisType_Description,
+         Gear_Condition = Gear_Description) |> 
+  clean_names() |> 
+  glimpse()
+
+# catch
+catch <- catch_raw |> 
+  left_join(LU_tables$OrganismsLookUp |> 
+              select(OrganismCode, CommonName) |> 
+              labelled::remove_var_label(),
+            by = "OrganismCode") |> 
+  left_join(LU_tables$RaceList |> 
+              select(RaceCode, Race_Description = Description),
+            by = c("Race" = "RaceCode")) |> 
+  left_join(LU_tables$StagesLookUp |> 
+              select(LifeStage, StageName),
+            by = "LifeStage") |> 
+  left_join(trap_raw |> 
+              select(SampleRowID, StationCode, SampleDate, SampleID),
+            by = "SampleRowID") |> 
+  select(-c(OrganismCode, Race, LifeStage, "SampleRowID")) |> 
+  rename(LifeStage = StageName) |> 
+  mutate(LifeStage = str_remove_all(LifeStage, "RBT - "),
+         LifeStage = str_remove_all(LifeStage, "CHN - "),
+         Race = if_else(Race_Description == "N/P", "not provided", Race_Description),
+         Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
+         Dead = ifelse(Dead == "Y", TRUE, FALSE),
+         Interp = ifelse(Interp == "NO", FALSE, TRUE)) |> 
+  select(-c(Race_Description, FishFLTS, KFactor, ReportCatch, ReportAgeClass, ReportRace,
+            RCatchCom)) |> 
+  rename(Run = Race, FWSRun = FWSRace) |> 
+  clean_names() |> 
+  glimpse()
+
+# This database is "2024-2-18" to "2025-04-02"
+# Note that there are 2 entries from Feb 2024. Assume that these should be removed 
+# so no overlap with the 2023-2024 db.
+min(catch$sample_date, na.rm = T)
+ck <- filter(catch, is.na(sample_date))
+ck <- filter(trap, is.na(sample_date))
+max(catch$sample_date, na.rm = T)
+
+write_csv(catch, here::here("data", "catch_current2025.csv"))
+write_csv(trap, here::here("data", "trap_current2025.csv"))
 
 # 2023-2024 RST database --------------------------------------------------
 # read in mdb
 library(Hmisc)
 filepath <- here::here("data-raw", "scripts_and_data_from_natasha", 
-                       "2023-2024_RST_Database_20240606.accdb")
+                       "2023-2024_RST_Database_202504.accdb") # update to most recent version
 tables <- mdb.get(filepath, tables = TRUE) 
 tables
 
@@ -109,133 +205,131 @@ catch <- catch_raw |>
 
 # This database is "2023-10-02" to "2024-06-06"
 min(catch$sample_date, na.rm = T)
-ck <- filter(catch, is.na(sample_date)) # 8 that have no date. should we remove?
+ck <- filter(catch, is.na(sample_date))
 ck <- filter(trap, is.na(sample_date))
 max(catch$sample_date, na.rm = T)
 
 write_csv(catch, here::here("data", "catch_current.csv"))
 write_csv(trap, here::here("data", "trap_current.csv"))
 
+# The files below are historical and should not be rerun unless updated
+
 # 2022-2023 RST database (mike sent new one in June 2024) ----------------------
-# read in mdb
-library(Hmisc)
-filepath <- here::here("data-raw", "scripts_and_data_from_natasha", 
-                       "2022-2023_RST_Database_202406.accdb")
-tables <- mdb.get(filepath, tables = TRUE) 
-tables
-
-# tables are: BioSample, Run, Sample, Catch, DataDscriptions, HistoricalSampleID
-# data
-catch_raw <- mdb.get(filepath, "Catch", mdbexportArgs = '') |> glimpse()
-trap_raw <- mdb.get(filepath, "Sample", mdbexportArgs = '') |> glimpse()
-
-# store all LU tables in a named list
-LU_table_names <- tables[! tables %in% c("Catch", "Sample")]
-LU_tables <- sapply(LU_table_names, function(x){
-  return(mdb.get(filepath, paste0(x)))
-}, USE.NAMES = T)
-
-detach(package:Hmisc)
-
-# trap
-# trap
-trap <- trap_raw |> 
-  left_join(LU_tables$VariableCodesLookUp |> 
-              filter(CodeListName == "WeatherList") |> 
-              select(ValueCode, Weather = CodeDescription),
-            by = c("WeatherCode" = "ValueCode")) |> 
-  left_join(LU_tables$VariableCodesLookUp |> 
-              filter(CodeListName == "HabitatList") |> 
-              select(ValueCode, Habitat_Description = CodeDescription),
-            by = c("Habitat" = "ValueCode")) |> 
-  left_join(LU_tables$VariableCodesLookUp |> 
-              filter(CodeListName == "TrapSampleTypeList") |> 
-              select(ValueCode, TrapSampleType_Description = CodeDescription),
-            by = c("TrapSampleType" = "ValueCode")) |> 
-  left_join(LU_tables$VariableCodesLookUp |> 
-              filter(CodeListName == "DielList") |> 
-              select(ValueCode, Diel_Description = CodeDescription),
-            by = c("Diel" = "ValueCode")) |> 
-  left_join(LU_tables$VariableCodesLookUp |> 
-              filter(CodeListName == "DebrisTypeList") |> 
-              select(ValueCode, DebrisType_Description = FormDisplay),
-            by = c("DebrisType" = "ValueCode")) |>   
-  left_join(LU_tables$VariableCodesLookUp |> 
-              filter(CodeListName == "ConditionList") |> 
-              select(ValueCode, Gear_Description = CodeDescription),
-            by = c("GearConditionCode" = "ValueCode")) |> 
-  mutate(SampleTime = str_sub(as.character(SampleTime), 11, 18),
-         SampleTime = if_else(SampleTime == "", NA_character_, SampleTime),
-         TrapStartTime = str_sub(as.character(TrapStartTime), 11, 18),
-         TrapStartTime = if_else(TrapStartTime == "", NA_character_, TrapStartTime)) |> 
-  select(-c(WeatherCode, Habitat, TrapSampleType, Diel, DebrisType,
-            BaileysEff, ReportBaileysEff, NumReleased, UserName, UserName2,
-            TrapComments, GearConditionCode, SampleRowID)) |> 
-  rename(Habitat = Habitat_Description, 
-         TrapSampleType = TrapSampleType_Description,
-         Diel = Diel_Description,
-         DebrisType = DebrisType_Description,
-         Gear_Condition = Gear_Description) |> 
-  clean_names() |> 
-  glimpse()
-
-trap |> 
-  group_by(sample_id, station_code) |> 
-  tally() |> 
-  filter(n > 1)
-
-trap |> 
-  filter(sample_id == "031_24" & station_code == "LCC")
-# catch
-catch <- catch_raw |> 
-  left_join(LU_tables$OrganismsLookUp |> 
-              select(OrganismCode, CommonName) |> 
-              labelled::remove_var_label(),
-            by = "OrganismCode") |> 
-  left_join(LU_tables$RaceList |> 
-              select(RaceCode, Race_Description = Description),
-            by = c("Race" = "RaceCode")) |> 
-  left_join(LU_tables$StagesLookUp |> 
-              select(LifeStage, StageName),
-            by = "LifeStage") |> 
-  left_join(trap_raw |> 
-              select(SampleRowID, StationCode, SampleDate, SampleID),
-            by = "SampleRowID") |> 
-  select(-c(OrganismCode, Race, LifeStage, "SampleRowID")) |> 
-  rename(LifeStage = StageName) |> 
-  mutate(LifeStage = str_remove_all(LifeStage, "RBT - "),
-         LifeStage = str_remove_all(LifeStage, "CHN - "),
-         Race = if_else(Race_Description == "N/P", "not provided", Race_Description),
-         Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
-         Dead = ifelse(Dead == "Y", TRUE, FALSE),
-         Interp = ifelse(Interp == "NO", FALSE, TRUE)) |> 
-  select(-c(Race_Description, FishFLTS, KFactor, ReportCatch, ReportAgeClass, ReportRace,
-            RCatchCom)) |> 
-  rename(Run = Race, FWSRun = FWSRace) |> 
-  clean_names() |> 
-  glimpse()
-
-catch_old_version_2022 <- read_csv(here::here("data", "catch_late.csv"))
-trap_old_version_2022 <- read_csv(here::here("data", "trap_late.csv"))
-# "2022-10-01" to "2023-09-30", 6359 obs, 817 obs for trap
-min(catch_old_version_2022$sample_date, na.rm = T)
-ck <- filter(catch_old_version_2022, is.na(sample_date)) #5 that have no date. should we remove?
-max(catch_old_version_2022$sample_date, na.rm = T)
-
-min(catch$sample_date, na.rm = T)
-ck <- filter(catch, is.na(sample_date)) #5 that have no date. should we remove?
-max(catch$sample_date, na.rm = T)
-catch |> 
-  group_by(station_code, catch_row_id) |> 
-  tally() |> 
-  filter(n > 1)
-
-write_csv(catch, here::here("data", "catch_late.csv"))
-write_csv(trap, here::here("data", "trap_late.csv"))
-
-
-
-# The files below are historical and should not be rerun
+# # read in mdb
+# library(Hmisc)
+# filepath <- here::here("data-raw", "scripts_and_data_from_natasha", 
+#                        "2022-2023_RST_Database_202406.accdb")
+# tables <- mdb.get(filepath, tables = TRUE) 
+# tables
+# 
+# # tables are: BioSample, Run, Sample, Catch, DataDscriptions, HistoricalSampleID
+# # data
+# catch_raw <- mdb.get(filepath, "Catch", mdbexportArgs = '') |> glimpse()
+# trap_raw <- mdb.get(filepath, "Sample", mdbexportArgs = '') |> glimpse()
+# 
+# # store all LU tables in a named list
+# LU_table_names <- tables[! tables %in% c("Catch", "Sample")]
+# LU_tables <- sapply(LU_table_names, function(x){
+#   return(mdb.get(filepath, paste0(x)))
+# }, USE.NAMES = T)
+# 
+# detach(package:Hmisc)
+# 
+# # trap
+# # trap
+# trap <- trap_raw |> 
+#   left_join(LU_tables$VariableCodesLookUp |> 
+#               filter(CodeListName == "WeatherList") |> 
+#               select(ValueCode, Weather = CodeDescription),
+#             by = c("WeatherCode" = "ValueCode")) |> 
+#   left_join(LU_tables$VariableCodesLookUp |> 
+#               filter(CodeListName == "HabitatList") |> 
+#               select(ValueCode, Habitat_Description = CodeDescription),
+#             by = c("Habitat" = "ValueCode")) |> 
+#   left_join(LU_tables$VariableCodesLookUp |> 
+#               filter(CodeListName == "TrapSampleTypeList") |> 
+#               select(ValueCode, TrapSampleType_Description = CodeDescription),
+#             by = c("TrapSampleType" = "ValueCode")) |> 
+#   left_join(LU_tables$VariableCodesLookUp |> 
+#               filter(CodeListName == "DielList") |> 
+#               select(ValueCode, Diel_Description = CodeDescription),
+#             by = c("Diel" = "ValueCode")) |> 
+#   left_join(LU_tables$VariableCodesLookUp |> 
+#               filter(CodeListName == "DebrisTypeList") |> 
+#               select(ValueCode, DebrisType_Description = FormDisplay),
+#             by = c("DebrisType" = "ValueCode")) |>   
+#   left_join(LU_tables$VariableCodesLookUp |> 
+#               filter(CodeListName == "ConditionList") |> 
+#               select(ValueCode, Gear_Description = CodeDescription),
+#             by = c("GearConditionCode" = "ValueCode")) |> 
+#   mutate(SampleTime = str_sub(as.character(SampleTime), 11, 18),
+#          SampleTime = if_else(SampleTime == "", NA_character_, SampleTime),
+#          TrapStartTime = str_sub(as.character(TrapStartTime), 11, 18),
+#          TrapStartTime = if_else(TrapStartTime == "", NA_character_, TrapStartTime)) |> 
+#   select(-c(WeatherCode, Habitat, TrapSampleType, Diel, DebrisType,
+#             BaileysEff, ReportBaileysEff, NumReleased, UserName, UserName2,
+#             TrapComments, GearConditionCode, SampleRowID)) |> 
+#   rename(Habitat = Habitat_Description, 
+#          TrapSampleType = TrapSampleType_Description,
+#          Diel = Diel_Description,
+#          DebrisType = DebrisType_Description,
+#          Gear_Condition = Gear_Description) |> 
+#   clean_names() |> 
+#   glimpse()
+# 
+# trap |> 
+#   group_by(sample_id, station_code) |> 
+#   tally() |> 
+#   filter(n > 1)
+# 
+# trap |> 
+#   filter(sample_id == "031_24" & station_code == "LCC")
+# # catch
+# catch <- catch_raw |> 
+#   left_join(LU_tables$OrganismsLookUp |> 
+#               select(OrganismCode, CommonName) |> 
+#               labelled::remove_var_label(),
+#             by = "OrganismCode") |> 
+#   left_join(LU_tables$RaceList |> 
+#               select(RaceCode, Race_Description = Description),
+#             by = c("Race" = "RaceCode")) |> 
+#   left_join(LU_tables$StagesLookUp |> 
+#               select(LifeStage, StageName),
+#             by = "LifeStage") |> 
+#   left_join(trap_raw |> 
+#               select(SampleRowID, StationCode, SampleDate, SampleID),
+#             by = "SampleRowID") |> 
+#   select(-c(OrganismCode, Race, LifeStage, "SampleRowID")) |> 
+#   rename(LifeStage = StageName) |> 
+#   mutate(LifeStage = str_remove_all(LifeStage, "RBT - "),
+#          LifeStage = str_remove_all(LifeStage, "CHN - "),
+#          Race = if_else(Race_Description == "N/P", "not provided", Race_Description),
+#          Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
+#          Dead = ifelse(Dead == "Y", TRUE, FALSE),
+#          Interp = ifelse(Interp == "NO", FALSE, TRUE)) |> 
+#   select(-c(Race_Description, FishFLTS, KFactor, ReportCatch, ReportAgeClass, ReportRace,
+#             RCatchCom)) |> 
+#   rename(Run = Race, FWSRun = FWSRace) |> 
+#   clean_names() |> 
+#   glimpse()
+# 
+# catch_old_version_2022 <- read_csv(here::here("data", "catch_late.csv"))
+# trap_old_version_2022 <- read_csv(here::here("data", "trap_late.csv"))
+# # "2022-10-01" to "2023-09-30", 6359 obs, 817 obs for trap
+# min(catch_old_version_2022$sample_date, na.rm = T)
+# ck <- filter(catch_old_version_2022, is.na(sample_date)) #5 that have no date. should we remove?
+# max(catch_old_version_2022$sample_date, na.rm = T)
+# 
+# min(catch$sample_date, na.rm = T)
+# ck <- filter(catch, is.na(sample_date)) #5 that have no date. should we remove?
+# max(catch$sample_date, na.rm = T)
+# catch |> 
+#   group_by(station_code, catch_row_id) |> 
+#   tally() |> 
+#   filter(n > 1)
+# 
+# write_csv(catch, here::here("data", "catch_late.csv"))
+# write_csv(trap, here::here("data", "trap_late.csv"))
 
 # 2020-2022 database ------------------------------------------------------
 # rm(list=ls())
@@ -313,47 +407,47 @@ write_csv(trap, here::here("data", "trap_late.csv"))
 # catch -------------------------------------------------------------------
 
 # TODO what are ReportCatch, ReportAgeClass, and ReportRace?
-catch <- catch_raw |>
-  left_join(LU_tables$OrganismsLookUp |>
-              select(OrganismCode, CommonName),
-            by = "OrganismCode") |>
-  left_join(LU_tables$RaceList |>
-              select(RaceCode, Race_Description = Description),
-            by = c("Race" = "RaceCode")) |>
-  left_join(LU_tables$RaceList |>
-              select(RaceCode, FWS_Race_Description = Description),
-            by = c("FWSRace" = "RaceCode")) |>
-  left_join(LU_tables$RaceList |>
-              select(RaceCode, Report_Race_Description = Description),
-            by = c("ReportRace" = "RaceCode")) |>
-  left_join(LU_tables$StagesLookUp |>
-              select(LifeStage, StageName),
-            by = "LifeStage") |>
-  left_join(trap_raw |>
-              select(SampleRowID, StationCode, SampleDate, SampleID),
-            by = "SampleRowID") |>
-  select(-c(OrganismCode, Race, LifeStage, FWSRace, ReportRace, SampleRowID)) |>
-  rename(LifeStage = StageName) |>
-  mutate(LifeStage = str_remove_all(LifeStage, "RBT - "),
-         LifeStage = str_remove_all(LifeStage, "CHN - "),
-         Race = if_else(Race_Description == "N/P", "not provided", Race_Description),
-         FWS_Race = if_else(FWS_Race_Description == "N/P", "not provided", FWS_Race_Description),
-         Report_Race = if_else(Report_Race_Description == "N/P", "not provided", Report_Race_Description),
-         Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
-         Dead = ifelse(Dead %in% c("Yes", "Y"), TRUE, FALSE),
-         Interp = ifelse(Interp == "NO", FALSE, TRUE),
-         AgeClass = ifelse(AgeClass == "", NA, AgeClass)) |>
-  select(-c(FWS_Race_Description, Race_Description, Report_Race_Description,
-            CatchRowID, FishFLTS, KFactor, RCatchCom,
-            ReportCatch, ReportAgeClass, Report_Race, FishFLTS)) |>
-  rename(FWSRun = FWS_Race, Run = Race) |>
-  clean_names() |>
-  glimpse()
-
-
-# write clean files
-write_csv(catch, here::here("data", "catch_early.csv"))
-write_csv(trap, here::here("data", "trap_early.csv"))
+# catch <- catch_raw |>
+#   left_join(LU_tables$OrganismsLookUp |>
+#               select(OrganismCode, CommonName),
+#             by = "OrganismCode") |>
+#   left_join(LU_tables$RaceList |>
+#               select(RaceCode, Race_Description = Description),
+#             by = c("Race" = "RaceCode")) |>
+#   left_join(LU_tables$RaceList |>
+#               select(RaceCode, FWS_Race_Description = Description),
+#             by = c("FWSRace" = "RaceCode")) |>
+#   left_join(LU_tables$RaceList |>
+#               select(RaceCode, Report_Race_Description = Description),
+#             by = c("ReportRace" = "RaceCode")) |>
+#   left_join(LU_tables$StagesLookUp |>
+#               select(LifeStage, StageName),
+#             by = "LifeStage") |>
+#   left_join(trap_raw |>
+#               select(SampleRowID, StationCode, SampleDate, SampleID),
+#             by = "SampleRowID") |>
+#   select(-c(OrganismCode, Race, LifeStage, FWSRace, ReportRace, SampleRowID)) |>
+#   rename(LifeStage = StageName) |>
+#   mutate(LifeStage = str_remove_all(LifeStage, "RBT - "),
+#          LifeStage = str_remove_all(LifeStage, "CHN - "),
+#          Race = if_else(Race_Description == "N/P", "not provided", Race_Description),
+#          FWS_Race = if_else(FWS_Race_Description == "N/P", "not provided", FWS_Race_Description),
+#          Report_Race = if_else(Report_Race_Description == "N/P", "not provided", Report_Race_Description),
+#          Subsample = if_else(Subsample == "N/P", "not provided", Subsample),
+#          Dead = ifelse(Dead %in% c("Yes", "Y"), TRUE, FALSE),
+#          Interp = ifelse(Interp == "NO", FALSE, TRUE),
+#          AgeClass = ifelse(AgeClass == "", NA, AgeClass)) |>
+#   select(-c(FWS_Race_Description, Race_Description, Report_Race_Description,
+#             CatchRowID, FishFLTS, KFactor, RCatchCom,
+#             ReportCatch, ReportAgeClass, Report_Race, FishFLTS)) |>
+#   rename(FWSRun = FWS_Race, Run = Race) |>
+#   clean_names() |>
+#   glimpse()
+# 
+# 
+# # write clean files
+# write_csv(catch, here::here("data", "catch_early.csv"))
+# write_csv(trap, here::here("data", "trap_early.csv"))
 
 
 # 1998-2022 database ------------------------------------------------------

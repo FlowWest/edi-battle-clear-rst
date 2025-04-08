@@ -17,12 +17,12 @@ datatable_metadata <-
                                           "Recaptures",
                                           "Release summary"))
 
-other_entity_metadata <- list("file_name" = "Battle_Clear_Methods.pdf",
+other_entity_metadata <- list("file_name" = "Battle_Clear_Methods.zip",
                               "file_description" = "Additional methods for the Battle and Clear Creek EDI package containing equations",
-                              "file_type" = "PDF",
-                              "physical" = create_physical("data-raw/metadata/Battle_Clear_Methods.pdf",
-                                                           data_url = "https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data-raw/metadata/Battle_Clear_Methods.pdf"))
-other_entity_metadata$physical$dataFormat <- list("externallyDefinedFormat" = list("formatName" = "PDF"))
+                              "file_type" = "zip",
+                              "physical" = create_physical("data-raw/metadata/Battle_Clear_Methods.zip",
+                                                           data_url = "https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data-raw/metadata/Battle_Clear_Methods.zip"))
+other_entity_metadata$physical$dataFormat <- list("externallyDefinedFormat" = list("formatName" = "zip"))
 
 
 # 
@@ -43,7 +43,7 @@ methods_docx <- "data-raw/metadata/methods.docx"
 # edi_number <- reserve_edi_id(user_id = Sys.getenv("edi_user_id"), password = Sys.getenv("edi_password"))
 
 # reserved under JPE account 10-3-2023
-edi_number = "edi.1509.2"
+edi_number = "edi.1509.3"
 
 dataset <- list() %>%
   add_pub_date() %>%
@@ -87,7 +87,8 @@ EML::eml_validate(paste0(edi_number, ".xml"))
 # report_df |> filter(Status == "error")
 # #EMLaide::upload_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
 # 
-# EMLaide::update_edi_package(Sys.getenv("EDI_USER_ID"), 
-#                             Sys.getenv("EDI_PASSWORD"),
-#                             "edi.1509.1",
-#                             "edi.1509.2.xml")
+EMLaide::update_edi_package(Sys.getenv("EDI_USER_ID"),
+                            Sys.getenv("EDI_PASSWORD"),
+                            "edi.1509.1",
+                            "edi.1509.2.xml",
+                            environment = "staging")
