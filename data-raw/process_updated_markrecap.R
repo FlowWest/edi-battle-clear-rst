@@ -8,12 +8,11 @@ library(scales)
 
 
 # Mark recapture data for Upper Battle Creek ------------------------------------
-# Timeframe 2003-2021
 
-# This is the new excel that Mike sent August 2024
+# This is the new excel that Mike sent in March (goes through Jan 2025)
 # read in data
 raw_mark_recapture_battle <- readxl::read_excel(here::here("data-raw", "scripts_and_data_from_natasha",
-                                                    "Mark-Recap_Database_MASTER_BC_2024.xlsx"), 
+                                                    "Mark-Recap_Database_MASTER_BC_2025.xlsx"), 
                                          sheet = 2, skip  = 2) |> glimpse()
 
 mark_recapture_data_battle <- raw_mark_recapture_battle |> 
@@ -85,7 +84,7 @@ write_csv(battle_recaptured, here::here("data", "battle_recapture.csv"))
 
 # read in data
 mark_recapture_raw_clear <- readxl::read_excel(here::here("data-raw", "scripts_and_data_from_natasha",
-                                                    "Mark-Recap_Database_MASTER_CC_2024.xlsx"), 
+                                                    "Mark-Recap_Database_MASTER_CC_2025.xlsx"), 
                                          sheet = 2, skip = 2) |> glimpse()
 
 mark_recapture_data_clear <- mark_recapture_raw_clear |> 
@@ -151,10 +150,5 @@ clear_recaptured <-  clear_mark_recapture %>%
 
 write_csv(clear_released, here::here("data", "clear_release.csv"))
 write_csv(clear_recaptured, here::here("data", "clear_recapture.csv"))
-
-# notes from 11-23 mtg
-# TODO clip status is in file that was sent over 1-11-2023
-# TODO release sites are always the same 1-11-2023
-
 
   
