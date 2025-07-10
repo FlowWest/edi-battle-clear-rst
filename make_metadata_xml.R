@@ -83,12 +83,12 @@ eml <- list(packageId = edi_number,
 EML::write_eml(eml, paste0(edi_number, ".xml"))
 EML::eml_validate(paste0(edi_number, ".xml"))
 
-# EMLaide::evaluate_edi_package(Sys.getenv("EDI_USER_ID"), Sys.getenv("EDI_PASSWORD"), paste0(edi_number, ".xml"))
-# report_df |> filter(Status == "error")
+EMLaide::evaluate_edi_package(Sys.getenv("EDI_USER_ID"), Sys.getenv("EDI_PASSWORD"), paste0(edi_number, ".xml"))
+report_df |> filter(Status == "error")
 # #EMLaide::upload_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
 # 
 EMLaide::update_edi_package(Sys.getenv("EDI_USER_ID"),
                             Sys.getenv("EDI_PASSWORD"),
-                            "edi.1509.1",
-                            "edi.1509.2.xml",
+                            "edi.1509.2",
+                            "edi.1509.3.xml",
                             environment = "staging")

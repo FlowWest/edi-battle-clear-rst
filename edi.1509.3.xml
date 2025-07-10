@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2025-04-08</pubDate>
+    <pubDate>2025-04-15</pubDate>
     <abstract>
       <section>
         <title>Clear Creek</title>
@@ -171,7 +171,7 @@
             <calendarDate>1998-09-01</calendarDate>
           </beginDate>
           <endDate>
-            <calendarDate>2024-06-06</calendarDate>
+            <calendarDate>2025-04-02</calendarDate>
           </endDate>
         </rangeOfDates>
       </temporalCoverage>
@@ -1726,8 +1726,8 @@
       <entityDescription>Additional methods for the Battle and Clear Creek EDI package containing equations</entityDescription>
       <physical>
         <objectName>Battle_Clear_Methods.zip</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">296822</size>
+        <authentication method="MD5">2874a83e7f95d4bc60922ef5142499df</authentication>
         <dataFormat>
           <externallyDefinedFormat>
             <formatName>zip</formatName>

@@ -109,8 +109,8 @@ ck <- filter(catch, is.na(sample_date))
 ck <- filter(trap, is.na(sample_date))
 max(catch$sample_date, na.rm = T)
 
-write_csv(catch, here::here("data", "catch_current2025.csv"))
-write_csv(trap, here::here("data", "trap_current2025.csv"))
+write_csv(catch, here::here("data", "catch_2025.csv"))
+write_csv(trap, here::here("data", "trap_2025.csv"))
 
 # 2023-2024 RST database --------------------------------------------------
 # read in mdb
@@ -209,8 +209,8 @@ ck <- filter(catch, is.na(sample_date))
 ck <- filter(trap, is.na(sample_date))
 max(catch$sample_date, na.rm = T)
 
-write_csv(catch, here::here("data", "catch_current.csv"))
-write_csv(trap, here::here("data", "trap_current.csv"))
+write_csv(catch, here::here("data", "catch_2024.csv"))
+write_csv(trap, here::here("data", "trap_2024.csv"))
 
 # The files below are historical and should not be rerun unless updated
 

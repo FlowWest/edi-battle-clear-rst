@@ -6,8 +6,8 @@ library(googledrive)
 
 # catch
 # catch_early <- read.csv(here::here("data", "catch_early.csv")) |> glimpse() # no longer needed thanks to historical db
-catch_current2025 <- read.csv(here::here("data", "catch_current2025.csv")) |> glimpse()
-catch_current <- read.csv(here::here("data", "catch_current.csv")) |> glimpse()
+catch_2025 <- read.csv(here::here("data", "catch_2025.csv")) |> glimpse()
+catch_2024 <- read.csv(here::here("data", "catch_2024.csv")) |> glimpse()
 catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
 catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glimpse()
 
@@ -18,8 +18,8 @@ catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glim
 # }
 
 # For this update we have new data in 2 databases. We have some from 2024 and some in 2025
-catch_current <- bind_rows(catch_current,
-                           catch_current2025 |> 
+catch_current <- bind_rows(catch_2024,
+                           catch_2025 |> 
                              filter(sample_date >= "2024-10-01") |> 
                              select(-field1))
 catch <- bind_rows(catch_historical |> 
@@ -65,14 +65,14 @@ min(catch$weight, na.rm = T)
 max(catch$weight, na.rm = T)
 # trap
 # trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
-trap_current2025 <- read.csv(here::here("data", "trap_current2025.csv")) |> glimpse()
-trap_current <- read.csv(here::here("data", "trap_current.csv")) |> glimpse()
+trap_2025 <- read.csv(here::here("data", "trap_2025.csv")) |> glimpse()
+trap_2024 <- read.csv(here::here("data", "trap_2024.csv")) |> glimpse()
 trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
 trap_historical <- read.csv(here::here("data", "trap_historical.csv")) |> glimpse()
 
 # For this update we have new data in 2 databases. We have some from 2024 and some in 2025
-trap_current <- bind_rows(trap_current,
-                           trap_current2025 |> 
+trap_current <- bind_rows(trap_2024,
+                           trap_2025 |> 
                              filter(sample_date >= "2024-10-01"))
 
 trap <- bind_rows(trap_historical |> 
