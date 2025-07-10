@@ -6,10 +6,10 @@ library(googledrive)
 
 # catch
 # catch_early <- read.csv(here::here("data", "catch_early.csv")) |> glimpse() # no longer needed thanks to historical db
-catch_2025 <- read.csv(here::here("data", "catch_2025.csv")) |> glimpse()
-catch_2024 <- read.csv(here::here("data", "catch_2024.csv")) |> glimpse()
-catch_late <- read.csv(here::here("data", "catch_late.csv")) |> glimpse()
-catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glimpse()
+catch_2025 <- read.csv(here::here("data-raw", "db-tables", "catch_2025.csv")) |> glimpse()
+catch_2024 <- read.csv(here::here("data-raw", "db-tables", "catch_2024.csv")) |> glimpse()
+catch_2023 <- read.csv(here::here("data-raw", "db-tables", "catch_2023.csv")) |> glimpse()
+catch_historical <- read.csv(here::here("data-raw", "db-tables", "catch_historical.csv")) |> glimpse()
 
 # to convert subsample column
 # frac_to_decimal <- function(x) {
@@ -18,15 +18,14 @@ catch_historical <- read.csv(here::here("data", "catch_historical.csv")) |> glim
 # }
 
 # For this update we have new data in 2 databases. We have some from 2024 and some in 2025
-catch_current <- bind_rows(catch_2024,
-                           catch_2025 |> 
-                             filter(sample_date >= "2024-10-01") |> 
-                             select(-field1))
 catch <- bind_rows(catch_historical |> 
                      filter(sample_date < min(catch_late$sample_date, na.rm = T)),
-                   catch_late |> 
+                   catch_2023 |> 
                      filter(sample_date < min(catch_current$sample_date, na.rm = T)), 
-                     catch_current) |> 
+                   catch_2024,
+                   catch_2025 |> 
+                     filter(sample_date >= "2024-10-01") |> 
+                     select(-field1)) |> 
   relocate(c(sample_id, sample_date, station_code, count, r_catch), .before = fork_length) |> 
   filter(!is.na(sample_date)) |> 
   mutate(sample_date = as.Date(sample_date),
@@ -65,21 +64,19 @@ min(catch$weight, na.rm = T)
 max(catch$weight, na.rm = T)
 # trap
 # trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
-trap_2025 <- read.csv(here::here("data", "trap_2025.csv")) |> glimpse()
-trap_2024 <- read.csv(here::here("data", "trap_2024.csv")) |> glimpse()
-trap_late <- read.csv(here::here("data", "trap_late.csv")) |> glimpse()
-trap_historical <- read.csv(here::here("data", "trap_historical.csv")) |> glimpse()
+trap_2025 <- read.csv(here::here("data-raw", "db-tables", "trap_2025.csv")) |> glimpse()
+trap_2024 <- read.csv(here::here("data-raw", "db-tables", "trap_2024.csv")) |> glimpse()
+trap_2023 <- read.csv(here::here("data-raw", "db-tables", "trap_late.csv")) |> glimpse()
+trap_historical <- read.csv(here::here("data-raw", "db-tables", "trap_historical.csv")) |> glimpse()
 
 # For this update we have new data in 2 databases. We have some from 2024 and some in 2025
-trap_current <- bind_rows(trap_2024,
-                           trap_2025 |> 
-                             filter(sample_date >= "2024-10-01"))
-
 trap <- bind_rows(trap_historical |> 
                     filter(sample_date < min(trap_late$sample_date, na.rm = T)),
-                  trap_late |> 
+                  trap_2023|> 
                     filter(sample_date < min(trap_current$sample_date, na.rm = T)), 
-                  trap_current) |> 
+                  trap_2024,
+                  trap_2025 |> 
+                    filter(sample_date >= "2024-10-01")) |> 
   #filter(as.Date(sample_date) <= as.Date("2022-09-30")) |> # until newer data is QC'd - check with Mike
   select(-c(lunar_phase, start_counter)) |> 
   rename(end_counter = counter) |> 
@@ -144,12 +141,12 @@ max(trap$turbidity, na.rm = T)
 # recapture and release ---------------------------------------------------
 
 # recapture - clear
-recapture_clear <- read_csv(here::here("data", "clear_recapture.csv")) |> 
+recapture_clear <- read_csv(here::here("data-raw", "db-tables", "clear_recapture.csv")) |> 
   # filter(year(date_recaptured) >= "2020") |> 
   glimpse()
 
 # recapture - battle
-recapture_battle <- read_csv(here::here("data", "battle_recapture.csv")) |> 
+recapture_battle <- read_csv(here::here("data-raw", "db-tables", "battle_recapture.csv")) |> 
   # filter(year(date_recaptured) >= "2020") |> 
   glimpse()
 
@@ -176,14 +173,14 @@ max(recapture$median_fork_length_recaptured, na.rm = T)
 # to distinguish between LCC/UCC for Clear Creek and RM 8.3/8.4 for UBC
 
 # release - clear
-release_clear <- read_csv(here::here("data", "clear_release.csv")) |> 
+release_clear <- read_csv(here::here("data-raw", "db-tables", "clear_release.csv")) |> 
   # filter(year(date_released) >= "2020") |> 
   mutate(time_released = as.character(time_released),
          release_turbidity = as.numeric(release_turbidity)) |> 
   glimpse()
 
 # release - battle
-release_battle <- read_csv(here::here("data", "battle_release.csv")) |> 
+release_battle <- read_csv(here::here("data-raw", "db-tables", "battle_release.csv")) |> 
   # filter(year(date_released) >= "2020") |> 
   mutate(time_released = as.character(time_released)) |> 
   glimpse()
