@@ -43,7 +43,7 @@ methods_docx <- "data-raw/metadata/methods.docx"
 # edi_number <- reserve_edi_id(user_id = Sys.getenv("edi_user_id"), password = Sys.getenv("edi_password"))
 
 # reserved under JPE account 10-3-2023
-edi_number = "edi.1509.3"
+edi_number = "edi.1509.4"
 
 dataset <- list() %>%
   add_pub_date() %>%
