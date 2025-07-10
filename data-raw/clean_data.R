@@ -238,17 +238,19 @@ write_csv(release, here::here("data", "release.csv"))
 # write.csv(passage_summary, here::here("data", "passage_summary.csv"), row.names = FALSE)
 
 # data are getting too big to push to GitHub to solve this we will store on Google Drive
-drive_find(n_max = 30) # check your googledrive connection
+# Note that this is not working really well so I commented this out
 
-drive_upload_function <- function(media, file_name) {
-  drive_upload(media,
-               path = "clear_battle_rst_edi/data",
-               name = file_name,
-               type = "spreadsheet",
-               overwrite = T)
-}
-# Note that may need to update permissions
-drive_upload_function("data/release.csv", "release.csv")
-drive_upload_function("data/recapture.csv", "recapture.csv")
-drive_upload_function("data/trap.csv", "trap.csv")
-drive_upload_function("data/catch.csv", "catch.csv")
+# drive_find(n_max = 30) # check your googledrive connection
+# 
+# drive_upload_function <- function(media, file_name) {
+#   drive_upload(media,
+#                path = "clear_battle_rst_edi/data",
+#                name = file_name,
+#                type = "spreadsheet",
+#                overwrite = T)
+# }
+# # Note that may need to update permissions
+# drive_upload_function("data/release.csv", "release.csv")
+# drive_upload_function("data/recapture.csv", "recapture.csv")
+# drive_upload_function("data/trap.csv", "trap.csv")
+# drive_upload_function("data/catch.csv", "catch.csv")
