@@ -87,8 +87,8 @@ EMLaide::evaluate_edi_package(Sys.getenv("EDI_USER_ID"), Sys.getenv("EDI_PASSWOR
 report_df |> filter(Status == "error")
 # #EMLaide::upload_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
 # 
-EMLaide::update_edi_package(Sys.getenv("EDI_USER_ID"),
-                            Sys.getenv("EDI_PASSWORD"),
-                            "edi.1509.2",
-                            "edi.1509.3.xml",
-                            environment = "staging")
+# EMLaide::update_edi_package(Sys.getenv("EDI_USER_ID"),
+#                             Sys.getenv("EDI_PASSWORD"),
+#                             "edi.1509.3",
+#                             "edi.1509.4.xml",
+#                             environment = "production")
