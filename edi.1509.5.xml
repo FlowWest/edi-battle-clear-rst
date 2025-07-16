@@ -1,0 +1,1760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1509.5" system="EDI" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+    <allow>
+      <principal>cvpia</principal>
+      <permission>write</permission>
+    </allow>
+  </access>
+  <dataset>
+    <shortName>Battle and Clear RST</shortName>
+    <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
+    <creator>
+      <individualName>
+        <givenName>Natasha</givenName>
+        <surName>Wingerter</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+    </creator>
+    <pubDate>2025-07-16</pubDate>
+    <abstract>
+      <section>
+        <title>Clear Creek</title>
+        <para>
+      The U.S. Fish and Wildlife Service continued its juvenile salmonid
+      monitoring project in Clear Creek, Shasta County, California, that
+      began in December 1998 using a rotary screw trap (RST) located at
+      river mile (RM) 1.7. This monitoring project has three primary
+      objectives: (1) calculate annual juvenile passage indices for
+      Chinook Salmon Oncorhynchus tshawytscha and Rainbow
+      Trout/steelhead O. mykiss (we use the term O. mykiss to refer to
+      both the stream resident (Rainbow Trout) and anadromous
+      (steelhead) life histories because of the difficulties in
+      differentiating the anadromous and resident forms in the field)
+      for inter-year comparisons and analyses of the effectiveness of
+      stream restoration activities; (2) obtain juvenile salmonid life
+      history information including size, timing, and potential factors
+      limiting survival; and (3) collect biological samples from
+      juvenile salmonids. Chinook Salmon run classifications show that
+      all Chinook Salmon runs known to the Sacramento River were
+      captured; however, due to overlapping spawning times of spring-run
+      and fall-run Chinook Salmon it was problematic to index the
+      juvenile passage using only the RST at RM 1.7. Since 2003 a
+      separation weir has been used to isolate adult spring-run Chinook
+      Salmon from adult fall-run Chinook Salmon; therefore, a second RST
+      was added above the weir at RM 8.4.
+    </para>
+      </section>
+      <section>
+        <title>Battle Creek</title>
+        <para>
+      The U.S. Fish and Wildlife Service continued its juvenile salmonid
+      monitoring project in Battle Creek, Shasta and Tehama Counties,
+      California, that began in December 1998 using a RST located at
+      river mile (RM) 6.2. The upper Battle Creek RST objectives are to
+      (1) calculate annual juvenile passage indices for spring-run,
+      late-fall run, and winter-run Chinook Salmon; Rainbow
+      Trout/steelhead O. mykiss (we use the term O. mykiss to refer to
+      both the stream resident (Rainbow Trout) and anadromous
+      (steelhead) life histories because of the difficulties in
+      differentiating the anadromous and resident forms in the field);
+      (2) obtain juvenile salmonid life history information including
+      size, timing, and potential factors limiting survival; and (3)
+      collect biological samples from juvenile salmonids. Chinook Salmon
+      run designations in the Sacramento River watershed were developed
+      using length-at-date criteria for Sacramento River fall-run
+      Chinook Salmon. These designations may not be accurate when used
+      for salmon captured in tributaries of the Sacramento River; these
+      streams have variable and overlapping run timing of spring-run and
+      fall-run Chinook Salmon. After 2008 all fall-run designated
+      Chinook Salmon were reassigned as spring-run in the spring-run
+      Chinook Salmon passage indices as preventative measures were taken
+      to reduce the potential for fall-run Chinook Salmon to enter the
+      upper watershed (above the Coleman National Fish Hatchery barrier
+      weir).
+    </para>
+      </section>
+      <section>
+        <title>Mark–recapture trials</title>
+        <para>
+      Since the RST only captures fish from a small portion of the creek
+      cross section, it is necessary to implement a method to project
+      the RST catch numbers to portions of the creek outside of the RST
+      capture zone. Mark–recapture trials were attempted, when creek
+      conditions were conducive for such studies and when fish numbers
+      allowed, to determine the efficiency of the RSTs to catch juvenile
+      salmonids moving downstream during a given time period. If one or
+      no mark–recaptures trials were conducted, then the historic
+      monthly and global averages were used to calculate that passage
+      indices. Mark-recapture–trials on Battle Creek are conducted using
+      hatchery-origin fish (from Coleman National Fish Hatchery), while
+      on Clear Creek natural-origin fish are used. Fish used for the
+      trials were either single or dual marked. For the single mark
+      trials the fish were stained with Bismarck brown-Y. Dual marked
+      fish clipped with surgical scalpels, removing an area of
+      approximately 1–2 mm^2 from the tip of either the upper or lower
+      lobe of the caudal fin and then the fish were stained as above.
+    </para>
+        <para>
+      Note: data within the current year’s monitoring season are
+      considered provisional. The monitoring season typically concludes
+      at the end of September.
+    </para>
+      </section>
+    </abstract>
+    <keywordSet>
+      <keyword>spring run</keyword>
+      <keyword>fall run</keyword>
+      <keyword>trap</keyword>
+      <keyword>catch</keyword>
+      <keyword>juvenile production estimate</keyword>
+      <keyword>Oncorhynchus tshawytscha</keyword>
+      <keyword>RST</keyword>
+      <keyword>California</keyword>
+      <keyword>Central Valley</keyword>
+      <keyword>Salmonid</keyword>
+      <keyword>Chinook</keyword>
+      <keyword>Salmon</keyword>
+      <keyword>Juvenile</keyword>
+      <keyword>Passage</keyword>
+      <keyword>Catch</keyword>
+      <keyword>Oncorhynchus</keyword>
+      <keyword>tshawytscha</keyword>
+      <keyword>mykiss</keyword>
+      <keyword>Rotary screw trap</keyword>
+      <keyword>Winter-run</keyword>
+      <keyword>Spring-run</keyword>
+      <keyword>Fall-run</keyword>
+      <keyword>Late fall-run</keyword>
+      <keyword>Rainbow Trout</keyword>
+      <keyword>Steelhead</keyword>
+      <keyword>Clear Creek</keyword>
+      <keyword>Battle Creek</keyword>
+      <keyword>CVPIA</keyword>
+      <keyword>SRJPE</keyword>
+    </keywordSet>
+    <intellectualRights>
+      <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.</para>
+    </intellectualRights>
+    <licensed>
+      <licenseName>Creative Commons Attribution 4.0 International</licenseName>
+      <url>https://spdx.org/licenses/CC-BY-4.0.html</url>
+      <identifier>CC-BY-4.0</identifier>
+    </licensed>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Battle Creek (Shasta and Tehama Cointies) and Clear Creek (Shasta Cointy) as one square</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-122.4967</westBoundingCoordinate>
+          <eastBoundingCoordinate>-122.1416</eastBoundingCoordinate>
+          <northBoundingCoordinate>40.5064</northBoundingCoordinate>
+          <southBoundingCoordinate>40.3979</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1998-09-01</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2025-07-09</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+      <taxonomicCoverage>
+        <taxonomicClassification>
+          <taxonRankName>kingdom</taxonRankName>
+          <taxonRankValue>Animalia</taxonRankValue>
+          <taxonomicClassification>
+            <taxonRankName>phylum</taxonRankName>
+            <taxonRankValue>Chordata</taxonRankValue>
+            <taxonomicClassification>
+              <taxonRankName>class</taxonRankName>
+              <taxonRankValue>Teleostei</taxonRankValue>
+              <taxonomicClassification>
+                <taxonRankName>order</taxonRankName>
+                <taxonRankValue>Salmoniformes</taxonRankValue>
+                <taxonomicClassification>
+                  <taxonRankName>family</taxonRankName>
+                  <taxonRankValue>Salmonidae</taxonRankValue>
+                  <taxonomicClassification>
+                    <taxonRankName>genus</taxonRankName>
+                    <taxonRankValue>Oncorhynchus</taxonRankValue>
+                    <taxonomicClassification>
+                      <taxonRankName>species</taxonRankName>
+                      <taxonRankValue>Oncorhynchus tshawytscha</taxonRankValue>
+                      <commonName>Chinook Salmon</commonName>
+                      <taxonId provider="https://itis.gov">161980</taxonId>
+                    </taxonomicClassification>
+                  </taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicClassification>
+            </taxonomicClassification>
+          </taxonomicClassification>
+        </taxonomicClassification>
+      </taxonomicCoverage>
+      <taxonomicCoverage>
+        <taxonomicClassification>
+          <taxonRankName>kingdom</taxonRankName>
+          <taxonRankValue>Animalia</taxonRankValue>
+          <taxonomicClassification>
+            <taxonRankName>phylum</taxonRankName>
+            <taxonRankValue>Chordata</taxonRankValue>
+            <taxonomicClassification>
+              <taxonRankName>class</taxonRankName>
+              <taxonRankValue>Teleostei</taxonRankValue>
+              <taxonomicClassification>
+                <taxonRankName>order</taxonRankName>
+                <taxonRankValue>Salmoniformes</taxonRankValue>
+                <taxonomicClassification>
+                  <taxonRankName>family</taxonRankName>
+                  <taxonRankValue>Salmonidae</taxonRankValue>
+                  <taxonomicClassification>
+                    <taxonRankName>genus</taxonRankName>
+                    <taxonRankValue>Oncorhynchus</taxonRankValue>
+                    <taxonomicClassification>
+                      <taxonRankName>species</taxonRankName>
+                      <taxonRankValue>Oncorhynchus mykiss</taxonRankValue>
+                      <commonName>Steelhead Trout</commonName>
+                      <taxonId provider="https://itis.gov">161989</taxonId>
+                    </taxonomicClassification>
+                  </taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicClassification>
+            </taxonomicClassification>
+          </taxonomicClassification>
+        </taxonomicClassification>
+      </taxonomicCoverage>
+    </coverage>
+    <maintenance>
+      <description>ongoing</description>
+      <maintenanceUpdateFrequency>annually</maintenanceUpdateFrequency>
+    </maintenance>
+    <contact>
+      <individualName>
+        <givenName>Natasha</givenName>
+        <surName>Wingerter</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <section>
+            <title>Methods – Data Collection</title>
+            <para>
+      Note: data within the current year’s monitoring season are
+      considered provisional. The monitoring season typically concludes
+      at the end of September.
+    </para>
+          </section>
+          <section>
+            <title>Rotary screw trap operations</title>
+            <para>
+      Sampling for juvenile salmonids in Clear Creek (CC) and Battle
+      Creek (BC) is accomplished by using standardized rotary screw trap
+      (RST) sampling techniques using traps manufactured by E.G.
+      Solutions, Corvallis, Oregon. The CC RSTs are located at river
+      miles (RM) 1.7 (lower Clear Creek [LCC]) and 8.4 (upper Clear
+      Creek [UCC]), and the BC RST (upper Battle Creek [UBC]) RST is
+      located at river mile 6.2.
+    </para>
+            <para>
+      This type of trap utilizes a 5-ft diameter cone-shaped auger
+      covered with a stainless steel screen with one-eighth inch
+      diameter perforations. This cone acts as a sieve, which separates
+      fish from the sampled water. The cone and live-box are supported
+      between two pontoons, and the cone’s auger-type action passes
+      water, fish, and debris to the rear of the trap directly into the
+      live-box. This live-box retains fish and debris while passing
+      water through screens located in its back, sides, and bottom.
+    </para>
+            <para>
+      Because of the high numbers of Chinook Salmon Oncorhynchus
+      tshawytscha out-migrating from CC, modifications have been made to
+      the RSTs and operations to reduce potential negative effects to
+      juvenile salmonids created by high fish densities in the live-box.
+      A “half-cone modification” has been made by placing an aluminum
+      plate over one of the two cone discharge ports and removing an
+      exterior cone hatch cover. This creates a condition in which 50%
+      of the collected fish and debris are not passed into the live-box
+      but rather are discharged from the cone into the creek, thereby
+      reducing overcrowding of fish in the live-box. Both CC RSTs are
+      operated in the half-cone configuration, while UBC is operated in
+      the “full cone” condition. Other modifications to RST equipment
+      that provided greater protection to collected fish include
+      enlarging the size of the live-box and increasing the size of
+      flotation pontoons (to accommodate the larger live-box). Inside
+      the live-box, a midway fish exclusionary screen made of expanded
+      aluminum is added, dividing the live-box into two halves: fore and
+      aft. This screen prevents large predatory fish from harassing and
+      preying on smaller salmonids. A panel of clear polycarbonate is
+      attached to the rear screen of the live-box to reduce water
+      velocities within the live-box. Modifications to RST operations
+      included day and night sampling during the peak out-migration
+      periods for spring-run and fall-run Chinook to minimize time fish
+      spent in the live-box. To improve JPI computation, attempts are
+      made to fish high flow events when juvenile salmonids are thought
+      to out-migrate and to increase the frequency of mark–recapture
+      trials during those events. Traps are not operated when flows in
+      excess of 2,000 cfs at LCC, 800 cfs at UCC, and 1,000 cfs at UBC
+      are encountered.
+    </para>
+            <para>
+      Clear Creek RSTs generally start operations in November; and cease
+      operations on June 30; whereas UBC is now operated year-round.
+      Attempts are made to operate the RSTs continually when staffing
+      allows. Methods for access and data collection are identical for
+      all RSTs.
+    </para>
+            <para>
+      Each RST is attached to a cable high line and positioned instream
+      with a system of ropes and pulleys. The monitoring team typically
+      accesses the RST by wading from the creek bank; however, during
+      higher flows the RST is pulled into shallow water for boarding.
+      After being servicing, the RST is returned to the thalweg as soon
+      as possible to begin operating again. The RST is serviced daily
+      unless conditions (high flows, heavy debris loads, or high fish
+      densities) require more frequent RST checks to avoid mortality of
+      captured fish or damage to equipment. During each RST servicing
+      crews process the collected fish, clear the RST of debris, and
+      provide RST maintenance. Once per day (at the end of the
+      approximately 24-h sampling period) the crew obtains environmental
+      and RST data. Collected data includes dates and times of RST
+      operation, creek depth at the RST, cone operating depth, number of
+      rotations of the cone during the sampling period, the amount and
+      type of debris collected, basic weather conditions, current
+      velocity, and turbidity. Water depths are measured using a
+      graduated staff to the nearest 0.1 ft. The cone operating depth
+      (in) is measured with a gauge that is permanently mounted to the
+      pontoon adjacent to the cone. The rate of rotation (revolutions
+      per min) of the cone is measured with a mechanical stroke counter
+      that is mounted to the RST railing adjacent to the cone. The
+      amount of debris in the RST is volumetrically measured using a
+      10-gal plastic tub.
+    </para>
+            <para>
+      Water temperatures are continuously obtained at 30-min intervals
+      with an instream data logger (HOBO(R) Water Temperature Pro v2
+      Logger; Onset Computer Corp, Bourne, MA) and those data are
+      downloaded weekly. Water velocity is measured from onboard the RST
+      in front of the cone using a mechanical flow meter (Oceanic® Model
+      2030 flowmeter; General Oceanics, Miami). Water turbidity is
+      measured from a grab-sample with a Hach Model 2100D turbidimeter
+      (Hach(R) Company, Ames, IA). Clear Creek mean daily discharge data
+      are collected at the U.S. Geological Survey’s Igo gage site
+      (Station #11372000), located at Clear Creek near Igo CA,
+      approximately 2.6 river miles upstream of UCC. Battle Creek mean
+      daily discharge data are collected at the Coleman National Fish
+      Hatchery gauging station (#11376550, [BAT]). At the RST site all
+      environmental and biological data is or has been entered into a
+      paper datasheet, or into a Microsoft Access database using a Mesa®
+      tablet (Juniper Systems, Logan, UT), or Survey 123 using an IPad
+      (Apple, Cupertino, CA).
+    </para>
+            <para>
+      Dip nets are used to remove the contents of the RST live-box
+      (fish, aquatic vegetation, debris) and place them on a sorting
+      table for examination. The RST catch is brought to shore in lidded
+      5-gal buckets where they are transferred to 10- or 25-gal buckets
+      with aerators. They are then sampled as described below.
+    </para>
+          </section>
+          <section>
+            <title>Counting and measurement </title>
+            <para>
+      The monitoring team counts and obtains length measurements (to the
+      nearest 1.0 mm) for all fish taxa, dead or alive, that are
+      collected. However, when large numbers of Chinook are captured, or
+      during intermediate trap clears (not at the end of the 24 h
+      period) no length measurements are taken and the fish are simply
+      identified, counted, and classified to an age-class. Live fish to
+      be measured are anesthetized in a 1-qt plastic tub with
+      approximately 1–3 ml of a 100 g/L solution of Tricaine
+      Methanesulfonate (MS-222; Syncaine®, Syndel, Ferndale, WA) at a
+      concentration of 60–80 mg/L. Fish are measured on a wet measuring
+      board, placed in a 10-gal plastic tub filled with creek water and
+      fish protectant, and allowed to recover from the anesthetic
+      effects before being released back into the creek. Water in the
+      tubs is replaced as necessary with fresh creek water to maintain
+      adequate temperature and oxygen levels.
+    </para>
+            <para>
+      Chinook Salmon — At the end of the sample period when less than
+      approximately 250 Chinook are collected in the RST, all are
+      counted, measured to FL, and assigned a life stage classification:
+      yolk-sac fry (C0), fry (C1), parr (C2), silvery parr (C3), or
+      smolt (C4). All Chinook that are measured are assigned run
+      designations using length-at-date tables (S. Greene, 1992
+      memorandum to Randall Brown, California Department of Water
+      Resources, estimated winter-run Chinook Salmon salvage at the
+      State Water Project and Central Valley Project Delta Pumping
+      Facilities). These designations include fall-run, late-fall run,
+      winter-run, and spring-run Chinook. At the UCC and UBC, all
+      Chinook captured that are assigned fall-run Chinook by Greene are
+      considered instead to be spring-run Chinook because at CC we
+      install a picket weir to block fall Chinook from passing upstream
+      of UCC. On Battle Creek the Coleman National Fish Hatchery’s
+      barrier weir provides the same function. There is undoubtedly
+      overlap in the fork lengths of adjoining runs of juvenile salmon
+      that are not accounted for in the dichotomous length-at-date
+      criteria (Harvey et al. 2014).
+    </para>
+            <para>
+      At the end of the sample period when more than approximately 250
+      Chinook are collected in the RST, subsampling is conducted. This
+      is accomplished by using a cylinder-shaped, one-eighth inch mesh
+      “subsampling net.” The bottom of the subsampling net is
+      constructed with a metal frame that creates two equal halves. Each
+      half of the subsampling net bottom is built with a mesh bag that
+      is capable of being tied shut. One side of the net is tied shut
+      and the other side is left open. This subsampling net is placed in
+      a 25-gal bucket that is partially filled with creek water. All
+      collected juvenile salmon are poured into this bucket. The net is
+      then lifted resulting in halving of the sample. Approximately
+      one-half of the salmon are retained in the side of the net with
+      the closed mesh bag, and approximately one-half of the salmon in
+      the side with the open mesh bag are left in the bucket. The RST
+      catch is successively subsampled until approximately 150–250
+      individuals remain. All the fish in the final subsample are then
+      measured. The number of successive splits that are used vary with
+      the number of salmon collected.
+    </para>
+            <para>
+      O. mykiss — We use the term O. mykiss to refer to both the stream
+      resident (Rainbow Trout) and anadromous (steelhead) life histories
+      because of the difficulties in differentiating the anadromous and
+      resident forms in the field. All O. mykiss that are encountered at
+      the end of the sample period are counted, measured, and classified
+      to life stage in much the same manner as salmon: yolk-sac fry
+      (R1), fry (R2), parr (R3), silvery parr (R4), and smolt (R5). Fish
+      that are found in the live-box during supplemental storm sampling
+      are counted and assigned to a life stage classification. All live
+      juvenile O. mykiss greater than 50 mm FL that are captured during
+      the daytime (measured) sample are weighed to the nearest 0.1 g
+      with an electronic scale (Scout Pro SP601; Ohaus Corp, Parsippany,
+      NJ) for condition factor analysis.
+    </para>
+            <para>
+      Non-salmonid taxa — All non-salmonid taxa are counted, and up to
+      20 randomly selected individuals of each species are measured,
+      either FL, or TL for species that do not have a forked caudal fin.
+      Lamprey are recorded by life stage (ammocoetes, macropthalmia, or
+      adult). Fish that are taken from the live-box during supplemental
+      storm sampling are counted, but no length measurements are
+      obtained. Catch data for all fish taxa are consolidated to
+      represent monthly sums.
+    </para>
+            <para>
+      The LCC and UBC RSTs capture many small (usually &lt; 25 mm),
+      delicate non-salmonid fry. Many of these fish do not survive the
+      extra handling required for measuring. We visually estimate the
+      number of these fish in the live-box and designate them as
+      unidentified fry. Once all the measurable fish are removed from
+      the live-box, the back screen is removed from the RST and the fry
+      are flushed from the live-box.
+    </para>
+            <para>
+      Sampling weeks are identified by year and number. Week 52 either
+      has either eight or nine days depending on leap year.
+    </para>
+          </section>
+          <section>
+            <title>Tissue and otolith sampling</title>
+            <para>
+      Tissue samples are collected from select Chinook for the purpose
+      of run identification. Samples are taken by removing a 1–2 mm^2
+      tissue sample from the top or bottom lobe of the caudal fin. The
+      samples are divided into two equal parts and placed in duplicate
+      2-ml vials containing 0.5 ml 100% ethanol, each labeled with the
+      same sample record number. The duplicate samples are taken for
+      USFWS archive and for future analysis. Since 2022 we have switched
+      to collecting dry tissue samples.
+    </para>
+            <para>
+      Samples at all RSTs are taken when the length-at-date tables
+      designate the Chinook as winter-run Chinook, late-fall run
+      Chinook, or when FL &gt; 99 mm. In addition, at UCC and UBC
+      samples are taken proportionately to the anticipated out-migration
+      distribution of spring-run Chinook. An attempt is made to collect
+      samples from a range of FLs to minimize sampling siblings, which
+      might potentially bias the genetic analysis.
+    </para>
+          </section>
+          <section>
+            <title>Mark–recapture trials</title>
+            <para>
+      Since the RST only captures fish from a small portion of the creek
+      cross section, it is necessary to implement a method to project
+      the RST catch numbers to parts of the creek outside of the RST
+      capture zone. Mark–recapture trials are conducted to determine the
+      efficiency of the RST in catching juvenile salmonids moving
+      downstream during a given time period.
+    </para>
+            <para>
+      Ideally separate mark–recapture trials would be conducted for each
+      species, run, and life stage to estimate species and age-specific
+      RST efficiencies; however, generally, at all RSTs catch rates for
+      O. mykiss and late-fall run Chinook are too low to conduct
+      separate trials. Therefore, all species and life stage passage
+      estimates at all RSTs are calculated from valid mark–recapture
+      trials using either spring-run or fall-run Chinook. Trials on CC
+      are conducted with natural-origin Chinook, while those at UBC are
+      conducted using hatchery-origin fish from Coleman National Fish
+      Hatchery. An attempt is made to mark a minimum of 400 juvenile
+      Chinook for each trial with a goal to recapture at least seven
+      marked individuals in order to generate reliable estimates
+      (Steinhorst et al. 2004). The Red Bluff Fish and Wildlife Office
+      also conducts mark–recapture trials at the Red Bluff Diversion Dam
+      (RBDD) for estimating RST efficiency while monitoring Sacramento
+      River juvenile salmonid populations. Dual marks allows RBDD to
+      distinguish CC and BC-marked Chinook from those marked at the
+      RBDD. The methods used for marking are described below.
+    </para>
+            <para>
+      Marking procedures — All fish are enumerated, and FL is measured
+      on a minimum of 30 individuals. Single marked fish consist of
+      immersing the salmon in a solution of 1.6 g of Bismarck Brown Y
+      stain in 20 gal of water for a duration of 50 min. This stain can
+      be retained on the fish for up to a week. Dual marked fish are
+      first anesthetized with a 60–80 mg/L solution of MS-222, and
+      surgical scalpels are then used to remove an area of approximately
+      1–2 mm^2 from the corner of either the upper or lower caudal fin
+      lobe. After the clipping process is complete, the salmon are
+      stained with Bismarck Brown Y stain.
+    </para>
+            <para>
+      Recovery and release — Marked juvenile salmon are placed in a
+      live-car and allowed to recover overnight in the RST live-box.
+      This overnight retention allows for the detection of salmon with
+      latent injuries and mortalities resulting from the marking
+      procedure. On the following evening weak, injured, and dead fish
+      are removed. The remaining fish are counted and transported for
+      release 0.2 (UCC), 0.4 (LCC), and 1.0 (UBC) river miles upstream
+      of the RST sampling site. The fish are released in batches of less
+      than 50 fish, one batch immediately after another, no earlier than
+      15 min before sunset. The nighttime releases of marked fish are
+      designed to reduce the potential for unnaturally high predation on
+      the marked fish as they could possibly be experiencing temporary
+      disorientation by the marking and holding procedure and
+      transportation, as well as to imitate the tendency for natural
+      populations of out-migrating juvenile Chinook to move downstream
+      primarily at night (Groot and Margolis 1998; Schraml et al. 2018;
+      Schraml and Chamberlain 2019a). To explore the relationship of RST
+      efficiency to biological and environmental variables, we collect
+      flow, water temperature, and turbidity data at the time of
+      release. Marked Chinook that are recaptured in the RST are
+      counted, measured, and subsequently released downstream of the RST
+      to prevent them from being recaptured again. In most cases when
+      stream flows are predicted to exceed 2,000 cfs, efficiency trials
+      are not conducted to reduce the chance of fish mortalities and to
+      ensure crew-related safety. In those cases, fish being held for a
+      mark–recapture trials are released downstream of the RST.
+    </para>
+          </section>
+          <section>
+            <title>Further methods and equations</title>
+            <para>
+      Further methods for calculating Rotary Screw Trap efficiency,
+      interpolated data, hourly proportion of daily catch, juvenile
+      passage indices, mortality, data quality assurance, and references
+      can be found in the PDF attached to the EDI package titled
+      Battle_Clear_Methods.pdf. This file contains equations to support
+      analyses and further information about trapping conditions for
+      each year, including important caveats for interpretation of the
+      data.
+    </para>
+          </section>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>Juvenile salmonid rotary screw trap data from Battle and Clear Creeks, Shasta and Tehama Counties, California.</title>
+      <personnel>
+        <individualName>
+          <givenName>Natasha</givenName>
+          <surName>Wingerter</surName>
+        </individualName>
+        <organizationName>U.S. Fish and Wildlife Service</organizationName>
+        <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+        <role>Project Lead</role>
+      </personnel>
+    </project>
+    <dataTable>
+      <entityName>catch.csv</entityName>
+      <entityDescription>Catch table</entityDescription>
+      <physical>
+        <objectName>catch.csv</objectName>
+        <size unit="bytes">73908157</size>
+        <authentication method="MD5">bb18e0699c070c4d45905b1f91e3b009</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download"/>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>catch_row_id</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Unique identifier for catch record.</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Unique identifier for catch record.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_id</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Sample identifier linking catch to trap table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_date</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Date sample was taken</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">1998-09-01</minimum>
+                  <maximum exclusive="false">2025-07-09</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek", "upper clear creek", NA, "power house battle creek")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek", "upper clear creek", NA, "power house battle creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>count</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Raw count of fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">84426</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>r_catch</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Catch number used to generate passage indices for reports,  which includes processing and interpolation applied to the raw counts. Plus counts are split into FWS runs (see definition) and zero fork lengths are assigned. This value would also include interpolated catch for times when the trap was not operating. This is the column used in reports.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">150776</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fork_length</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Fork length of the fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">730</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>weight</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Weight of the fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">646.70000000000005</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fws_run</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "fall", "winter", "spring", "late-fall")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>USFWS run designation base upon location or emergence timing used in reports and for passage indices. Levels = c(NA, "fall", "winter", "spring", "late-fall")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>interp</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Is RCatch value an interpolated catch for times the trap did not operate?  Levels = c(TRUE, FALSE). Two interpolation methods are applied where relevant. For times when the trap was not operating an average is applied based on the number of outage days (e.g. if the trap was not operating for 2 days then an average is calculated based on the 2 days prior and after the outage, whereas if the outage was 3 days the average would be based on 3 days before and after). For partial day outages, an hourly proportion is applied though currently this is only available for Lower Clear Creek.</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Is RCatch value an interpolated catch for times the trap did not operate?  Levels = c(TRUE, FALSE). Two interpolation methods are applied where relevant. For times when the trap was not operating an average is applied based on the number of outage days (e.g. if the trap was not operating for 2 days then an average is calculated based on the 2 days prior and after the outage, whereas if the outage was 3 days the average would be based on 3 days before and after). For partial day outages, an hourly proportion is applied though currently this is only available for Lower Clear Creek.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>brood_year</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Brood year</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Brood year</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>subsample</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>A random sample of fry are selected to measure. This field describes the number of bucket splits used to determine the sample to measure. When fish are processed they are transported in a bucket. This bucket is split in half (1/2) and if there are still too many fish to measure it is split again (1/4) and this would continue for large numbers of fish. Levels = c(NA, "not provided", "1/2", "1/8", "1/4", "1/16", "1/32", "1/64",  "1/256")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>A random sample of fry are selected to measure. This field describes the number of bucket splits used to determine the sample to measure. When fish are processed they are transported in a bucket. This bucket is split in half (1/2) and if there are still too many fish to measure it is split again (1/4) and this would continue for large numbers of fish. Levels = c(NA, "not provided", "1/2", "1/8", "1/4", "1/16", "1/32", "1/64",  "1/256")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>common_name</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Common name of the fish. Levels = c("Sacramento Sucker", "Hardhead", "Lampetra ammocoete", "Pacific Lamprey adult","Chinook Salmon", "Sacramento Pikeminnow", "Rainbow Trout", "Unidentified Cyprinid fry","Hitch", "Pacific Lamprey macropthalmia", "Black Bullhead", "California Roach","Pacific Lamprey ammocoete", "Fathead Minnow", "Tule Perch","Riffle Sculpin", "Bluegill", "Golden Shiner", "White Catfish","Smallmouth Bass", "Prickly Sculpin", "Green Sunfish", "Threespine Stickleback","Unidentified Centrarchid fry", "Western Mosquitofish", "Speckled Dace",NA, "Spotted Bass", "Unidentified Cottus fry", "Largemouth Bass","Pumpkinseed", "Centrarchid hybrid", "Brown Bullhead", "White Crappie","Unidentified Micropterus fry", "River Lamprey", "Unidentified ammocoete","Channel Catfish", "Pacific Brook Lamprey", "Brook Trout", "American Shad","Unclassified Brook Lamprey macropthalmia", "Kern Brook Lamprey ammocoete","Kern Brook Lamprey adult", "Kern Brook Lamprey macropthalmia","Unclassified Brook Lamprey adult", "Sacramento Sucker fry","Black Crappie", "Unidentified fry")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Common name of the fish. Levels = c("Sacramento Sucker", "Hardhead", "Lampetra ammocoete", "Pacific Lamprey adult","Chinook Salmon", "Sacramento Pikeminnow", "Rainbow Trout", "Unidentified Cyprinid fry","Hitch", "Pacific Lamprey macropthalmia", "Black Bullhead", "California Roach","Pacific Lamprey ammocoete", "Fathead Minnow", "Tule Perch","Riffle Sculpin", "Bluegill", "Golden Shiner", "White Catfish","Smallmouth Bass", "Prickly Sculpin", "Green Sunfish", "Threespine Stickleback","Unidentified Centrarchid fry", "Western Mosquitofish", "Speckled Dace",NA, "Spotted Bass", "Unidentified Cottus fry", "Largemouth Bass","Pumpkinseed", "Centrarchid hybrid", "Brown Bullhead", "White Crappie","Unidentified Micropterus fry", "River Lamprey", "Unidentified ammocoete","Channel Catfish", "Pacific Brook Lamprey", "Brook Trout", "American Shad","Unclassified Brook Lamprey macropthalmia", "Kern Brook Lamprey ammocoete","Kern Brook Lamprey adult", "Kern Brook Lamprey macropthalmia","Unclassified Brook Lamprey adult", "Sacramento Sucker fry","Black Crappie", "Unidentified fry")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>life_stage</attributeName>
+          <attributeLabel>catch</attributeLabel>
+          <attributeDefinition>Lifestage of the fish. Levels = c("not provided", "obvious fry", "parr", "yolk sac fry", "smolt",  "silvery parr", "adult", NA, "fry")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Lifestage of the fish. Levels = c("not provided", "obvious fry", "parr", "yolk sac fry", "smolt",  "silvery parr", "adult", NA, "fry")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>566830</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>trap.csv</entityName>
+      <entityDescription>Trap visit table</entityDescription>
+      <physical>
+        <objectName>trap.csv</objectName>
+        <size unit="bytes">5060105</size>
+        <authentication method="MD5">ab2b10eb29d938cd72678eb71248516a</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download"/>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>sample_id</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Sample identifier linking catch to trap table</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Sample identifier linking catch to trap table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_date</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Date sample was taken</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">1998-09-01</minimum>
+                  <maximum exclusive="false">2025-07-09</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_time</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Time sample was taken</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>HH:MM:SS</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">00:00:00</minimum>
+                  <maximum exclusive="false">23:56:00</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_start_date</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The date the trap was started sampling prior to the SampleDate (the beginning of the sample period)</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">1998-08-31</minimum>
+                  <maximum exclusive="false">2025-07-09</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_start_time</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The time the trap was started on the TrapStartDate (the beginning of the sample period)</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm:ss</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">00:00:00</minimum>
+                  <maximum exclusive="false">23:45:00</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station_code</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek",  "upper clear creek", NA, "power house battle creek")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Code referring to the station where the sample was taken. Levels = c("upper battle creek", "lower battle creek", "lower clear creek",  "upper clear creek", NA, "power house battle creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>depth_adjust</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The depth of the bottom of the cone</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">3</minimum>
+                  <maximum exclusive="false">39</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>avg_time_per_rev</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The average time per cone rotation (average of three rotations)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>second</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1900</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flow_start_meter</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Reading on the flow meter at start</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1099600</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flow_end_meter</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Reading on the flow meter at end</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">73</minimum>
+                  <maximum exclusive="false">1196242</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flow_set_time</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>How long the General Oceanics meachanical flow meter (Oceanic ® Model 2030)was in the water taking a reading, used to calculate water velocity in front of the cone</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>second</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">5</minimum>
+                  <maximum exclusive="false">692800</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>river_left_depth</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>River depth from inside of the river left (facing down stream) pontoon off crossbeam #2 (cone crossbeam)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">1.8</minimum>
+                  <maximum exclusive="false">447</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>river_center_depth</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>River depth from directly in the center of cone off crossbeam #2 (cone crossbeam)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">2</minimum>
+                  <maximum exclusive="false">7</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>river_right_depth</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>River depth from inside of the river right (facing down stream) pontoon off crossbeam #2 (cone crossbeam)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">2</minimum>
+                  <maximum exclusive="false">7</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>thalweg</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Was trap fishing in the thalweg at SampleDate and SampleTime. Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Was trap fishing in the thalweg at SampleDate and SampleTime. Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>cone</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Was the trap finshed at cone full-cone (1.0) or half-cone (0.5) setting. Levels = c(NA, 1, 0.5, 0)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Was the trap finshed at cone full-cone (1.0) or half-cone (0.5) setting. Levels = c(NA, 1, 0.5, 0)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>end_counter</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Reading on the rotation counter</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>revolutionsPerMinute</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000290</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>debris_tubs</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The number of 10-g tubs of debris removed from the trap during the sample period (volumetrically)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5142</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>velocity</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Water velocity measured at trap</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>feetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">483.45</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>turbidity</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Turbidity measured at trap</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>NTU</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">2564</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_fishing</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Did the trap fish on the sample date. Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Did the trap fish on the sample date. Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>partial_sample</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Is it a partial sample? Levels = c(TRUE, FALSE)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Is it a partial sample? Levels = c(TRUE, FALSE)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sub_week</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>If sample week has more than one efficiency, which part of week is sample from. Levels = c("A", "B", "C", NA)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>If sample week has more than one efficiency, which part of week is sample from. Levels = c("A", "B", "C", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>ubc_site</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>Where the trap was located at time of operation. In Battle Creek there are two locations that are used depending on flow conditions. Levels = c("Upper, "Lower")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Where the trap was located at time of operation. In Battle Creek there are two locations that are used depending on flow conditions. Levels = c("Upper, "Lower")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>weather</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The weather conditions on the SampleDate and SampleTime. Levels = c("sunny", "overcast", "precipitation", NA, "foggy", "partly cloudy", "")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The weather conditions on the SampleDate and SampleTime. Levels = c("sunny", "overcast", "precipitation", NA, "foggy", "partly cloudy", "")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>habitat</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The type of flow habitat the trap fished in. Levels =c("run", NA, "glide")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The type of flow habitat the trap fished in. Levels =c("run", NA, "glide")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>trap_sample_type</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The type of sample regime. Levels = c("non-intensive", NA, "sunrise-sunset - Old value, not using Nov 2019", "random - Old value, not using Nov 2019", "intensive")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The type of sample regime. Levels = c("non-intensive", NA, "sunrise-sunset - Old value, not using Nov 2019", "random - Old value, not using Nov 2019", "intensive")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>diel</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The time of day relative to the sun. Levels = c(NA, "night", "day", "presunrise", "postsunrise")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The time of day relative to the sun. Levels = c(NA, "night", "day", "presunrise", "postsunrise")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>debris_type</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The type of debris found in the live-box. Levels = c("Aquatic Vegetation and Leaves", "Aquatic Vegetation, Leaves, and Sticks",  "Leaves", NA, "Aquatic Vegetation", "Leaves and Sticks", "Aquatic Vegetation and Sticks",  "Sticks")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The type of debris found in the live-box. Levels = c("Aquatic Vegetation and Leaves", "Aquatic Vegetation, Leaves, and Sticks",  "Leaves", NA, "Aquatic Vegetation", "Leaves and Sticks", "Aquatic Vegetation and Sticks",  "Sticks")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>gear_condition</attributeName>
+          <attributeLabel>trap</attributeLabel>
+          <attributeDefinition>The condition of the trap on the SampleDate and SampleTime. Levels = c("Trap is fishing normal", NA, "There is a partial block in the cone",  "The cone is not rotating", "There is a total block in the cone",  "Trap condition was not provided")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The condition of the trap on the SampleDate and SampleTime. Levels = c("Trap is fishing normal", NA, "There is a partial block in the cone",  "The cone is not rotating", "There is a total block in the cone",  "Trap condition was not provided")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>22268</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>recapture.csv</entityName>
+      <entityDescription>Recaptures</entityDescription>
+      <physical>
+        <objectName>recapture.csv</objectName>
+        <size unit="bytes">230988</size>
+        <authentication method="MD5">db44041807c96df0ac14896fb0a81a0b</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download"/>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>release_id</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Key to link with recapture table</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Key to link with recapture table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>date_recaptured</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Date fish was recaptured</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2003-12-04</minimum>
+                  <maximum exclusive="false">2024-04-07</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_site</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Site where fish were released. Levels = c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site where fish were released. Levels = c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>site</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Site where recapture samples were taken. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site where recapture samples were taken. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>number_recaptured</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Number of fish recaptured</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1180</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>median_fork_length_recaptured</attributeName>
+          <attributeLabel>recapture</attributeLabel>
+          <attributeDefinition>Median fork length of the recaptured fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">31</minimum>
+                  <maximum exclusive="false">79</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>4270</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>release.csv</entityName>
+      <entityDescription>Release summary</entityDescription>
+      <physical>
+        <objectName>release.csv</objectName>
+        <size unit="bytes">76797</size>
+        <authentication method="MD5">939d6bb084f3f827eed7f33ac002d571</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download"/>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>release_id</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Release ID (to connect to recapture table)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Release ID (to connect to recapture table)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>date_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Date of release</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2003-12-03</minimum>
+                  <maximum exclusive="false">2024-04-02</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>time_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Time of release</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm:ss</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">00:00:00</minimum>
+                  <maximum exclusive="false">23:47:00</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_site</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Location of release site. Levels =c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Location of release site. Levels =c("vulture bar", "clear creek road bridge", "grand matthews permanent turbidity monitoring site", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>site</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Site location. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Site location. Levels = c("lower clear creek", "upper clear creek", "upper battle creek")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>number_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Number of fish released</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">8</minimum>
+                  <maximum exclusive="false">1143</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>median_fork_length_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Median fork length of the released fish</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">78</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>days_held_post_mark</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>How many days the fish was held post-marking</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>Day</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">3</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>day_or_night_release</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Whether the release was conducted at day or night, levels = c("night", "day", NA, "unknown")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Whether the release was conducted at day or night, levels = c("night", "day", NA, "unknown")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_temp</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Temperature recorded at release</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>celsius</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">42.3</minimum>
+                  <maximum exclusive="false">62.2</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_flow</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Flow recorded at release</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>cubicFeetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">175</minimum>
+                  <maximum exclusive="false">1650</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>release_turbidity</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Turbidity recorded at release</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>NTU</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.57999999999999996</minimum>
+                  <maximum exclusive="false">93.8</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>origin_released</attributeName>
+          <attributeLabel>release</attributeLabel>
+          <attributeDefinition>Origin of released fish. Levels = c(NA, "natural", "hatchery")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Origin of released fish. Levels = c(NA, "natural", "hatchery")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>854</numberOfRecords>
+    </dataTable>
+    <otherEntity>
+      <entityName>Battle_Clear_Methods.zip</entityName>
+      <entityDescription>Additional methods for the Battle and Clear Creek EDI package containing equations</entityDescription>
+      <physical>
+        <objectName>Battle_Clear_Methods.zip</objectName>
+        <size unit="bytes">296822</size>
+        <authentication method="MD5">2874a83e7f95d4bc60922ef5142499df</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>zip</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/FlowWest/edi-battle-clear-rst/main/data-raw/metadata/Battle_Clear_Methods.zip</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>zip</entityType>
+    </otherEntity>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="Day" name="Day">
+          <description>Number of days</description>
+        </unit>
+        <unit id="count of fish" name="count of fish">
+          <description>Count of fish</description>
+        </unit>
+        <unit id="NTU" name="NTU">
+          <description>Turbidity measured in Nephelometric Turbidity Units</description>
+        </unit>
+        <unit id="count" name="count">
+          <description>Count of 10 gallon debris tubs</description>
+        </unit>
+        <unit id="revolutionsPerMinute" name="revolutionsPerMinute">
+          <description>Number of revolutions per minute</description>
+        </unit>
+        <unit id="percentage" name="percentage">
+          <description>Baileys efficiency in percentage</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>
