@@ -19,9 +19,10 @@ catch_historical <- read.csv(here::here("data-raw", "db-tables", "catch_historic
 
 # For this update we have new data in 2 databases. We have some from 2024 and some in 2025
 catch <- bind_rows(catch_historical |> 
-                     filter(sample_date < min(catch_late$sample_date, na.rm = T)),
+                     filter(sample_date < min(catch_2023$sample_date, na.rm = T)) |> 
+                     mutate(age_class = as.logical(age_class)),
                    catch_2023 |> 
-                     filter(sample_date < min(catch_current$sample_date, na.rm = T)), 
+                     filter(sample_date < min(catch_2024$sample_date, na.rm = T)), 
                    catch_2024,
                    catch_2025 |> 
                      filter(sample_date >= "2024-10-01") |> 
@@ -66,14 +67,14 @@ max(catch$weight, na.rm = T)
 # trap_early <- read.csv(here::here("data", "trap_early.csv")) |> glimpse()
 trap_2025 <- read.csv(here::here("data-raw", "db-tables", "trap_2025.csv")) |> glimpse()
 trap_2024 <- read.csv(here::here("data-raw", "db-tables", "trap_2024.csv")) |> glimpse()
-trap_2023 <- read.csv(here::here("data-raw", "db-tables", "trap_late.csv")) |> glimpse()
+trap_2023 <- read.csv(here::here("data-raw", "db-tables", "trap_2023.csv")) |> glimpse()
 trap_historical <- read.csv(here::here("data-raw", "db-tables", "trap_historical.csv")) |> glimpse()
 
 # For this update we have new data in 2 databases. We have some from 2024 and some in 2025
 trap <- bind_rows(trap_historical |> 
-                    filter(sample_date < min(trap_late$sample_date, na.rm = T)),
+                    filter(sample_date < min(trap_2023$sample_date, na.rm = T)),
                   trap_2023|> 
-                    filter(sample_date < min(trap_current$sample_date, na.rm = T)), 
+                    filter(sample_date < min(trap_2024$sample_date, na.rm = T)), 
                   trap_2024,
                   trap_2025 |> 
                     filter(sample_date >= "2024-10-01")) |> 

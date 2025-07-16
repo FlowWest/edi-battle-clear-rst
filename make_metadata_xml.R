@@ -43,7 +43,7 @@ methods_docx <- "data-raw/metadata/methods.docx"
 # edi_number <- reserve_edi_id(user_id = Sys.getenv("edi_user_id"), password = Sys.getenv("edi_password"))
 
 # reserved under JPE account 10-3-2023
-edi_number = "edi.1509.4"
+edi_number = "edi.1509.5"
 
 dataset <- list() %>%
   add_pub_date() %>%
@@ -87,8 +87,8 @@ EMLaide::evaluate_edi_package(Sys.getenv("EDI_USER_ID"), Sys.getenv("EDI_PASSWOR
 report_df |> filter(Status == "error")
 # #EMLaide::upload_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), paste0(edi_number, ".xml"))
 # 
-# EMLaide::update_edi_package(Sys.getenv("EDI_USER_ID"),
-#                             Sys.getenv("EDI_PASSWORD"),
-#                             "edi.1509.3",
-#                             "edi.1509.4.xml",
-#                             environment = "production")
+EMLaide::update_edi_package(Sys.getenv("EDI_USER_ID"),
+                            Sys.getenv("EDI_PASSWORD"),
+                            "edi.1509.4",
+                            "edi.1509.5.xml",
+                            environment = "production")
